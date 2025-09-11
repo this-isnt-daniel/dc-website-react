@@ -37,8 +37,8 @@ export default function TemporaryDrawer({ pages, open, onClose }) {
                         variant="contained"
                         fullWidth
                         sx={{
-                            backgroundColor: 'black',
-                            color: 'white',
+                            backgroundColor: 'white',
+                            color: 'black',
                             borderRadius: '20px',
                             fontWeight: 'bold',
                             fontFamily: 'Montserrat',
