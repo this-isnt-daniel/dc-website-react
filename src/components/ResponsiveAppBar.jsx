@@ -8,8 +8,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import logo from '../assets/logo.png';
 import TemporaryDrawer from "./TemporaryDrawer.jsx";
+import { Link as RouterLink } from 'react-router-dom';
 
-const pages = ['THE BOARD', 'NATIONAL TEAM', 'SCHOOLS', 'CALENDAR', 'INFORMATION'];
+
+const pages = ['THE BOARD', 'NATIONAL TEAM', 'SCHOOLS LEAGUE', 'CALENDAR', 'INFORMATION'];
 
 function ResponsiveAppBar() {
     const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
@@ -27,12 +29,14 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', mr: 2 }}>
-                <img src={logo} alt="Company Logo" style={{ height: '40px' }} />
+                <RouterLink to="/">
+                    <img src={logo} alt="DC Logo" style={{ height: '40px', display: 'block' }} />
+                </RouterLink>
             </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="DC logo"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -47,12 +51,14 @@ function ResponsiveAppBar() {
               />
           </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'center' }}>
-                <img src={logo} alt="Company Logo" style={{ height: '35px' }} />
+                <RouterLink to ="/"><img src={logo} alt="Company Logo" style={{height: '35px'}}/></RouterLink>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
                 {pages.map((page) => (
                     <Button
                         key={page}
+                        component={RouterLink} // <-- ADD THIS
+                        to={`/${page.toLowerCase().replace(/ /g, '-')}`} // <-- ADD THIS
                         onClick={handleCloseNavMenu}
                         sx={{ my: 2, mx: 5, color: 'white', display: 'block', fontFamily: 'Montserrat' }}
                     >

@@ -6,7 +6,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-
+import Toolbar from '@mui/material/Toolbar';
+import { Link as RouterLink } from 'react-router-dom';
 
 
 
@@ -22,11 +23,17 @@ export default function TemporaryDrawer({ pages, open, onClose }) {
             }}
             role="presentation"
         >
+            <Toolbar />
             <List>
                 {/* Use the 'pages' prop passed from the AppBar */}
                 {pages.map((page) => (
                     <ListItem key={page} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center',py: 3.5 }}>
+                        <ListItemButton
+                            component={RouterLink}
+                            to={`/${page.toLowerCase().replace(/ /g, '-')}`}
+                            onClick={onClose} // This closes the drawer on click
+                            sx={{ textAlign: 'center',py: 3.5 }}
+                        >
                             <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC' }}>{page}</Typography>
                         </ListItemButton>
                     </ListItem>
