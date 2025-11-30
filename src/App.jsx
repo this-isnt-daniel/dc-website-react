@@ -6,9 +6,9 @@ import InfoPage from './pages/information.jsx';
 import BoardPage from './pages/board.jsx';
 import HomePage from "./pages/home.jsx";
 import Toolbar from '@mui/material/Toolbar';
+import FooterBar from './components/FooterBar'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
-
+import './App.css';
 
 function App() {
     return (
@@ -18,7 +18,6 @@ function App() {
                 {/* This empty Toolbar acts as a spacer */}
                 {/* It pushes the content down so it's not hidden by the AppBar */}
                 <Toolbar />
-
                 <main>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
@@ -30,6 +29,7 @@ function App() {
 
                     </Routes>
                 </main>
+                <FooterBar />
             </div>
         </BrowserRouter>
     );
