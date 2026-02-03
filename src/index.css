@@ -1,13 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap');
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-base);
   line-height: 1.5;
   font-weight: 400;
 
+  /* Colors */
+  --color-bg-primary: #242424;
+  --color-text-primary: rgba(255, 255, 255, 0.87);
+  --color-primary: #646cff;
+  --color-primary-hover: #535bf2;
+  --color-button-bg: #1a1a1a;
+  --color-text-muted: #888;
+  --color-hero-text-faded: #DCDCDC4D;
+
+  /* Layout */
+  --header-height-desktop: 64px;
+  --header-height-mobile: 56px;
+
+  /* Typography */
+  --font-family-base: 'Montserrat', sans-serif;
+  --font-family-display: 'Montserrat', sans-serif;
+
+  /* Visuals */
+  --hero-gradient: linear-gradient(to bottom, #8B0000 0%, #250000 53%, #000000 100%);
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,11 +37,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-primary);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--color-primary-hover);
 }
 
 body {
@@ -42,12 +62,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-button-bg);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-primary);
 }
 button:focus,
 button:focus-visible {
@@ -56,21 +76,147 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --color-text-primary: #213547;
+    --color-bg-primary: #ffffff;
+    --color-button-bg: #f9f9f9;
   }
   a:hover {
-    color: #747bff;
+    color: #747bff; /* Kept as specific override or could be a new variable */
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+.home-hero-section {
+    min-height: calc(100vh - var(--header-height-mobile));
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    background-image: var(--hero-gradient);
+}
+@media (min-width: 900px) {
+    .home-hero-section {
+        min-height: calc(100vh - var(--header-height-desktop));
+        padding: 40px 80px;
+    }
 }
 
 banner h1{
     color: #DCDCDC;
     font-family: montserrat;
-    font-size: 80px;
+    font-size: clamp(2.5rem, 8vw, 5rem);
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
+
+/* Generic Full Screen Section */
+.home-section {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .home-section {
+        padding: 80px 100px;
+    }
+}
+
+/* Specific Section Styles */
+.section-dark {
+    background-color: #000000;
+}
+
+/* Gradient logic: reuse the logic from hero but maybe slightly different or same */
+.section-gradient {
+    background-image: linear-gradient(to bottom, #8B0000 0%, #250000 53%, #000000 100%);
+}
+
+/* Increased specificity to override MUI defaults */
+.home-section .section-title {
+    font-family: var(--font-family-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-text {
+    font-family: var(--font-family-base);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: #ffffff;
+    text-align: center;
+    max-width: 800px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* About Us Specific */
+.about-image-placeholder {
+    width: 100%;
+    max-width: 1000px;
+    height: 400px; /* Placeholder height */
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.about-caption {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 900px;
+    font-weight: 600;
+}
+
+/* Vision & Mission */
+.vision-mission-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #222;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #555;
+    color: #888;
+}
+
+/* What We Do - Highlight Text */
+.highlight-bold {
+    font-weight: 800;
+    color: #fff;
+}
