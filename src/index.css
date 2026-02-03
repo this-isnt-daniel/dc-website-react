@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap');
 
 :root {
   font-family: var(--font-family-base);
@@ -19,8 +19,8 @@
   --header-height-mobile: 56px;
 
   /* Typography */
-  --font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-family-display: Montserrat, sans-serif;
+  --font-family-base: 'Montserrat', sans-serif;
+  --font-family-display: 'Montserrat', sans-serif;
 
   /* Visuals */
   --hero-gradient: linear-gradient(to bottom, #8B0000 0%, #250000 53%, #000000 100%);
@@ -107,3 +107,116 @@ banner h1{
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
+
+/* Generic Full Screen Section */
+.home-section {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .home-section {
+        padding: 80px 100px;
+    }
+}
+
+/* Specific Section Styles */
+.section-dark {
+    background-color: #000000;
+}
+
+/* Gradient logic: reuse the logic from hero but maybe slightly different or same */
+.section-gradient {
+    background-image: linear-gradient(to bottom, #8B0000 0%, #250000 53%, #000000 100%);
+}
+
+/* Increased specificity to override MUI defaults */
+.home-section .section-title {
+    font-family: var(--font-family-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-text {
+    font-family: var(--font-family-base);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: #ffffff;
+    text-align: center;
+    max-width: 800px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* About Us Specific */
+.about-image-placeholder {
+    width: 100%;
+    max-width: 1000px;
+    height: 400px; /* Placeholder height */
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.about-caption {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 900px;
+    font-weight: 600;
+}
+
+/* Vision & Mission */
+.vision-mission-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #222;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #555;
+    color: #888;
+}
+
+/* What We Do - Highlight Text */
+.highlight-bold {
+    font-weight: 800;
+    color: #fff;
+}
