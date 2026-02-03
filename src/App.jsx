@@ -7,7 +7,7 @@ import BoardPage from './pages/board.jsx';
 import HomePage from "./pages/home.jsx";
 import Toolbar from '@mui/material/Toolbar';
 import FooterBar from './components/FooterBar'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
