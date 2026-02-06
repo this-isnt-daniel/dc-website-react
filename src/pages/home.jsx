@@ -24,6 +24,7 @@ function HomePage() {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: { xs: 'center', md: 'flex-start' },
+                            width: '100%',
                         }}
                     >
                         <Typography
@@ -49,6 +50,7 @@ function HomePage() {
             </Box>
 
             {/* === SECTION 2: ABOUT US === */}
+            {/* === SECTION 2.1: ABOUT US (TEXT) === */}
             <Box component="section" className="home-section section-dark">
                 <Typography component="h2" className="section-title">
                     ABOUT US
@@ -59,8 +61,13 @@ function HomePage() {
                 <Typography className="section-text">
                     IT WAS ESTABLISHED IN 2006 AS A SOCIETY BY THE DEBATING COMMUNITY, LED BY <span className="highlight-bold">NISHANTHA DE SILVA</span> AND REGISTERED AS A COMPANY LIMITED UNDER GUARANTEE IN <span className="highlight-bold">2009</span>.
                 </Typography>
+            </Box>
 
-                {/* Image Placeholder */}
+            {/* === SECTION 2.2: ABOUT US (IMAGE) === */}
+            <Box component="section" className="home-section section-dark">
+                <Typography component="h2" className="section-title">
+                    THE BOARD
+                </Typography>
                 <Box className="about-image-placeholder">
                     <Typography sx={{ color: '#888' }}>[GROUP PHOTO PLACEHOLDER]</Typography>
                 </Box>
