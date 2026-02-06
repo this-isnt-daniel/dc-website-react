@@ -63,14 +63,14 @@ function HomePage() {
             {/* === SECTION 2: ABOUT US === */}
             {/* === SECTION 2.1: ABOUT US (TEXT) === */}
             <Box component="section" className="home-section section-dark">
-                <Typography component="h2" className="section-title">
+                <Typography component="h2" sx={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 2, textTransform: 'uppercase', color: 'white', textAlign: 'center' }}>
                     ABOUT US
                 </Typography>
-                <Typography className="section-text">
-                    THE DEBATERS' COUNCIL OF SRI LANKA SERVES AS A <span className="highlight-bold">NATIONAL LEVEL BODY THAT OVERSEES ENGLISH DEBATING IN SRI LANKA</span> AT A SECONDARY AND TERTIARY LEVEL.
+                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', mb: 3, color: 'white', textAlign: 'center' }}>
+                    THE DEBATERS' COUNCIL OF SRI LANKA SERVES AS A <Box component="span" sx={{ fontWeight: 'bold' }}>NATIONAL LEVEL BODY THAT OVERSEES ENGLISH DEBATING IN SRI LANKA</Box> AT A SECONDARY AND TERTIARY LEVEL.
                 </Typography>
-                <Typography className="section-text">
-                    IT WAS ESTABLISHED IN 2006 AS A SOCIETY BY THE DEBATING COMMUNITY, LED BY <span className="highlight-bold">NISHANTHA DE SILVA</span> AND REGISTERED AS A COMPANY LIMITED UNDER GUARANTEE IN <span className="highlight-bold">2009</span>.
+                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', color: 'white', textAlign: 'center' }}>
+                    IT WAS ESTABLISHED IN 2006 AS A SOCIETY BY THE DEBATING COMMUNITY, LED BY <Box component="span" sx={{ fontWeight: 'bold' }}>NISHANTHA DE SILVA</Box> AND REGISTERED AS A COMPANY LIMITED UNDER GUARANTEE IN <Box component="span" sx={{ fontWeight: 'bold' }}>2009</Box>.
                 </Typography>
             </Box>
 
@@ -101,18 +101,18 @@ function HomePage() {
             <Box component="section" className="home-section section-gradient">
                 <Box className="vision-mission-container">
                     <Box sx={{ textAlign: 'center' }}>
-                        <Typography component="h2" className="section-title">
+                        <Typography component="h2" sx={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 2, textTransform: 'uppercase', color: 'white' }}>
                             VISION
                         </Typography>
-                        <Typography className="section-text">
+                        <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', color: 'white' }}>
                             [VISION CONTENT PLACEHOLDER]
                         </Typography>
                     </Box>
                     <Box sx={{ textAlign: 'center' }}>
-                        <Typography component="h2" className="section-title">
+                        <Typography component="h2" sx={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 2, textTransform: 'uppercase', color: 'white' }}>
                             MISSION
                         </Typography>
-                        <Typography className="section-text">
+                        <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', color: 'white' }}>
                             [MISSION CONTENT PLACEHOLDER]
                         </Typography>
                     </Box>
@@ -129,17 +129,17 @@ function HomePage() {
 
             {/* === SECTION 5: WHAT WE DO === */}
             <Box component="section" className="home-section section-gradient">
-                <Typography component="h2" className="section-title">
+                <Typography component="h2" sx={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 2, textTransform: 'uppercase', color: 'white', textAlign: 'center' }}>
                     WHAT WE DO
                 </Typography>
-                <Typography className="section-text">
-                    <span className="highlight-bold">THE DEBATERS' COUNCIL</span> COORDINATES TOURNAMENTS AND PROVIDES SUPPORT TO SCHOOLS AND OTHER TOURNAMENT ORGANISERS TO MAINTAIN AN INTERNATIONAL STANDARD OF DEBATING WITHIN THE LOCAL CIRCUIT.
+                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', mb: 3, color: 'white', textAlign: 'center' }}>
+                    <Box component="span" sx={{ fontWeight: 'bold' }}>THE DEBATERS' COUNCIL</Box> COORDINATES TOURNAMENTS AND PROVIDES SUPPORT TO SCHOOLS AND OTHER TOURNAMENT ORGANISERS TO MAINTAIN AN INTERNATIONAL STANDARD OF DEBATING WITHIN THE LOCAL CIRCUIT.
                 </Typography>
-                <Typography className="section-text">
-                    WE ALSO TRAIN A SELECTED GROUP OF TOP SCHOOL DEBATERS AS A PART OF THE <span className="highlight-bold">NATIONAL POOL OF DEBATERS</span> OUT OF WHICH THE TEAM REPRESENTING SRI LANKA AT THE <span className="highlight-bold">WORLD SCHOOLS DEBATING CHAMPIONSHIP</span> IS CHOSEN, AND TRAINED.
+                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', mb: 3, color: 'white', textAlign: 'center' }}>
+                    WE ALSO TRAIN A SELECTED GROUP OF TOP SCHOOL DEBATERS AS A PART OF THE <Box component="span" sx={{ fontWeight: 'bold' }}>NATIONAL POOL OF DEBATERS</Box> OUT OF WHICH THE TEAM REPRESENTING SRI LANKA AT THE <Box component="span" sx={{ fontWeight: 'bold' }}>WORLD SCHOOLS DEBATING CHAMPIONSHIP</Box> IS CHOSEN, AND TRAINED.
                 </Typography>
-                <Typography className="section-text">
-                    ADDITIONALLY, THE DC CONDUCTS VARIOUS WORKSHOPS IN DEBATING, JUDGING, AND COACHING, AS WELL AS OTHER PROGRAMS IN <span className="highlight-bold">AFFILIATION WITH THE MINISTRY OF EDUCATION</span> AS PART OF ITS MISSION TO UPLIFT AND ADVANCE ENGLISH DEBATING IN SRI LANKA.
+                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', color: 'white', textAlign: 'center' }}>
+                    ADDITIONALLY, THE DC CONDUCTS VARIOUS WORKSHOPS IN DEBATING, JUDGING, AND COACHING, AS WELL AS OTHER PROGRAMS IN <Box component="span" sx={{ fontWeight: 'bold' }}>AFFILIATION WITH THE MINISTRY OF EDUCATION</Box> AS PART OF ITS MISSION TO UPLIFT AND ADVANCE ENGLISH DEBATING IN SRI LANKA.
                 </Typography>
             </Box>
         </>
