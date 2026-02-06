@@ -1,4 +1,14 @@
 import React from 'react';
+import AutoCarousel from '../components/AutoCarousel';
+
+// Placeholder images for the carousel
+const carouselImages = [
+    'https://placehold.co/600x400/1a1a1a/ffffff?text=Debate+1',
+    'https://placehold.co/600x400/2a2a2a/ffffff?text=Debate+2',
+    'https://placehold.co/600x400/3a3a3a/ffffff?text=Tournament',
+    'https://placehold.co/600x400/4a4a4a/ffffff?text=Awards',
+    'https://placehold.co/600x400/5a5a5a/ffffff?text=Team',
+];
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
@@ -98,13 +108,12 @@ function HomePage() {
                 </Box>
             </Box>
 
-            {/* === SECTION 4: GALLERY === */}
+            {/* === SECTION 4: GALLERY (AUTO CAROUSEL) === */}
             <Box component="section" className="home-section section-dark">
-                <Box className="gallery-grid">
-                    <Box className="gallery-item">[IMAGE 1]</Box>
-                    <Box className="gallery-item">[IMAGE 2]</Box>
-                    <Box className="gallery-item">[IMAGE 3]</Box>
-                </Box>
+                <Typography component="h3" sx={{ color: '#666', mb: 2, textAlign: 'center', fontSize: '0.9rem', letterSpacing: '2px' }}>
+                    HIGHLIGHTS
+                </Typography>
+                <AutoCarousel images={carouselImages} />
             </Box>
 
             {/* === SECTION 5: WHAT WE DO === */}
