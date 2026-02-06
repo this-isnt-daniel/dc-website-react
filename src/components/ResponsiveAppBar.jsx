@@ -58,7 +58,7 @@ function ResponsiveAppBar() {
                             <Button
                                 key={page}
                                 component={RouterLink} // <-- ADD THIS
-                                to={page === 'HOME' ? '/' : `/${page.toLowerCase().replace(/ /g, '-')}`} // <-- ADD THIS
+                                to={page === 'ABOUT US' ? '/' : `/${page.toLowerCase().replace(/ /g, '-')}`} // <-- ADD THIS
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, mx: 5, color: 'white', display: 'block', fontFamily: 'Montserrat' }}
                             >

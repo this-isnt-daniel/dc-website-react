@@ -5,7 +5,18 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* Colors */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Colors */
+:root {
   --color-bg-primary: #242424;
   --color-text-primary: rgba(255, 255, 255, 0.87);
   --color-primary: #646cff;
@@ -28,11 +39,6 @@
   color-scheme: light dark;
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -48,6 +54,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
