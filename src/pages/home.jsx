@@ -1,5 +1,6 @@
 import React from 'react';
 import AutoCarousel from '../components/AutoCarousel';
+import boardPic from '../assets/board.png';
 
 // Placeholder images for the carousel
 const carouselImages = [
@@ -78,11 +79,21 @@ function HomePage() {
                 <Typography component="h2" className="section-title">
                     THE BOARD
                 </Typography>
-                <Box className="about-image-placeholder">
-                    <Typography sx={{ color: '#888' }}>[GROUP PHOTO PLACEHOLDER]</Typography>
-                </Box>
+                <Box
+                    component="img"
+                    src={boardPic}
+                    alt="The Board"
+                    sx={{
+                        width: 'auto',
+                        maxWidth: '100%',
+                        maxHeight: '55vh',
+                        objectFit: 'contain',
+                        display: 'block',
+                        margin: '20px auto 20px',
+                    }}
+                />
                 <Typography className="about-caption">
-                    (LEFT TO RIGHT): DANIEL VICTOR, SHRUTHIKA PRATHAPAN, ANAH CASSIM (SECRETARY), DINETH HETTIARACHCHI (PRESIDENT), SHAKEEB MOHIDEEN, RACHEL CRAMER, GAVIN SENARATNE (TREASURER).
+                    (LEFT TO RIGHT): SHRUTHIKA PRATHAPAN, JAYAGEETH BASNAYAKE, NAVIDI PERERA, DANIEL VICTOR (PRESIDENT), SHAKEEB MOHIDEEN (TREASURER), GAVIN SENARATNE (SECRETARY), SANITHMA JAYASOORIYA.
                 </Typography>
             </Box>
 

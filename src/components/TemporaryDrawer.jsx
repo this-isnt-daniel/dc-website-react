@@ -30,45 +30,45 @@ export default function TemporaryDrawer({ pages, open, onClose }) {
                     <ListItem key={page} disablePadding>
                         <ListItemButton
                             component={RouterLink}
-                            to={`/${page.toLowerCase().replace(/ /g, '-')}`}
+                            to={page === 'ABOUT US' ? '/' : `/${page.toLowerCase().replace(/ /g, '-')}`}
                             onClick={onClose} // This closes the drawer on click
-                            sx={{ textAlign: 'center',py: 3.5 }}
+                            sx={{ textAlign: 'center', py: 3.5 }}
                         >
                             <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC' }}>{page}</Typography>
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
-                <Box sx={{ p: 2, marginTop: 'auto' }}>
-                    <Button
-                        variant="contained"
-                        fullWidth
-                        sx={{
-                            backgroundColor: 'white',
-                            color: 'black',
-                            borderRadius: '20px',
-                            fontWeight: 'bold',
-                            fontFamily: 'Montserrat',
-                            '&:hover': {
-                                backgroundColor: '#333'
-                            }
-                        }}
-                    >
-                        GET IN TOUCH
-                    </Button>
-                </Box>
+            <Box sx={{ p: 2, marginTop: 'auto' }}>
+                <Button
+                    variant="contained"
+                    fullWidth
+                    sx={{
+                        backgroundColor: 'white',
+                        color: 'black',
+                        borderRadius: '20px',
+                        fontWeight: 'bold',
+                        fontFamily: 'Montserrat',
+                        '&:hover': {
+                            backgroundColor: '#333'
+                        }
+                    }}
+                >
+                    GET IN TOUCH
+                </Button>
+            </Box>
         </Box>
     );
 
     return (
         <Drawer anchor="left" open={open} onClose={onClose}
-                slotProps={{
-                    paper: {
-                        sx: {
-                            backgroundColor: '#000000',
-                        },
+            slotProps={{
+                paper: {
+                    sx: {
+                        backgroundColor: '#000000',
                     },
-                }}
+                },
+            }}
         >
             {DrawerList}
         </Drawer>
