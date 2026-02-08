@@ -1,5 +1,6 @@
 import React from 'react';
 import AutoCarousel from '../components/AutoCarousel';
+import AnimatedPlasma from '../components/AnimatedPlasma';
 import boardPic from '../assets/board.png';
 
 // Placeholder images for the carousel
@@ -21,12 +22,33 @@ function HomePage() {
             <Box
                 component="section"
                 className="home-hero-section"
+                sx={{ position: 'relative', overflow: 'hidden' }}
             >
+                <Box sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: 0
+                }}>
+                    <AnimatedPlasma
+                        color1="#8B0000"
+                        color2="#250000"
+                        color3="#000000"
+                        scale={0.75}
+                        speed={0.3}
+                        distortion={0.5}
+                        swirl={0.6}
+                    />
+                </Box>
                 {/* Content Wrapper */}
                 <Box
                     sx={{
                         display: 'flex',
                         width: '100%',
+                        position: 'relative',
+                        zIndex: 1
                     }}
                 >
                     {/* Text Box */}
@@ -46,7 +68,7 @@ function HomePage() {
                                 fontWeight: 900,
                                 fontSize: { xs: '3rem', md: '5rem' },
                                 letterSpacing: '1.1px',
-                                color: 'var(--color-hero-text-faded)',
+                                color: '#DCDCDC',
                                 textAlign: { xs: 'center', md: 'left' }
                             }}
                         >
