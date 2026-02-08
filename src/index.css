@@ -227,3 +227,44 @@ banner h1{
     font-weight: 800;
     color: #fff;
 }
+
+/* National Team Page */
+/* National Team Page */
+.national-team-hero {
+    min-height: calc(100vh - var(--header-height-mobile));
+    width: 100%;
+    /* Mobile: Gradient only, no image */
+    background-image: var(--hero-gradient); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+@media (min-width: 900px) {
+    .national-team-hero {
+        min-height: calc(100vh - var(--header-height-desktop));
+        /* Desktop: Gradient overlay + Flag Image */
+        background-image: 
+            linear-gradient(to bottom, transparent 0%, #000000 100%),
+            url('./assets/nationalflag.png');
+        background-position: top center;
+    }
+}
+
+.national-team-hero h1 {
+    font-family: var(--font-family-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    max-width: 1200px;
+    line-height: 1.1;
+    z-index: 1;
+}
