@@ -24,6 +24,9 @@ function FooterBar() {
                 fontSize: 17,
                 letterSpacing: '1.1px',
                 lineHeight: 'auto',
+                backgroundColor: '#242424', // Original gray background
+                position: 'relative',
+                zIndex: 1,
             }}
         >
             <Box
@@ -52,7 +55,7 @@ function FooterBar() {
                 </Typography>
 
                 {/* === ITEM 2 (New group for the right side) === */}
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, flexDirection: { xs: 'column', sm: 'row' }}}> {/* gap: 3 is 24px */}
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, flexDirection: { xs: 'column', sm: 'row' } }}> {/* gap: 3 is 24px */}
 
                     {/* --- Sub-item 2a (The Icons) --- */}
                     <Box sx={{ display: 'flex', gap: '15px' }}>

@@ -98,7 +98,7 @@ button:focus-visible {
     display: flex;
     align-items: center;
     padding: 20px 40px;
-    background-image: var(--hero-gradient);
+    background-color: transparent; /* Changed from var(--hero-gradient) */
 }
 @media (min-width: 900px) {
     .home-hero-section {
@@ -135,12 +135,12 @@ banner h1{
 
 /* Specific Section Styles */
 .section-dark {
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent black */
 }
 
 /* Gradient logic: reuse the logic from hero but maybe slightly different or same */
 .section-gradient {
-    background-image: linear-gradient(to bottom, #8B0000 0%, #250000 53%, #000000 100%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent to show plasma */
 }
 
 /* Increased specificity to override MUI defaults */

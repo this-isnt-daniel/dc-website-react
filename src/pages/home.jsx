@@ -19,30 +19,32 @@ function HomePage() {
     return (
         // We wrap both sections in a React Fragment
         <>
+            {/* === GLOBAL PARALLAX BACKGROUND === */}
+            <Box sx={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: -1
+            }}>
+                <AnimatedPlasma
+                    color1="#8B0000"
+                    color2="#250000"
+                    color3="#000000"
+                    scale={0.75}
+                    speed={0.3}
+                    distortion={0.5}
+                    swirl={0.6}
+                />
+            </Box>
+
             {/* === SECTION 1: HERO === */}
             <Box
                 component="section"
                 className="home-hero-section"
                 sx={{ position: 'relative', overflow: 'hidden' }}
             >
-                <Box sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    zIndex: 0
-                }}>
-                    <AnimatedPlasma
-                        color1="#8B0000"
-                        color2="#250000"
-                        color3="#000000"
-                        scale={0.75}
-                        speed={0.3}
-                        distortion={0.5}
-                        swirl={0.6}
-                    />
-                </Box>
                 {/* Content Wrapper */}
                 <Box
                     sx={{
