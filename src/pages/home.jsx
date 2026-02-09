@@ -111,31 +111,39 @@ function HomePage() {
                 />
             </Box>
 
-            {/* === SECTION 2.2: ABOUT US (IMAGE) === */}
-            <Box component="section" className="home-section section-dark">
+            {/* === SECTION 3: WHAT WE DO === */}
+            <Box component="section" className="home-section section-gradient">
                 <TextClipReveal
-                    text="THE BOARD"
-                    font={{ fontFamily: 'var(--font-family-display)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase', marginBottom: '40px', textAlign: 'center' }}
-                    textColor="#ffffff"
-                    revealDirection="top"
+                    text="WHAT WE DO"
+                    font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
+                    textColor="white"
+                    revealDirection="center"
                     sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
                 />
-                <Box
-                    component="img"
-                    src={boardPic}
-                    alt="The Board"
-                    sx={{
-                        width: 'auto',
-                        maxWidth: '100%',
-                        maxHeight: '55vh',
-                        objectFit: 'contain',
-                        display: 'block',
-                        margin: '20px auto 20px',
-                    }}
+                <TextClipReveal
+                    text={`THE DEBATERS' COUNCIL COORDINATES TOURNAMENTS AND PROVIDES SUPPORT TO SCHOOLS AND OTHER TOURNAMENT ORGANISERS TO MAINTAIN AN INTERNATIONAL STANDARD OF DEBATING WITHIN THE LOCAL CIRCUIT.`}
+                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    staggerDelay={0.05}
+                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
                 />
-                <Typography className="about-caption">
-                    (LEFT TO RIGHT): SHRUTHIKA PRATHAPAN, JAYAGEETH BASNAYAKE, NAVIDI PERERA, DANIEL VICTOR (PRESIDENT), SHAKEEB MOHIDEEN (TREASURER), GAVIN SENARATNE (SECRETARY), SANITHMA JAYASOORIYA.
-                </Typography>
+                <TextClipReveal
+                    text={`WE ALSO TRAIN A SELECTED GROUP OF TOP SCHOOL DEBATERS AS A PART OF THE NATIONAL POOL OF DEBATERS OUT OF WHICH THE TEAM REPRESENTING SRI LANKA AT THE WORLD SCHOOLS DEBATING CHAMPIONSHIP IS CHOSEN, AND TRAINED.`}
+                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    staggerDelay={0.05}
+                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
+                />
+                <TextClipReveal
+                    text={`ADDITIONALLY, THE DC CONDUCTS VARIOUS WORKSHOPS IN DEBATING, JUDGING, AND COACHING, AS WELL AS OTHER PROGRAMS IN AFFILIATION WITH THE MINISTRY OF EDUCATION AS PART OF ITS MISSION TO UPLIFT AND ADVANCE ENGLISH DEBATING IN SRI LANKA.`}
+                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    staggerDelay={0.05}
+                    sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
+                />
             </Box>
 
             {/* === SECTION 3: VISION & MISSION === */}
@@ -184,39 +192,31 @@ function HomePage() {
                 <AutoCarousel images={carouselImages} />
             </Box>
 
-            {/* === SECTION 5: WHAT WE DO === */}
-            <Box component="section" className="home-section section-gradient">
+            {/* === SECTION 6: THE BOARD === */}
+            <Box component="section" className="home-section section-dark">
                 <TextClipReveal
-                    text="WHAT WE DO"
-                    font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
-                    textColor="white"
-                    revealDirection="center"
+                    text="THE BOARD"
+                    font={{ fontFamily: 'var(--font-family-display)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase', marginBottom: '40px', textAlign: 'center' }}
+                    textColor="#ffffff"
+                    revealDirection="top"
                     sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
                 />
-                <TextClipReveal
-                    text={`THE DEBATERS' COUNCIL COORDINATES TOURNAMENTS AND PROVIDES SUPPORT TO SCHOOLS AND OTHER TOURNAMENT ORGANISERS TO MAINTAIN AN INTERNATIONAL STANDARD OF DEBATING WITHIN THE LOCAL CIRCUIT.`}
-                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    staggerDelay={0.05}
-                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
+                <Box
+                    component="img"
+                    src={boardPic}
+                    alt="The Board"
+                    sx={{
+                        width: 'auto',
+                        maxWidth: '100%',
+                        maxHeight: '55vh',
+                        objectFit: 'contain',
+                        display: 'block',
+                        margin: '20px auto 20px',
+                    }}
                 />
-                <TextClipReveal
-                    text={`WE ALSO TRAIN A SELECTED GROUP OF TOP SCHOOL DEBATERS AS A PART OF THE NATIONAL POOL OF DEBATERS OUT OF WHICH THE TEAM REPRESENTING SRI LANKA AT THE WORLD SCHOOLS DEBATING CHAMPIONSHIP IS CHOSEN, AND TRAINED.`}
-                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    staggerDelay={0.05}
-                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
-                />
-                <TextClipReveal
-                    text={`ADDITIONALLY, THE DC CONDUCTS VARIOUS WORKSHOPS IN DEBATING, JUDGING, AND COACHING, AS WELL AS OTHER PROGRAMS IN AFFILIATION WITH THE MINISTRY OF EDUCATION AS PART OF ITS MISSION TO UPLIFT AND ADVANCE ENGLISH DEBATING IN SRI LANKA.`}
-                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    staggerDelay={0.05}
-                    sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
-                />
+                <Typography className="about-caption">
+                    (LEFT TO RIGHT): SHRUTHIKA PRATHAPAN, JAYAGEETH BASNAYAKE, NAVIDI PERERA, DANIEL VICTOR (PRESIDENT), SHAKEEB MOHIDEEN (TREASURER), GAVIN SENARATNE (SECRETARY), SANITHMA JAYASOORIYA.
+                </Typography>
             </Box>
         </>
     );
