@@ -1,6 +1,7 @@
 import React from 'react';
 import AutoCarousel from '../components/AutoCarousel';
 import AnimatedPlasma from '../components/AnimatedPlasma';
+import TextClipReveal from '../components/TextClipReveal';
 import boardPic from '../assets/board.png';
 
 // Placeholder images for the carousel
@@ -85,22 +86,40 @@ function HomePage() {
             {/* === SECTION 2: ABOUT US === */}
             {/* === SECTION 2.1: ABOUT US (TEXT) === */}
             <Box component="section" className="home-section section-dark">
-                <Typography component="h2" sx={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 2, textTransform: 'uppercase', color: 'white', textAlign: 'center' }}>
-                    ABOUT US
-                </Typography>
-                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', mb: 3, color: 'white', textAlign: 'center' }}>
-                    THE DEBATERS' COUNCIL OF SRI LANKA SERVES AS A <Box component="span" sx={{ fontWeight: 'bold' }}>NATIONAL LEVEL BODY THAT OVERSEES ENGLISH DEBATING IN SRI LANKA</Box> AT A SECONDARY AND TERTIARY LEVEL.
-                </Typography>
-                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', color: 'white', textAlign: 'center' }}>
-                    IT WAS ESTABLISHED IN 2006 AS A SOCIETY BY THE DEBATING COMMUNITY, LED BY <Box component="span" sx={{ fontWeight: 'bold' }}>NISHANTHA DE SILVA</Box> AND REGISTERED AS A COMPANY LIMITED UNDER GUARANTEE IN <Box component="span" sx={{ fontWeight: 'bold' }}>2009</Box>.
-                </Typography>
+                <TextClipReveal
+                    text="ABOUT US"
+                    font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                />
+                <TextClipReveal
+                    text={`THE DEBATERS' COUNCIL OF SRI LANKA SERVES AS A NATIONAL LEVEL BODY THAT OVERSEES ENGLISH DEBATING IN SRI LANKA AT A SECONDARY AND TERTIARY LEVEL.`}
+                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    staggerDelay={0.05}
+                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
+                />
+                <TextClipReveal
+                    text={`IT WAS ESTABLISHED IN 2006 AS A SOCIETY BY THE DEBATING COMMUNITY, LED BY NISHANTHA DE SILVA AND REGISTERED AS A COMPANY LIMITED UNDER GUARANTEE IN 2009.`}
+                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    staggerDelay={0.05}
+                    sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
+                />
             </Box>
 
             {/* === SECTION 2.2: ABOUT US (IMAGE) === */}
             <Box component="section" className="home-section section-dark">
-                <Typography component="h2" className="section-title">
-                    THE BOARD
-                </Typography>
+                <TextClipReveal
+                    text="THE BOARD"
+                    font={{ fontFamily: 'var(--font-family-display)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase', marginBottom: '40px', textAlign: 'center' }}
+                    textColor="#ffffff"
+                    revealDirection="top"
+                    sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                />
                 <Box
                     component="img"
                     src={boardPic}
@@ -122,21 +141,37 @@ function HomePage() {
             {/* === SECTION 3: VISION & MISSION === */}
             <Box component="section" className="home-section section-gradient">
                 <Box className="vision-mission-container">
-                    <Box sx={{ textAlign: 'center' }}>
-                        <Typography component="h2" sx={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 2, textTransform: 'uppercase', color: 'white' }}>
-                            VISION
-                        </Typography>
-                        <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', color: 'white' }}>
-                            [VISION CONTENT PLACEHOLDER]
-                        </Typography>
+                    <Box sx={{ textAlign: 'center', width: '100%' }}>
+                        <TextClipReveal
+                            text="VISION"
+                            font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
+                            textColor="white"
+                            revealDirection="left"
+                            sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                        />
+                        <TextClipReveal
+                            text="[VISION CONTENT PLACEHOLDER]"
+                            font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                            textColor="white"
+                            revealDirection="bottom"
+                            sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
+                        />
                     </Box>
-                    <Box sx={{ textAlign: 'center' }}>
-                        <Typography component="h2" sx={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 2, textTransform: 'uppercase', color: 'white' }}>
-                            MISSION
-                        </Typography>
-                        <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', color: 'white' }}>
-                            [MISSION CONTENT PLACEHOLDER]
-                        </Typography>
+                    <Box sx={{ textAlign: 'center', width: '100%' }}>
+                        <TextClipReveal
+                            text="MISSION"
+                            font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
+                            textColor="white"
+                            revealDirection="right"
+                            sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                        />
+                        <TextClipReveal
+                            text="[MISSION CONTENT PLACEHOLDER]"
+                            font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                            textColor="white"
+                            revealDirection="bottom"
+                            sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
+                        />
                     </Box>
                 </Box>
             </Box>
@@ -151,18 +186,37 @@ function HomePage() {
 
             {/* === SECTION 5: WHAT WE DO === */}
             <Box component="section" className="home-section section-gradient">
-                <Typography component="h2" sx={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 2, textTransform: 'uppercase', color: 'white', textAlign: 'center' }}>
-                    WHAT WE DO
-                </Typography>
-                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', mb: 3, color: 'white', textAlign: 'center' }}>
-                    <Box component="span" sx={{ fontWeight: 'bold' }}>THE DEBATERS' COUNCIL</Box> COORDINATES TOURNAMENTS AND PROVIDES SUPPORT TO SCHOOLS AND OTHER TOURNAMENT ORGANISERS TO MAINTAIN AN INTERNATIONAL STANDARD OF DEBATING WITHIN THE LOCAL CIRCUIT.
-                </Typography>
-                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', mb: 3, color: 'white', textAlign: 'center' }}>
-                    WE ALSO TRAIN A SELECTED GROUP OF TOP SCHOOL DEBATERS AS A PART OF THE <Box component="span" sx={{ fontWeight: 'bold' }}>NATIONAL POOL OF DEBATERS</Box> OUT OF WHICH THE TEAM REPRESENTING SRI LANKA AT THE <Box component="span" sx={{ fontWeight: 'bold' }}>WORLD SCHOOLS DEBATING CHAMPIONSHIP</Box> IS CHOSEN, AND TRAINED.
-                </Typography>
-                <Typography sx={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8, maxWidth: '900px', mx: 'auto', color: 'white', textAlign: 'center' }}>
-                    ADDITIONALLY, THE DC CONDUCTS VARIOUS WORKSHOPS IN DEBATING, JUDGING, AND COACHING, AS WELL AS OTHER PROGRAMS IN <Box component="span" sx={{ fontWeight: 'bold' }}>AFFILIATION WITH THE MINISTRY OF EDUCATION</Box> AS PART OF ITS MISSION TO UPLIFT AND ADVANCE ENGLISH DEBATING IN SRI LANKA.
-                </Typography>
+                <TextClipReveal
+                    text="WHAT WE DO"
+                    font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
+                    textColor="white"
+                    revealDirection="center"
+                    sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                />
+                <TextClipReveal
+                    text={`THE DEBATERS' COUNCIL COORDINATES TOURNAMENTS AND PROVIDES SUPPORT TO SCHOOLS AND OTHER TOURNAMENT ORGANISERS TO MAINTAIN AN INTERNATIONAL STANDARD OF DEBATING WITHIN THE LOCAL CIRCUIT.`}
+                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    staggerDelay={0.05}
+                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
+                />
+                <TextClipReveal
+                    text={`WE ALSO TRAIN A SELECTED GROUP OF TOP SCHOOL DEBATERS AS A PART OF THE NATIONAL POOL OF DEBATERS OUT OF WHICH THE TEAM REPRESENTING SRI LANKA AT THE WORLD SCHOOLS DEBATING CHAMPIONSHIP IS CHOSEN, AND TRAINED.`}
+                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    staggerDelay={0.05}
+                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
+                />
+                <TextClipReveal
+                    text={`ADDITIONALLY, THE DC CONDUCTS VARIOUS WORKSHOPS IN DEBATING, JUDGING, AND COACHING, AS WELL AS OTHER PROGRAMS IN AFFILIATION WITH THE MINISTRY OF EDUCATION AS PART OF ITS MISSION TO UPLIFT AND ADVANCE ENGLISH DEBATING IN SRI LANKA.`}
+                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
+                    textColor="white"
+                    revealDirection="bottom"
+                    staggerDelay={0.05}
+                    sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
+                />
             </Box>
         </>
     );
