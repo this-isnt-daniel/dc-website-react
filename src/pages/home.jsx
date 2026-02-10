@@ -4,13 +4,15 @@ import AnimatedPlasma from '../components/AnimatedPlasma';
 import TextClipReveal from '../components/TextClipReveal';
 import boardPic from '../assets/board.png';
 
-// Placeholder images for the carousel
+import carousel1 from '../assets/carousel-1.png';
+import carousel2 from '../assets/carousel-2.jpeg';
+import carousel3 from '../assets/carousel-3.jpeg';
+
+// Carousel images
 const carouselImages = [
-    'https://placehold.co/600x400/1a1a1a/ffffff?text=Debate+1',
-    'https://placehold.co/600x400/2a2a2a/ffffff?text=Debate+2',
-    'https://placehold.co/600x400/3a3a3a/ffffff?text=Tournament',
-    'https://placehold.co/600x400/4a4a4a/ffffff?text=Awards',
-    'https://placehold.co/600x400/5a5a5a/ffffff?text=Team',
+    carousel1,
+    carousel2,
+    carousel3,
 ];
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
