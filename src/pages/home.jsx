@@ -2,6 +2,7 @@ import React from 'react';
 import AutoCarousel from '../components/AutoCarousel';
 import AnimatedPlasma from '../components/AnimatedPlasma';
 import TextClipReveal from '../components/TextClipReveal';
+import RollingStats from '../components/RollingStats';
 import boardPic from '../assets/board.png';
 
 import carousel1 from '../assets/carousel-1.png';
@@ -114,6 +115,9 @@ function HomePage() {
                     sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
                 />
             </Box>
+
+            {/* === SECTION 2.5: STATS COUNTER === */}
+            <RollingStats />
 
             {/* === SECTION 3: WHAT WE DO === */}
             <Box component="section" className="home-section section-gradient">
