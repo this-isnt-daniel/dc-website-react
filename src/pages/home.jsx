@@ -3,7 +3,7 @@ import AutoCarousel from '../components/AutoCarousel';
 import AnimatedPlasma from '../components/AnimatedPlasma';
 import TextClipReveal from '../components/TextClipReveal';
 import RollingStats from '../components/RollingStats';
-import boardPic from '../assets/board.png';
+import boardPic from '../assets/boardpic.png';
 
 import carousel1 from '../assets/carousel-1.png';
 import carousel2 from '../assets/carousel-2.jpeg';
@@ -194,7 +194,7 @@ function HomePage() {
 
             {/* === SECTION 4: GALLERY (AUTO CAROUSEL) === */}
             <Box component="section" className="home-section section-dark">
-                <Typography component="h3" sx={{ color: '#666', mb: 2, textAlign: 'center', fontSize: '0.9rem', letterSpacing: '2px' }}>
+                <Typography component="h3" sx={{ color: '#666', mb: 2, textAlign: 'center', fontSize: '1.2rem', letterSpacing: '2px', fontFamily: 'Montserrat, sans-serif', fontWeight: 800 }}>
                     HIGHLIGHTS
                 </Typography>
                 <AutoCarousel images={carouselImages} />
@@ -222,7 +222,7 @@ function HomePage() {
                         margin: '20px auto 20px',
                     }}
                 />
-                <Typography className="about-caption">
+                <Typography className="about-caption" sx={{ fontFamily: 'Montserrat, sans-serif' }}>
                     (LEFT TO RIGHT): SHRUTHIKA PRATHAPAN, JAYAGEETH BASNAYAKE, NAVIDI PERERA, DANIEL VICTOR (PRESIDENT), SHAKEEB MOHIDEEN (TREASURER), GAVIN SENARATNE (SECRETARY), SANITHMA JAYASOORIYA.
                 </Typography>
             </Box>
