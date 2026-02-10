@@ -11,10 +11,30 @@ import TemporaryDrawer from "./TemporaryDrawer.jsx";
 import { Link as RouterLink } from 'react-router-dom';
 
 
-const pages = ['ABOUT US', 'NATIONAL TEAM', 'SCHOOLS LEAGUE', 'CALENDAR', 'INFORMATION'];
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+const NAVIGATION_ITEMS = [
+    { name: 'HOME', path: '/' },
+    { name: 'NATIONAL TEAM', path: '/national-team' },
+    { name: 'SCHOOLS LEAGUE', path: '/schools-league' },
+    { name: 'CALENDAR', path: '/calendar' },
+    { name: 'BLOG', path: '/blog' },
+    {
+        name: 'INFORMATION',
+        children: [
+            { name: 'Option 1', path: '/information/option1' },
+            { name: 'Option 2', path: '/information/option2' },
+            { name: 'Option 3', path: '/information/option3' },
+        ]
+    }
+];
 
 function ResponsiveAppBar() {
     const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+    const [anchorElInfo, setAnchorElInfo] = React.useState(null);
 
     const handleOpenNavMenu = () => {
         setIsDrawerOpen(true);
@@ -22,6 +42,14 @@ function ResponsiveAppBar() {
 
     const handleCloseNavMenu = () => {
         setIsDrawerOpen(false);
+    };
+
+    const handleOpenInfoMenu = (event) => {
+        setAnchorElInfo(event.currentTarget);
+    };
+
+    const handleCloseInfoMenu = () => {
+        setAnchorElInfo(null);
     };
 
     return (
@@ -45,7 +73,7 @@ function ResponsiveAppBar() {
                             <MenuIcon />
                         </IconButton>
                         <TemporaryDrawer
-                            pages={pages}
+                            pages={NAVIGATION_ITEMS}
                             open={isDrawerOpen}
                             onClose={handleCloseNavMenu}
                         />
@@ -54,17 +82,85 @@ function ResponsiveAppBar() {
                         <RouterLink to="/"><img src={logo} alt="Company Logo" style={{ height: '35px' }} /></RouterLink>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                component={RouterLink} // <-- ADD THIS
-                                to={page === 'ABOUT US' ? '/' : `/${page.toLowerCase().replace(/ /g, '-')}`} // <-- ADD THIS
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, mx: 5, color: 'white', display: 'block', fontFamily: 'Montserrat' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
+                        {NAVIGATION_ITEMS.map((page) => {
+                            if (page.children) {
+                                return (
+                                    <React.Fragment key={page.name}>
+                                        <Button
+                                            onClick={handleOpenInfoMenu}
+                                            sx={{ my: 2, mx: 3, color: 'white', display: 'flex', fontFamily: 'Montserrat' }}
+                                            endIcon={<KeyboardArrowDownIcon />}
+                                        >
+                                            {page.name}
+                                        </Button>
+                                        <Menu
+                                            sx={{ mt: '45px' }}
+                                            id="menu-appbar"
+                                            anchorEl={anchorElInfo}
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            keepMounted
+                                            transformOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            open={Boolean(anchorElInfo)}
+                                            onClose={handleCloseInfoMenu}
+                                            PaperProps={{
+                                                sx: {
+                                                    backgroundColor: '#0a0a0a',
+                                                    color: 'white',
+                                                    borderRadius: '12px',
+                                                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                                                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5)',
+                                                    marginTop: '8px',
+                                                }
+                                            }}
+                                        >
+                                            {page.children.map((child) => (
+                                                <MenuItem
+                                                    key={child.name}
+                                                    onClick={handleCloseInfoMenu}
+                                                    sx={{
+                                                        fontFamily: 'Montserrat',
+                                                        fontSize: '15px',
+                                                        fontWeight: 500,
+                                                        color: '#e0e0e0',
+                                                        padding: '12px 24px',
+                                                        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                                                        '&:last-child': {
+                                                            borderBottom: 'none'
+                                                        },
+                                                        '&:hover': {
+                                                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                                            color: '#ffffff'
+                                                        },
+                                                        transition: 'all 0.2s ease'
+                                                    }}
+                                                >
+                                                    <Typography textAlign="center" component={RouterLink} to={child.path} sx={{ textDecoration: 'none', color: 'inherit', fontFamily: 'inherit', width: '100%', textAlign: 'left' }}>
+                                                        {child.name}
+                                                    </Typography>
+                                                </MenuItem>
+                                            ))}
+                                        </Menu>
+                                    </React.Fragment>
+                                );
+                            }
+                            return (
+                                <Button
+                                    key={page.name}
+                                    component={RouterLink}
+                                    to={page.path}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, mx: 3, color: 'white', display: 'block', fontFamily: 'Montserrat' }}
+                                >
+                                    {page.name}
+                                </Button>
+                            );
+                        })}
                     </Box>
 
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

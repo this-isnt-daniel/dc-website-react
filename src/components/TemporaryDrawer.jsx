@@ -7,6 +7,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import { Link as RouterLink } from 'react-router-dom';
 
 
@@ -26,18 +29,52 @@ export default function TemporaryDrawer({ pages, open, onClose }) {
             <Toolbar />
             <List>
                 {/* Use the 'pages' prop passed from the AppBar */}
-                {pages.map((page) => (
-                    <ListItem key={page} disablePadding>
-                        <ListItemButton
-                            component={RouterLink}
-                            to={page === 'ABOUT US' ? '/' : `/${page.toLowerCase().replace(/ /g, '-')}`}
-                            onClick={onClose} // This closes the drawer on click
-                            sx={{ textAlign: 'center', py: 3.5 }}
-                        >
-                            <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC' }}>{page}</Typography>
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                {/* Use the 'pages' prop passed from the AppBar */}
+                {pages.map((page) => {
+                    if (page.children) {
+                        const [open, setOpen] = React.useState(false);
+                        const handleClick = () => {
+                            setOpen(!open);
+                        };
+                        return (
+                            <React.Fragment key={page.name}>
+                                <ListItem disablePadding>
+                                    <ListItemButton onClick={handleClick} sx={{ textAlign: 'center', py: 3.5 }}>
+                                        <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC' }}>{page.name}</Typography>
+                                        {open ? <ExpandLess sx={{ color: '#DCDCDC' }} /> : <ExpandMore sx={{ color: '#DCDCDC' }} />}
+                                    </ListItemButton>
+                                </ListItem>
+                                <Collapse in={open} timeout="auto" unmountOnExit>
+                                    <List component="div" disablePadding>
+                                        {page.children.map((child) => (
+                                            <ListItemButton
+                                                key={child.name}
+                                                component={RouterLink}
+                                                to={child.path}
+                                                onClick={onClose}
+                                                sx={{ pl: 4, py: 2, textAlign: 'center' }}
+                                            >
+                                                <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC', fontSize: '0.9rem' }}>{child.name}</Typography>
+                                            </ListItemButton>
+                                        ))}
+                                    </List>
+                                </Collapse>
+                            </React.Fragment>
+                        );
+                    }
+                    return (
+                        <ListItem key={page.name} disablePadding>
+                            <ListItemButton
+                                component={RouterLink}
+                                to={page.path}
+                                onClick={onClose} // This closes the drawer on click
+                                sx={{ textAlign: 'center', py: 3.5 }}
+                            >
+                                <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC' }}>{page.name}</Typography>
+                            </ListItemButton>
+                        </ListItem>
+                    );
+                })}
             </List>
             <Box sx={{ p: 2, marginTop: 'auto' }}>
                 <Button
