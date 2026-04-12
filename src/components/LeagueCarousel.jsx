@@ -212,19 +212,17 @@ export default function LeagueCarousel() {
         <Box sx={{
             display: 'flex',
             flexDirection: 'column',
-            height: { xs: '60vh', sm: '75vh', md: '80vh' }, // Adjusted height to be slightly smaller than hero
             width: '100%',
             maxWidth: '1200px',
             margin: '0 auto',
             position: 'relative',
-            gap: 'clamp(4px, 1.5vh, 20px)'
+            gap: { xs: 0, sm: '1vh', md: '20px' }
         }}>
             <div style={{
                 display: 'flex',
-                flex: 1,
                 width: '100%',
                 position: 'relative',
-                minHeight: '0'
+                height: 'clamp(200px, 52vw, 450px)' // Fits the 16:9 slide size tightly
             }}>
                 <div
                     ref={containerRef}
@@ -342,12 +340,13 @@ export default function LeagueCarousel() {
             </div>
 
             {/* Member List Section */}
-            <div style={{
+            <Box sx={{
                 width: 'min(90%, 900px)',
                 margin: '0 auto',
-                marginTop: 'clamp(-130px, -18vh, -20px)',
+                mt: { xs: '-30px', sm: '-40px', md: '-60px' }, // Overlap directly onto the image
+
                 zIndex: 10,
-                padding: 'clamp(16px, 3vh, 32px) clamp(20px, 5vw, 48px)',
+                padding: { xs: '20px 16px', sm: '24px 32px', md: '32px 48px' },
                 background: 'rgba(5, 5, 5, 0.6)',
                 backdropFilter: 'blur(20px)',
                 borderRadius: '24px',
@@ -355,21 +354,21 @@ export default function LeagueCarousel() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '16px',
-                minHeight: 'clamp(80px, 15vh, 120px)',
+                minHeight: { xs: '80px', md: '120px' },
                 position: 'relative',
                 overflow: 'hidden',
                 boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
             }}>
                 <BorderBeam size={200} duration={8} delay={0} borderWidth={1.5} colorFrom="#8B0000" colorTo="#000000" />
 
-                <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+                <Box sx={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
                     <Typography variant="h4" sx={{
                         color: '#FFFFFF',
                         fontFamily: 'Montserrat, sans-serif',
                         fontWeight: 700,
                         letterSpacing: '-1px',
-                        fontSize: 'clamp(1.5rem, 5vw, 2.125rem)',
-                        marginBottom: '8px'
+                        fontSize: 'clamp(1.2rem, 5vw, 2.125rem)',
+                        marginBottom: { xs: '4px', md: '8px' }
                     }}>
                         {currentTeam?.title}
                     </Typography>
@@ -377,14 +376,14 @@ export default function LeagueCarousel() {
                     <Typography sx={{
                         color: '#E0E0E0',
                         fontFamily: 'Montserrat, sans-serif',
-                        fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
+                        fontSize: 'clamp(0.8rem, 2.5vw, 1.1rem)',
                         fontWeight: 500,
                         letterSpacing: '0.05em'
                     }}>
                         {currentTeam?.members.join(' • ')}
                     </Typography>
-                </div>
-            </div>
+                </Box>
+            </Box>
         </Box>
     );
 }

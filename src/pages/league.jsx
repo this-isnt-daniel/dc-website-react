@@ -44,7 +44,7 @@ function LeaguePage() {
 
             {/* Carousel Section */}
             <Box sx={{ width: '100%', pb: 10 }}>
-                <Typography variant="h4" sx={{ mb: 4, fontFamily: 'Montserrat', fontWeight: 'bold', color: 'white', textAlign: 'center', fontSize: { xs: '1.5rem', md: '2.125rem' }, textTransform: 'uppercase' }}>
+                <Typography variant="h4" sx={{ mb: { xs: 2, md: 4 }, fontFamily: 'Montserrat', fontWeight: 'bold', color: 'white', textAlign: 'center', fontSize: { xs: '1.5rem', md: '2.125rem' }, textTransform: 'uppercase' }}>
                     Past League Champions
                 </Typography>
                 <LeagueCarousel />
