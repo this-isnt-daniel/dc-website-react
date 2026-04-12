@@ -212,7 +212,9 @@ export default function NationalTeamCarousel() {
         if (relPos < -total / 2) relPos += total;
         const absPos = Math.abs(relPos);
         const isActive = relPos === 0;
-        const xOffset = relPos * spread;
+        
+        const spreadVal = "min(45vw, 350px)";
+        const xOffset = `${relPos} * ${spreadVal}`;
         const zOffset = absPos * -depth;
         const yRotation = relPos * -rotation;
         const scale = 1 - absPos * 0.15;
@@ -221,11 +223,11 @@ export default function NationalTeamCarousel() {
 
         return {
             position: "absolute",
-            width: slideWidth,
-            height: slideHeight,
+            width: "min(85vw, 800px)",
+            aspectRatio: "16/9",
             left: "50%",
             top: "50%",
-            transform: `translate3d(calc(-50% + ${xOffset}px), -50%, ${zOffset}px) rotateY(${yRotation}deg) scale(${scale})`,
+            transform: `translate3d(calc(-50% + ${xOffset}), -50%, ${zOffset}px) rotateY(${yRotation}deg) scale(${scale})`,
             zIndex: 100 - absPos,
             opacity: opacity,
             filter: `blur(${blur}px)`,
@@ -244,11 +246,11 @@ export default function NationalTeamCarousel() {
     // Calculate glow position based on active slide
     const glowXOffset = (() => {
         const total = media.length;
-        if (total === 0) return 0;
+        if (total === 0) return "0px";
         // Calculate the relative position for parallax effect
         // Safe check for total-1 to avoid division by zero
         const normalizedPosition = activeIndex / Math.max(total - 1, 1) - 0.5;
-        return normalizedPosition * spread * 0.6;
+        return `calc(${normalizedPosition} * min(27vw, 210px))`;
     })();
 
     if (media.length === 0) return null;
@@ -258,15 +260,15 @@ export default function NationalTeamCarousel() {
     const currentMembers = currentTeam ? currentTeam.members : [];
 
     return (
-        <div style={{
+        <Box sx={{
             display: 'flex',
             flexDirection: 'column',
-            height: '90vh', // Increased height to accommodate bottom section
+            height: { xs: '60vh', sm: '75vh', md: '90vh' },
             width: '100%',
             maxWidth: '1600px',
             margin: '0 auto',
             position: 'relative',
-            gap: '20px'
+            gap: 'clamp(4px, 1.5vh, 20px)'
         }}>
             {/* Top Section: Carousel + Sidebar */}
             <div style={{
@@ -304,7 +306,7 @@ export default function NationalTeamCarousel() {
                         background: `radial-gradient(circle, rgba(139, 0, 0, 0.15) 0%, transparent 70%)`,
                         filter: "blur(60px)",
                         pointerEvents: "none",
-                        transform: `translateX(${glowXOffset}px)`,
+                        transform: `translateX(${glowXOffset})`,
                         transition: `transform ${transitionDuration}s cubic-bezier(0.23, 1, 0.32, 1)`
                     }} />
 
@@ -327,27 +329,30 @@ export default function NationalTeamCarousel() {
 
                     {/* Navigation Buttons */}
                     {navigationButtons.show && (
-                        <div style={{
+                        <Box sx={{
+                            display: { xs: 'none', md: 'flex' },
                             position: "absolute",
-                            ...navigationButtons.position === "top-right" && { top: `${navigationButtons.offset}px`, right: `${navigationButtons.offset}px` },
-                            ...navigationButtons.position === "top-left" && { top: `${navigationButtons.offset}px`, left: `${navigationButtons.offset}px` },
-                            ...navigationButtons.position === "bottom-right" && { bottom: `${navigationButtons.offset}px`, right: `${navigationButtons.offset}px` },
-                            ...navigationButtons.position === "bottom-left" && { bottom: `${navigationButtons.offset}px`, left: `${navigationButtons.offset}px` },
-                            display: "flex",
-                            gap: `${navigationButtons.gap}px`,
-                            zIndex: 300
+                            top: "50%",
+                            left: "0",
+                            right: "0",
+                            transform: "translateY(-50%)",
+                            justifyContent: "space-between",
+                            padding: `0 clamp(10px, 4vw, ${navigationButtons.offset}px)`,
+                            zIndex: 300,
+                            pointerEvents: "none"
                         }}>
                             <button
                                 onClick={e => { e.stopPropagation(); prevSlide(); }}
                                 style={{
-                                    width: `${navigationButtons.size}px`,
-                                    height: `${navigationButtons.size}px`,
+                                    width: `clamp(36px, 8vw, ${navigationButtons.size}px)`,
+                                    height: `clamp(36px, 8vw, ${navigationButtons.size}px)`,
                                     borderRadius: "50%",
                                     border: `${navigationButtons.borderWidth}px solid ${navigationButtons.borderColor}`,
                                     backgroundColor: navigationButtons.backgroundColor,
                                     backdropFilter: "blur(20px)",
                                     WebkitBackdropFilter: "blur(20px)",
                                     cursor: "pointer",
+                                    pointerEvents: "auto",
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
@@ -377,14 +382,15 @@ export default function NationalTeamCarousel() {
                             <button
                                 onClick={e => { e.stopPropagation(); nextSlide(); }}
                                 style={{
-                                    width: `${navigationButtons.size}px`,
-                                    height: `${navigationButtons.size}px`,
+                                    width: `clamp(36px, 8vw, ${navigationButtons.size}px)`,
+                                    height: `clamp(36px, 8vw, ${navigationButtons.size}px)`,
                                     borderRadius: "50%",
                                     border: `${navigationButtons.borderWidth}px solid ${navigationButtons.borderColor}`,
                                     backgroundColor: navigationButtons.backgroundColor,
                                     backdropFilter: "blur(20px)",
                                     WebkitBackdropFilter: "blur(20px)",
                                     cursor: "pointer",
+                                    pointerEvents: "auto",
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
@@ -411,96 +417,18 @@ export default function NationalTeamCarousel() {
                                     <polyline points="9 18 15 12 9 6"></polyline>
                                 </svg>
                             </button>
-                        </div>
+                        </Box>
                     )}
-                </div>
-
-                {/* Vertical Sidebar Navigation */}
-                <div style={{
-                    width: '120px',
-                    height: '100%',
-                    position: 'relative',
-                    zIndex: 200,
-                    borderLeft: '1px solid rgba(255, 255, 255, 0.1)',
-                    perspective: '1000px',
-                    overflow: 'hidden',
-                    background: 'linear-gradient(to right, rgba(0,0,0,0.5), transparent)'
-                }}>
-                    <div style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: '100%',
-                        height: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        {media.map((item, idx) => {
-                            const total = media.length;
-                            let relPos = idx - activeIndex;
-                            if (relPos > total / 2) relPos -= total;
-                            if (relPos < -total / 2) relPos += total;
-                            const absPos = Math.abs(relPos);
-                            const isActive = relPos === 0;
-
-                            // Sidebar specific 3D props
-                            const ySpread = 60;
-                            const yOffset = relPos * ySpread;
-                            const zOffset = absPos * -50;
-                            const xRotation = relPos * 20;
-                            const scale = 1 - absPos * 0.2;
-                            const opacity = Math.max(0, 1 - absPos * 0.3);
-
-                            if (opacity <= 0) return null;
-
-                            return (
-                                <div
-                                    key={idx}
-                                    onClick={() => startTransition(() => setActiveIndex(idx))}
-                                    style={{
-                                        position: 'absolute',
-                                        top: '50%',
-                                        left: '50%',
-                                        width: '100%',
-                                        height: '50px',
-                                        transform: `translate3d(-50%, calc(-50% + ${yOffset}px), ${zOffset}px) rotateX(${-xRotation}deg) scale(${scale})`,
-                                        zIndex: 100 - absPos,
-                                        opacity: opacity,
-                                        cursor: 'pointer',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
-                                        pointerEvents: absPos > 2 ? 'none' : 'auto',
-                                    }}
-                                >
-                                    <span style={{
-                                        color: isActive ? '#8B0000' : '#888',
-                                        fontWeight: isActive ? 800 : 500,
-                                        fontSize: isActive ? '24px' : '16px',
-                                        fontFamily: 'Montserrat, sans-serif',
-                                        textShadow: isActive ? '0 0 20px rgba(139, 0, 0, 0.5)' : 'none',
-                                        letterSpacing: '1px'
-                                    }}>
-                                        {item.title.replace('Team ', '')}
-                                    </span>
-                                </div>
-                            );
-                        })}
-                    </div>
                 </div>
             </div>
 
-
-
             {/* Member List Section - Below Carousel */}
             <div style={{
-                width: '100%',
-                maxWidth: '900px', // Smaller width
+                width: 'min(90%, 900px)',
                 margin: '0 auto', // Centered
-                padding: '32px 48px',
+                marginTop: 'clamp(-130px, -18vh, -20px)',
+                zIndex: 10,
+                padding: 'clamp(16px, 3vh, 32px) clamp(20px, 5vw, 48px)',
                 background: 'rgba(5, 5, 5, 0.6)',
                 backdropFilter: 'blur(20px)',
                 borderRadius: '24px', // Rounded corners
@@ -508,7 +436,7 @@ export default function NationalTeamCarousel() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '16px',
-                minHeight: '120px',
+                minHeight: 'clamp(80px, 15vh, 120px)',
                 transition: 'all 0.4s ease',
                 position: 'relative',
                 overflow: 'hidden', // Contain the beam
@@ -529,26 +457,17 @@ export default function NationalTeamCarousel() {
                             color: '#FFFFFF',
                             fontFamily: 'Montserrat, sans-serif',
                             fontWeight: 700,
-                            letterSpacing: '-1px'
+                            letterSpacing: '-1px',
+                            fontSize: 'clamp(1.5rem, 5vw, 2.125rem)'
                         }}>
                             {currentTeam?.title}
-                        </Typography>
-                        <Typography variant="subtitle1" sx={{
-                            color: '#8B0000',
-                            fontFamily: 'Montserrat, sans-serif',
-                            fontWeight: 600,
-                            letterSpacing: '2px',
-                            textTransform: 'uppercase',
-                            fontSize: '0.9rem'
-                        }}>
-                            Team Members
                         </Typography>
                     </div>
 
                     <Typography sx={{
                         color: '#E0E0E0',
                         fontFamily: 'Montserrat, sans-serif',
-                        fontSize: '1.1rem',
+                        fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
                         fontWeight: 500,
                         lineHeight: '1.8',
                         letterSpacing: '0.01em',
@@ -558,7 +477,7 @@ export default function NationalTeamCarousel() {
                     </Typography>
                 </div>
             </div>
-        </div>
+        </Box>
 
     );
 }
