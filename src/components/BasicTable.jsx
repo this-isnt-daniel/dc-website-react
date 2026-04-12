@@ -24,12 +24,27 @@ function BasicTable() {
         // Line 2: Category (Skipped as per plan)
 
         // Line 3+: Data
-        const allRows = lines.slice(2).map((line, index) => {
+        let allRows = lines.slice(2).map((line, index) => {
             const cells = line.split('\t');
             // Ensure row has same number of cells as headers (pad with empty strings if needed)
             // or just map based on cells.
             return { id: index, cells };
         });
+
+        // Filter out teams with zero league points
+        const pointsColumnIndex = allHeaders.findIndex(h => {
+             const lower = h.toLowerCase();
+             return lower.includes('league point') || lower.includes('total');
+        });
+
+        if (pointsColumnIndex !== -1) {
+             allRows = allRows.filter(row => {
+                  const pointsStr = row.cells[pointsColumnIndex];
+                  if (!pointsStr) return true; // Safety logic
+                  const points = parseFloat(pointsStr.replace(/[^0-9.-]/g, ''));
+                  return !isNaN(points) && points > 0;
+             });
+        }
 
         return { headers: allHeaders, rows: allRows };
     }, []);
@@ -56,20 +71,23 @@ function BasicTable() {
                 <TableHead>
                     <TableRow>
                         {visibleColumnIndices.map((colIndex) => (
-                            <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ fontWeight: 'bold', color: 'white', borderColor: '#444' }}>
+                            <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ fontWeight: 'bold', color: 'white', borderColor: '#444', whiteSpace: colIndex === 1 ? 'nowrap' : 'normal' }}>
                                 {headers[colIndex]}
                             </TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {rows.map((row, index) => (
                         <TableRow
                             key={row.id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            sx={{ 
+                                '&:last-child td, &:last-child th': { border: 0 },
+                                backgroundColor: index < 4 ? 'rgba(220, 38, 38, 0.15)' : 'transparent'
+                            }}
                         >
                             {visibleColumnIndices.map((colIndex) => (
-                                <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ color: 'white', borderColor: '#333' }}>
+                                <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ color: 'white', borderColor: '#333', whiteSpace: colIndex === 1 ? 'nowrap' : 'normal' }}>
                                     {row.cells[colIndex]}
                                 </TableCell>
                             ))}
