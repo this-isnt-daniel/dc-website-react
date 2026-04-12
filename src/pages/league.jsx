@@ -1,5 +1,6 @@
 import React from 'react';
 import BasicTable from '../components/BasicTable';
+import LeagueCarousel from '../components/LeagueCarousel';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
@@ -39,6 +40,14 @@ function LeaguePage() {
                         AT THE END OF THE YEAR, THE TOTAL POINTS ARE TALLIED AND THE <Box component="span" sx={{ fontWeight: 'bold' }}>TOP FOUR TEAMS</Box> DEBATE EACH OTHER ON A ROUND ROBIN BASIS, FOLLOWING WHICH THE TOP TWO TEAMS FACE EACH OTHER OFF IN A GRAND FINAL AND THE <Box component="span" sx={{ fontWeight: 'bold' }}>WINNER OF THE DC LEAGUE</Box> IS DECIDED. THE LEAGUE ENCOURAGES TEAMS TO PARTICIPATE AS WELL AS TO HOST MORE TOURNAMENTS.
                     </Typography>
                 </Box>
+            </Box>
+
+            {/* Carousel Section */}
+            <Box sx={{ width: '100%', pb: 10 }}>
+                <Typography variant="h4" sx={{ mb: 4, fontFamily: 'Montserrat', fontWeight: 'bold', color: 'white', textAlign: 'center', fontSize: { xs: '1.5rem', md: '2.125rem' }, textTransform: 'uppercase' }}>
+                    Past League Champions
+                </Typography>
+                <LeagueCarousel />
             </Box>
 
             {/* Table Section */}
