@@ -537,7 +537,6 @@ Contact sponsorships@debaterscouncil.lk for our sponsorship prospectus.`
       { title: 'Common Adjudication Pitfalls', type: 'Article', size: '—', description: 'Analysis of frequent judging mistakes and how to avoid them' },
     ],
     'Historical Records': [
-      { title: 'Tournament Results Archive (2020-2026)', type: 'Excel', size: '1.2 MB', description: 'Complete tabs from all DC-endorsed tournaments' },
       { title: 'National Team History', type: 'PDF', size: '340 KB', description: 'Records of all Sri Lankan WSDC teams and results' },
       { title: 'Top Speaker Rankings', type: 'PDF', size: '210 KB', description: 'Historical speaker performance data' },
     ],
