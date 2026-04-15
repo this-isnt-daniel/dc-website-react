@@ -63,7 +63,7 @@ const blogPosts = [
 
 function BlogPage() {
     const [selectedCategory, setSelectedCategory] = useState('All');
-    const categories = ['All', 'Achievements', 'Announcements', 'Events', 'Education', 'Tournaments'];
+    const categories = ['All', 'Achievements', 'Announcements', 'Tournaments'];
     const featuredPost = blogPosts.find(p => p.featured);
     const recentPosts = blogPosts.filter(p => !p.featured).slice(0, 5);
 
@@ -110,7 +110,6 @@ function BlogPage() {
                            {categories.map(cat => (
                                <Box key={cat} onClick={() => setSelectedCategory(cat)} sx={{ display: 'flex', justifyContent: 'space-between', p: '10px 16px', cursor: 'pointer', borderRadius: '4px', backgroundColor: selectedCategory === cat ? '#8B0000' : 'transparent', '&:hover': { backgroundColor: selectedCategory === cat ? '#8B0000' : 'rgba(255,255,255,0.05)' }, transition: 'all 0.2s' }}>
                                    <Typography sx={{ fontFamily: 'Montserrat', fontSize: '0.95rem', fontWeight: selectedCategory === cat ? 700 : 500 }}>{cat}</Typography>
-                                   <Typography sx={{ fontFamily: 'Montserrat', fontSize: '0.85rem', opacity: 0.6 }}>{cat === 'All' ? blogPosts.length : blogPosts.filter(p => p.category === cat).length}</Typography>
                                </Box>
                            ))}
                        </Box>
@@ -137,23 +136,6 @@ function BlogPage() {
                        </Box>
                    </Box>
 
-                   {/* Newsletter */}
-                   <Box sx={{ backgroundColor: 'rgba(255,255,255,0.02)', p: 3, borderRadius: '8px', border: '1px solid #333' }}>
-                       <Typography sx={{ fontFamily: 'Montserrat', fontSize: '0.9rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', mb: 1 }}>
-                           Newsletter
-                       </Typography>
-                       <Typography sx={{ fontFamily: 'Montserrat', fontSize: '0.85rem', color: '#aaa', mb: 2, lineHeight: 1.5 }}>
-                           Get monthly updates on tournaments, workshops, and national team news.
-                       </Typography>
-                       <input 
-                           type="email" 
-                           placeholder="Your email" 
-                           style={{ width: '100%', padding: '12px', background: '#242424', border: '1px solid #444', borderRadius: '4px', color: '#fff', marginBottom: '12px', outline: 'none', fontFamily: 'Montserrat', boxSizing: 'border-box' }}
-                       />
-                       <Button fullWidth sx={{ backgroundColor: '#8B0000', color: '#fff', '&:hover': { backgroundColor: '#a10000' }, fontWeight: 700, p: 1.5, fontFamily: 'Montserrat' }}>
-                           Subscribe
-                       </Button>
-                   </Box>
                </Box>
 
                {/* Articles Grid */}
