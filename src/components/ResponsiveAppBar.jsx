@@ -159,6 +159,7 @@ function ResponsiveAppBar() {
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <Button
                             variant="contained"
+                            onClick={() => document.getElementById('social-footer')?.scrollIntoView({ behavior: 'smooth' })}
                             sx={{
                                 my: 2,
                                 backgroundColor: 'white',

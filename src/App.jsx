@@ -15,15 +15,15 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <ResponsiveAppBar/>
+                <ResponsiveAppBar />
                 {/* This empty Toolbar acts as a spacer */}
                 {/* It pushes the content down so it's not hidden by the AppBar */}
                 <Toolbar />
                 <main>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="/board" element={<BoardPage/>} />
-                        <Route path="/national-team" element={<NationalTeamPage/>} />
+                        <Route path="/board" element={<BoardPage />} />
+                        <Route path="/national-team" element={<NationalTeamPage />} />
                         <Route path="/calendar" element={<CalendarPage />} />
                         <Route path="/schools-league" element={<LeaguePage />} />
                         <Route path="/information" element={<InfoPage />} />

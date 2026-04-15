@@ -80,6 +80,12 @@ export default function TemporaryDrawer({ pages, open, onClose }) {
                 <Button
                     variant="contained"
                     fullWidth
+                    onClick={() => {
+                        if (onClose) onClose();
+                        setTimeout(() => {
+                            document.getElementById('social-footer')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 300);
+                    }}
                     sx={{
                         backgroundColor: 'white',
                         color: 'black',
