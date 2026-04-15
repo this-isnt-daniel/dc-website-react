@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Collapse from '@mui/material/Collapse';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const InformationHub = () => {
   const [activeSection, setActiveSection] = useState('getting-started');
@@ -553,7 +555,7 @@ Contact sponsorships@debaterscouncil.lk for our sponsorship prospectus.`
     ],
   };
 
-  const currentSection = sections[activeSection];
+  const currentSection = sections[activeSection || 'getting-started'];
 
   // Helper function to render bold markdown (**text**)
   const renderTextWithBold = (text) => {
@@ -568,6 +570,80 @@ Contact sponsorships@debaterscouncil.lk for our sponsorship prospectus.`
     });
   };
 
+  // Content Renderer for FAQs/Documents
+  const renderContent = (sectionKey) => {
+    const section = sections[sectionKey];
+    if (!section) return null;
+
+    if (sectionKey === 'resources-documents') {
+      return (
+        <Box sx={styles.documentsSection}>
+          {Object.entries(documents).map(([category, docs]) => (
+            <Box key={category} sx={styles.documentCategory}>
+              <Typography component="h3" sx={styles.documentCategoryTitle}>{category}</Typography>
+              <Box sx={styles.documentList}>
+                {docs.map((doc, idx) => (
+                  <Box key={idx} sx={styles.documentItem}>
+                    <Box sx={styles.documentIcon}>📄</Box>
+                    <Box sx={styles.documentInfo}>
+                      <Typography component="h4" sx={styles.documentTitle}>{doc.title}</Typography>
+                      <Typography sx={styles.documentDescription}>{doc.description}</Typography>
+                      <Box sx={styles.documentMeta}>
+                        <Typography component="span" sx={styles.documentType}>{doc.type}</Typography>
+                        {doc.size !== '—' && (
+                          <>
+                            <Box component="span" sx={styles.metaDivider}>•</Box>
+                            <Typography component="span" sx={styles.documentSize}>{doc.size}</Typography>
+                          </>
+                        )}
+                      </Box>
+                    </Box>
+                    <Box component="button" sx={styles.downloadButton}>
+                      Download ↓
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          ))}
+        </Box>
+      );
+    }
+
+    return (
+      <Box sx={styles.faqSection}>
+        {section.faqs.map((faq) => {
+          const isExpanded = expandedFaq === faq.id;
+          return (
+            <Box key={faq.id} sx={styles.faqItem}>
+              <Box
+                component="button"
+                onClick={() => setExpandedFaq(isExpanded ? null : faq.id)}
+                sx={styles.faqQuestion}
+              >
+                <Box component="span" sx={styles.faqQuestionText}>{faq.question}</Box>
+                <KeyboardArrowDownIcon sx={{
+                  ...styles.faqIcon,
+                  transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                  fontSize: '1.25rem',
+                }} />
+              </Box>
+              <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                <Box sx={styles.faqAnswerContent}>
+                  {faq.answer.split('\n').map((paragraph, idx) => (
+                    <Typography key={idx} sx={{...styles.answerParagraph, mt: paragraph.trim() === '' ? 0 : 1}}>
+                      {renderTextWithBold(paragraph)}
+                    </Typography>
+                  ))}
+                </Box>
+              </Collapse>
+            </Box>
+          );
+        })}
+      </Box>
+    );
+  };
+
   return (
     <Box sx={styles.container}>
       {/* Header */}
@@ -578,114 +654,110 @@ Contact sponsorships@debaterscouncil.lk for our sponsorship prospectus.`
         </Typography>
       </Box>
 
-      {/* Main Content */}
+      {/* Main Content Wrappers */}
       <Box sx={styles.content}>
-        {/* Sidebar Navigation */}
-        <Box component="aside" sx={styles.sidebar}>
-          <Box sx={styles.sidebarHeader}>Browse by Topic</Box>
-          {Object.entries(sections).map(([key, section]) => (
-            <Box
-              component="button"
-              key={key}
-              onClick={() => {
-                setActiveSection(key);
-                setExpandedFaq(null);
-              }}
-              sx={{
-                ...styles.sidebarButton,
-                ...(activeSection === key ? styles.sidebarButtonActive : {})
-              }}
-            >
-              <Box component="span" sx={styles.sidebarIcon}>{section.icon}</Box>
-              <Box sx={styles.sidebarText}>
-                <Box sx={styles.sidebarTitle}>{section.title}</Box>
-                <Box sx={styles.sidebarDesc}>{section.description}</Box>
+        
+        {/* ========================================= */}
+        {/* DESKTOP LAYOUT: SIDEBAR + MAIN PANE */}
+        {/* ========================================= */}
+        <Box sx={{ display: { xs: 'none', lg: 'grid' }, gridTemplateColumns: '320px 1fr', gap: '3rem', width: '100%' }}>
+          
+          {/* Sidebar Navigation */}
+          <Box component="aside" sx={styles.sidebar}>
+            <Box sx={styles.sidebarHeader}>Browse by Topic</Box>
+            {Object.entries(sections).map(([key, section]) => (
+              <Box
+                component="button"
+                key={key}
+                onClick={() => {
+                  setActiveSection(key);
+                  setExpandedFaq(null);
+                }}
+                sx={{
+                  ...styles.sidebarButton,
+                  ...(activeSection === key ? styles.sidebarButtonActive : {})
+                }}
+              >
+                <Box component="span" sx={styles.sidebarIcon}>{section.icon}</Box>
+                <Box sx={styles.sidebarText}>
+                  <Box sx={styles.sidebarTitle}>{section.title}</Box>
+                  <Box sx={styles.sidebarDesc}>{section.description}</Box>
+                </Box>
+                {activeSection === key && (
+                  <Box component="span" sx={{ ...styles.activeIndicator, display: 'flex', alignItems: 'center' }}>
+                    <KeyboardArrowRightIcon />
+                  </Box>
+                )}
               </Box>
-              {activeSection === key && (
-                <Box component="span" sx={styles.activeIndicator}>→</Box>
-              )}
-            </Box>
-          ))}
-        </Box>
-
-        {/* Main Content Area */}
-        <Box component="main" sx={styles.mainContent}>
-          {/* Section Header */}
-          <Box sx={styles.sectionHeader}>
-            <Box sx={styles.sectionIcon}>{currentSection.icon}</Box>
-            <Box>
-              <Typography component="h2" sx={styles.sectionTitle}>{currentSection.title}</Typography>
-              <Typography sx={styles.sectionDescription}>{currentSection.description}</Typography>
-            </Box>
+            ))}
           </Box>
 
-          {/* FAQ Accordion or Documents */}
-          {activeSection === 'resources-documents' ? (
-            <Box sx={styles.documentsSection}>
-              {Object.entries(documents).map(([category, docs]) => (
-                <Box key={category} sx={styles.documentCategory}>
-                  <Typography component="h3" sx={styles.documentCategoryTitle}>{category}</Typography>
-                  <Box sx={styles.documentList}>
-                    {docs.map((doc, idx) => (
-                      <Box key={idx} sx={styles.documentItem}>
-                        <Box sx={styles.documentIcon}>📄</Box>
-                        <Box sx={styles.documentInfo}>
-                          <Typography component="h4" sx={styles.documentTitle}>{doc.title}</Typography>
-                          <Typography sx={styles.documentDescription}>{doc.description}</Typography>
-                          <Box sx={styles.documentMeta}>
-                            <Typography component="span" sx={styles.documentType}>{doc.type}</Typography>
-                            {doc.size !== '—' && (
-                              <>
-                                <Box component="span" sx={styles.metaDivider}>•</Box>
-                                <Typography component="span" sx={styles.documentSize}>{doc.size}</Typography>
-                              </>
-                            )}
-                          </Box>
-                        </Box>
-                        <Box component="button" sx={styles.downloadButton}>
-                          Download ↓
-                        </Box>
-                      </Box>
-                    ))}
-                  </Box>
-                </Box>
-              ))}
+          {/* Main Content Area */}
+          <Box component="main" sx={styles.mainContent}>
+            <Box sx={styles.sectionHeader}>
+              <Box sx={styles.sectionIcon}>{currentSection.icon}</Box>
+              <Box>
+                <Typography component="h2" sx={styles.sectionTitle}>{currentSection.title}</Typography>
+                <Typography sx={styles.sectionDescription}>{currentSection.description}</Typography>
+              </Box>
             </Box>
-          ) : (
-            <Box sx={styles.faqSection}>
-              {currentSection.faqs.map((faq) => {
-                const isExpanded = expandedFaq === faq.id;
-                
-                return (
-                  <Box key={faq.id} sx={styles.faqItem}>
-                    <Box
-                      component="button"
-                      onClick={() => setExpandedFaq(isExpanded ? null : faq.id)}
-                      sx={styles.faqQuestion}
-                    >
-                      <Box component="span" sx={styles.faqQuestionText}>{faq.question}</Box>
-                      <Box component="span" sx={{
-                        ...styles.faqIcon,
-                        transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-                      }}>
-                        ▼
-                      </Box>
-                    </Box>
-                    <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-                      <Box sx={styles.faqAnswerContent}>
-                        {faq.answer.split('\n').map((paragraph, idx) => (
-                          <Typography key={idx} sx={{...styles.answerParagraph, mt: paragraph.trim() === '' ? 0 : 1}}>
-                            {renderTextWithBold(paragraph)}
-                          </Typography>
-                        ))}
-                      </Box>
-                    </Collapse>
-                  </Box>
-                );
-              })}
-            </Box>
-          )}
+
+            {/* Inner Content Component (FAQ Accordions / Documents) */}
+            {renderContent(activeSection)}
+          </Box>
         </Box>
+
+        {/* ========================================= */}
+        {/* MOBILE LAYOUT: NESTED ACCORDIONS */}
+        {/* ========================================= */}
+        <Box sx={{ display: { xs: 'flex', lg: 'none' }, flexDirection: 'column', gap: '1rem', width: '100%' }}>
+          {Object.entries(sections).map(([key, section]) => {
+            const isSectionOpen = activeSection === key;
+            return (
+              <Box key={key} sx={{ background: '#1a1a1a', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
+                <Box
+                  component="button"
+                  onClick={() => {
+                    setActiveSection(isSectionOpen ? null : key);
+                    setExpandedFaq(null);
+                  }}
+                  sx={{ 
+                    ...styles.sidebarButton, 
+                    marginBottom: 0, 
+                    borderRadius: 0, 
+                    padding: '1.5rem', 
+                    background: isSectionOpen ? '#8B0000' : 'transparent',
+                    borderLeft: 'none',
+                    '&:hover': {
+                      background: isSectionOpen ? '#a10000' : '#242424',
+                    }
+                  }}
+                >
+                  <Box component="span" sx={styles.sidebarIcon}>{section.icon}</Box>
+                  <Box sx={styles.sidebarText}>
+                    <Box sx={styles.sidebarTitle}>{section.title}</Box>
+                    <Box sx={styles.sidebarDesc}>{section.description}</Box>
+                  </Box>
+                  <KeyboardArrowDownIcon sx={{ 
+                    fontSize: '1.5rem', 
+                    color: '#fff', 
+                    transform: isSectionOpen ? 'rotate(180deg)' : 'rotate(0deg)', 
+                    transition: 'transform 0.3s' 
+                  }} />
+                </Box>
+                
+                <Collapse in={isSectionOpen} timeout="auto" unmountOnExit>
+                  <Box sx={{ padding: '0 1.5rem 1.5rem 1.5rem', background: '#1a1a1a' }}>
+                    <Box sx={{ pt: 2, borderTop: '1px solid #333' }}>
+                      {renderContent(key)}
+                    </Box>
+                  </Box>
+                </Collapse>
+              </Box>
+            );
+          })}
+        </Box>
+
       </Box>
     </Box>
   );
@@ -722,12 +794,9 @@ const styles = {
     maxWidth: '1400px',
     margin: '0 auto',
     padding: { xs: '2rem 1rem', md: '3rem 2rem' },
-    display: 'grid',
-    gridTemplateColumns: { xs: '1fr', lg: '320px 1fr' },
-    gap: '3rem',
   },
   sidebar: {
-    position: { xs: 'static', lg: 'sticky' },
+    position: 'sticky',
     top: '2rem',
     alignSelf: 'start',
   },
@@ -861,11 +930,6 @@ const styles = {
     fontSize: '0.85rem',
     color: '#aaa',
     transition: 'transform 0.3s',
-  },
-  faqAnswer: {
-    overflow: 'hidden',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-    background: '#1a1a1a',
   },
   faqAnswerContent: {
     padding: '0 1.5rem 1.5rem',
