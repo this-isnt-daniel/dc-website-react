@@ -22,14 +22,7 @@ const NAVIGATION_ITEMS = [
     { name: 'SCHOOLS LEAGUE', path: '/schools-league' },
     { name: 'CALENDAR', path: '/calendar' },
     { name: 'BLOG', path: '/blog' },
-    {
-        name: 'INFORMATION',
-        children: [
-            { name: 'Option 1', path: '/information/option1' },
-            { name: 'Option 2', path: '/information/option2' },
-            { name: 'Option 3', path: '/information/option3' },
-        ]
-    }
+    { name: 'INFORMATION', path: '/information' }
 ];
 
 function ResponsiveAppBar() {

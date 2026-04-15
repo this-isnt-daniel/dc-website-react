@@ -71,7 +71,7 @@ function BasicTable() {
                 <TableHead>
                     <TableRow>
                         {visibleColumnIndices.map((colIndex) => (
-                            <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ fontWeight: 'bold', color: 'white', borderColor: '#444', whiteSpace: colIndex === 1 ? 'nowrap' : 'normal' }}>
+                            <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ fontWeight: 'bold', color: 'white', borderColor: '#444', whiteSpace: (colIndex === 1 && !isMobile) ? 'nowrap' : 'normal', fontSize: isMobile ? '0.85rem' : '1rem' }}>
                                 {headers[colIndex]}
                             </TableCell>
                         ))}
@@ -87,7 +87,7 @@ function BasicTable() {
                             }}
                         >
                             {visibleColumnIndices.map((colIndex) => (
-                                <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ color: 'white', borderColor: '#333', whiteSpace: colIndex === 1 ? 'nowrap' : 'normal' }}>
+                                <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ color: 'white', borderColor: '#333', whiteSpace: (colIndex === 1 && !isMobile) ? 'nowrap' : 'normal', fontSize: isMobile ? '0.85rem' : '1rem' }}>
                                     {row.cells[colIndex]}
                                 </TableCell>
                             ))}
