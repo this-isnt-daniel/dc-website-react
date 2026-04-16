@@ -1,81 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-
-const blogPosts = [
-  {
-    id: 1,
-    title: 'Sri Lanka Takes Bronze at WSDC 2026',
-    excerpt: 'Historic achievement as our national team secures third place at the World Schools Debating Championship.',
-    category: 'Achievements',
-    author: 'Debaters Council',
-    date: '2026-03-15',
-    readTime: '5 min',
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=500&fit=crop',
-    featured: true,
-  },
-  {
-    id: 2,
-    title: 'Announcing the 2026 National Pool',
-    excerpt: 'Meet the 15 exceptional debaters selected for intensive training this year.',
-    category: 'Announcements',
-    author: 'Selection Committee',
-    date: '2026-02-20',
-    readTime: '3 min',
-    image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&h=500&fit=crop',
-    featured: false,
-  },
-  {
-    id: 3,
-    title: 'Debate Workshop Series: April Schedule',
-    excerpt: 'Comprehensive workshops on case construction, rebuttal, and POI strategies.',
-    category: 'Events',
-    author: 'Coaching Team',
-    date: '2026-03-28',
-    readTime: '2 min',
-    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&h=500&fit=crop',
-    featured: false,
-  },
-  {
-    id: 4,
-    title: 'Understanding the Asian Schools Format',
-    excerpt: 'Complete guide to ASDC format and how it differs from WSDC.',
-    category: 'Education',
-    author: 'Shalem Sumanthiran',
-    date: '2026-03-10',
-    readTime: '8 min',
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=500&fit=crop',
-    featured: false,
-  },
-  {
-    id: 5,
-    title: 'Tournament Calendar: Q2 2026 Update',
-    excerpt: 'Updated schedule of endorsed tournaments with registration deadlines.',
-    category: 'Tournaments',
-    author: 'Tournament Coordination',
-    date: '2026-03-05',
-    readTime: '4 min',
-    image: 'https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&h=500&fit=crop',
-    featured: false,
-  },
-];
+import { blogPosts } from '../data/blogPosts';
 
 function BlogPage() {
     const [selectedCategory, setSelectedCategory] = useState('All');
+    const navigate = useNavigate();
+
     const categories = ['All', 'Achievements', 'Announcements', 'Tournaments'];
     const featuredPost = blogPosts.find(p => p.featured);
     const recentPosts = blogPosts.filter(p => !p.featured).slice(0, 5);
 
     const filteredPosts = selectedCategory === 'All' 
-      ? blogPosts 
-      : blogPosts.filter(p => p.category === selectedCategory);
+        ? blogPosts 
+        : blogPosts.filter(p => p.category === selectedCategory);
 
     return (
         <Box sx={{ minHeight: '100vh', backgroundColor: '#121212', fontFamily: 'Montserrat, sans-serif', color: '#fff', pb: 10 }}>
            {/* Hero Featured Post */}
-           <Box sx={{ position: 'relative', height: { xs: '500px', md: '600px' }, width: '100%', overflow: 'hidden' }}>
-               <img src={featuredPost.image} alt={featuredPost.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+           <Box 
+              onClick={() => navigate(`/blog/${featuredPost.id}`)}
+              sx={{ position: 'relative', height: { xs: '500px', md: '600px' }, width: '100%', overflow: 'hidden', cursor: 'pointer', '&:hover img': { transform: 'scale(1.02)' } }}
+           >
+               <img src={featuredPost.image} alt={featuredPost.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                <Box sx={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #121212 0%, rgba(18,18,18,0.7) 40%, transparent 100%)' }} />
                <Box sx={{ position: 'absolute', bottom: 0, left: 0, right: 0, p: { xs: 3, md: 6 }, maxWidth: '1300px', mx: 'auto' }}>
                    <Box sx={{ display: 'inline-block', p: '6px 16px', backgroundColor: '#8B0000', color: '#fff', borderRadius: '4px', fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', mb: 2, letterSpacing: '1px' }}>
@@ -122,7 +70,7 @@ function BlogPage() {
                        </Typography>
                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                            {recentPosts.map(post => (
-                               <Box key={post.id} sx={{ display: 'flex', gap: 2, cursor: 'pointer', '&:hover .recent-title': { color: '#dc2626' } }}>
+                               <Box key={post.id} onClick={() => navigate(`/blog/${post.id}`)} sx={{ display: 'flex', gap: 2, cursor: 'pointer', '&:hover .recent-title': { color: '#dc2626' } }}>
                                    <Box sx={{ width: '80px', height: '80px', flexShrink: 0, borderRadius: '6px', overflow: 'hidden' }}>
                                        <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                    </Box>
@@ -135,7 +83,6 @@ function BlogPage() {
                            ))}
                        </Box>
                    </Box>
-
                </Box>
 
                {/* Articles Grid */}
@@ -151,7 +98,7 @@ function BlogPage() {
 
                    <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(auto-fill, minmax(320px, 1fr))' }, gap: 4 }}>
                        {filteredPosts.map(post => (
-                           <Box key={post.id} sx={{ cursor: 'pointer', '&:hover img': { transform: 'scale(1.05)' }, '&:hover .article-title': { color: '#dc2626' } }}>
+                           <Box key={post.id} onClick={() => navigate(`/blog/${post.id}`)} sx={{ cursor: 'pointer', '&:hover img': { transform: 'scale(1.05)' }, '&:hover .article-title': { color: '#dc2626' } }}>
                                <Box sx={{ width: '100%', aspectRatio: '16/10', borderRadius: '8px', overflow: 'hidden', mb: 2 }}>
                                    <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }} />
                                </Box>

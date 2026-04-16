@@ -6,6 +6,7 @@ import InfoPage from './pages/information.jsx';
 import BoardPage from './pages/board.jsx';
 import HomePage from "./pages/home.jsx";
 import BlogPage from "./pages/blog.jsx";
+import ArticlePage from "./pages/article/article.jsx";
 import Toolbar from '@mui/material/Toolbar';
 import FooterBar from './components/FooterBar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/schools-league" element={<LeaguePage />} />
                         <Route path="/information" element={<InfoPage />} />
                         <Route path="/blog" element={<BlogPage />} />
+                        <Route path="/blog/:id" element={<ArticlePage />} />
                     </Routes>
                 </main>
                 <FooterBar />
