@@ -201,7 +201,7 @@ function HomePage() {
             </Box>
 
             {/* === SECTION 6: THE BOARD === */}
-            <Box component="section" className="home-section section-dark">
+            <Box component="section" className="home-section section-gradient">
                 <TextClipReveal
                     text="THE BOARD"
                     font={{ fontFamily: 'var(--font-family-display)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase', marginBottom: '40px', textAlign: 'center' }}
