@@ -83,7 +83,8 @@ export default function TemporaryDrawer({ pages, open, onClose }) {
                     onClick={() => {
                         if (onClose) onClose();
                         setTimeout(() => {
-                            document.getElementById('social-footer')?.scrollIntoView({ behavior: 'smooth' });
+                            document.getElementById('social-footer')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            window.dispatchEvent(new Event('highlight-socials'));
                         }, 300);
                     }}
                     sx={{

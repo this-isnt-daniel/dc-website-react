@@ -13,9 +13,9 @@ function FooterBar() {
             // Start highlight shortly after scroll starts
             setTimeout(() => {
                 setIsHighlighted(true);
-                // Remove highlight after 2 seconds
-                setTimeout(() => setIsHighlighted(false), 2000);
-            }, 500);
+                // Remove highlight after 3 seconds
+                setTimeout(() => setIsHighlighted(false), 3000);
+            }, 800);
         };
         window.addEventListener('highlight-socials', handleHighlight);
         return () => window.removeEventListener('highlight-socials', handleHighlight);
