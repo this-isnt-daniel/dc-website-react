@@ -49,11 +49,16 @@ const DEFAULT_PROPS = {
 };
 
 const TEAM_MEMBERS = {
-    // Example data - replace with actual team members
-    "2024": ["Member Name 1", "Member Name 2", "Coach Name", "Manager Name"],
-    "2023": ["Member A", "Member B", "Member C", "Member D"],
-    "2022": ["Player X", "Player Y", "Player Z"],
-    "2021": ["Name 1", "Name 2", "Name 3", "Name 4", "Name 5"]
+    "2026": ["LR Seated: Thahira Saheed (Reserve)", "Savith Wijesundara", "Apoorva Jinadasa", "LR Standing: T. Tharaniharan", "Adam Dhilshan", "Rudesh Ram"],
+    "2025": ["LR: Nimansa Jayasundera", "Dihen Udumalagala", "Rudesh Ram", "Savith Wijesundara", "Akein Bandara", "Absent: T. Tharaniharan (Reserve)"],
+    "2024": ["LR: Anielka Nallathamby (Reserve)", "Sarah Warnakulasuriya", "Savith Wijesundara", "Shalem Sumanthiran (Team Manager)", "Tamkeen Nawab (Coach)", "Chansol Park (Coach)", "Ammar Zaffarullah", "Afrah Athahurahman", "Thithira Jayakody"],
+    "2023": ["LR Seated: Janul De Silva (Assistant Coach)", "Chanidu Ratnayake (Captain)", "Viren Beruwalage (Head Coach)", "Humaid Saleem (Technical Coach)", "LR Standing: Sanithma Jayasooriya", "Thithira Jayakody", "Ammar Zaffarullah (Reserve)", "Ashwin Laksumanage", "Afrah Athahurahman"],
+    "2022": ["LR Seated: Sarani Jayawardena (Assistant Coach)", "Chanidu Ratnayake (Captain)", "Shilohni Sumanthiran (Head Coach)", "Shanya Sadanandan (Assistant Coach)", "LR Standing: Sanithma Jayasooriya (Reserve)", "Reiha Wimalasekara", "Humaid Saleem", "Ashwin Laksumanage", "Chirathi Perera"],
+    "2021": ["LR Seated: Chanidu Ratnayake (Captain)", "Kithmina Hewage (Head Coach)", "LR Standing: Reiha Wimalasekara", "Ashwin Laksumanage", "Humaid Saleem", "Nevan Serasundera (Reserve)", "Anah Cassim", "Absent: Nimaya Harris (Assistant Coach)"],
+    "2020": ["LR Seated: Sanjit Dias (Assistant Coach)", "Shalem Sumanthiran (Captain)", "Kithmina Hewage (Head Coach)", "LR Standing: Reiha Wimalasekara (Reserve)", "Janul De Silva", "Chanidu Ratnayake", "Rahul De Silva", "Jasmine Markandu"],
+    "2019": ["LR: Rishane Dissanayake", "Rahul De Silva", "Treshan Fernando", "Erandi De Silva", "Maleeka Hassan", "Absent: Sanjit Dias (Coach)", "Chanidu Ratnayake (Reserve)"],
+    "2018": ["LR: Kithmina Hewage (Team Manager)", "Shanya Sadanandan", "Shalem Sumanthiran (Captain)", "Avvayar De Mel", "Sahas Gunasekara", "Ashani Kottage", "Sarani Jayawadena (Coach)", "Absent: Rahul De Silva (Reserve)"],
+    "2017": ["LR: Shalem Sumanthiran", "Anish Fonseka (Captain)", "Kithmina Hewage (Team Manager)", "Kavindra Senaratna", "Chetan Perara", "Devin Hewage (Coach)", "Avaayar De Mel", "Absent: Shanya Sadanandan (Reserve)"]
 };
 
 // Border Beam Component
