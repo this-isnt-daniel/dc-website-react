@@ -428,10 +428,10 @@ export default function NationalTeamCarousel() {
             </div>
 
             {/* Member List Section - Below Carousel */}
-            <div style={{
+            <Box sx={{
                 width: 'min(90%, 900px)',
                 margin: '0 auto', // Centered
-                marginTop: 'clamp(-130px, -18vh, -20px)',
+                marginTop: { xs: '-10px', sm: '-40px', md: '-130px' },
                 zIndex: 10,
                 padding: 'clamp(16px, 3vh, 32px) clamp(20px, 5vw, 48px)',
                 background: 'rgba(5, 5, 5, 0.6)',
@@ -481,7 +481,7 @@ export default function NationalTeamCarousel() {
                         {currentMembers.join(' • ')}
                     </Typography>
                 </div>
-            </div>
+            </Box>
         </Box>
 
     );
