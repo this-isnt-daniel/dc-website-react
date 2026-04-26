@@ -16,25 +16,34 @@ const InformationHub = () => {
       description: 'For schools and new debaters',
       faqs: [
         {
+          id: 'what-we-do',
+          question: 'What do we do?',
+          answer: `The Debaters' Council is the premier school debating body in Sri Lanka. We organize, govern, and elevate competitive debating across the nation.
+
+**What We Do:**
+- Endorse and standardize debating tournaments to ensure a high-quality competitive circuit nationwide.
+- Help schools establish and sustain debating societies
+- Conduct nationwide workshops and introductory sessions to promote debating.
+- Select and train the National Debating Team to represent Sri Lanka at the World Schools Debating Championship (WSDC)
+- Maintain standard adjudication and tabulation rules for fairness and competitive integrity
+
+Currently, official DC Membership is open exclusively to schools within the Sri Lankan debating circuit.
+**Benefits for DC Members:**
+- Official invitations to all DC-endorsed tournaments
+- Access to exclusive workshops and training sessions for both students and teachers
+- Eligibility for students to try out for the National Pool and National Team`
+        },
+        {
           id: 'register-school',
           question: 'How can my school register with the Debaters\' Council?',
-          answer: `To register your school as a DC member institution:
+          answer: `To register your school as a DC member institution, please complete the [registration form](https://forms.gle/wvtiLdaoKhs2p7uc7).
 
-1. **Submit a formal letter** expressing your club's intent to join, signed by the Teacher-in-Charge or relevant school authority
+Before filling out the form, ensure you have:
+1. **A formal letter** expressing your club's intent to join, signed by the Teacher-in-Charge or Principal (to be uploaded in the form)
+2. **Proof of payment** for the annual membership fee of LKR 4,000 (payment instructions are provided in the form)
+3. **Contact details** for a designated student representative (ideally the team captain) for WhatsApp communication
 
-2. **Pay the annual membership fee** of LKR 4,000 which supports DC activities and initiatives
-
-3. **Provide contact details** - Name and contact number of a designated person (ideally the team captain) for WhatsApp communication
-
-4. **Requirements**: Schools must have an active debating club and commitment to participate in the circuit
-
-Once registered, you'll receive:
-- Access to the DC schools registry for tournament invitations
-- Membership in the Tournament Coordination WhatsApp group
-- Eligibility to send debaters for National Pool trials
-- Access to training resources and workshops
-
-Contact us at info@debaterscouncil.lk to begin the registration process.`
+Contact us at debaterscouncil@gmail.com if you have any questions.`
         },
         {
           id: 'first-tournament',
@@ -167,101 +176,45 @@ The selection committee values both natural talent and demonstrated commitment t
       description: 'For organizers and hosts',
       faqs: [
         {
-          id: 'tournament-requirements',
-          question: 'What are the requirements for hosting a DC-endorsed tournament?',
-          answer: `Requirements for DC endorsement:
+          id: 'how-to-organize',
+          question: 'How to organize a tournament?',
+          answer: `Organizing a debate tournament is a complex task, and we recommend getting the aid of a person with prior tournament organizing experience in order to ensure a smooth event. The process can be streamlined into a sequence of structured steps as outlined below. You can find a step-by-step guide on how to organize a tournament here.
 
-**Pre-Tournament:**
-1. **Permission** - Obtain official clearance from your institution
-2. **Endorsement Request** - Email DC with tournament details (scale, dates, format)
-3. **Scheduling** - Avoid public holidays and consecutive weekends with other tournaments
-4. **Motion Approval** - Submit motions to dcmotionscommittee@gmail.com at least 2 weeks prior
+**1. Obtain Permissions**
+Seek the necessary permissions from relevant authorities within your educational institution to host an event. Obtain official clearance to organize the tournament on your school premises.
 
-**Tournament Standards:**
-- Minimum 8 participating teams
-- At least one DC-accredited adjudicator on the panel
-- Use of Tabbycat or approved tabulation software
-- Adherence to DC tabulation rules
+**2. Request Endorsement**
+Initiate the process by sending a formal email to our organization, requesting endorsement for the tournament. In your email, kindly provide details about the scale of the tournament and the proposed dates for the event. Please note that tournaments should not be organized on public holidays or on consecutive weekends. If a tournament by another institution is already scheduled to be held the week prior or following your proposed dates kindly consider rescheduling.
 
-**Post-Tournament:**
-- Submit complete results within 7 days
-- Provide speaker tabs and team rankings
-- Share feedback with DC
+**3. Member School Invitations**
+Extend formal invitations to all member schools associated with The Debaters' Council. The emails can be found in the DC schools registry. The school representative in the Tournament Coordination WhatsApp group is requested to share the invitation and registration link within the WhatsApp group as well.
 
-**Invitations:**
-- Must invite all DC member schools
-- Share invitation in Tournament Coordination WhatsApp group
-- Allow minimum 3 weeks registration period
+**4. Inviting Adjudicators**
+Extend invitations to experienced and qualified adjudicators for the tournament. While institutional judges undoubtedly contribute valuable expertise, we emphasize the importance of broadening the judging pool to ensure robustness and avoid over-dependence. Furthermore, it is important to establish a Core Adjudication Panel (CAP) which usually consists of 1-3 veteran adjudicators. The CAP is responsible for allocating judges, solving disputes, setting motions, issuing motion clarifications, and other such tasks.
 
-Download the complete "Tournament Endorsement Conditions" document from the Resources section.`
+**5. Submission of Motions**
+Submit the proposed debate motions to the DC Motions Committee for approval by sending an email to dcmotionscommittee@gmail.com. These motions should be submitted at least two weeks prior to the scheduled tournament.
+
+**6. Tabulation Process**
+Utilize Tabbycat for tabulation throughout the tournament. It is imperative to adhere rigorously to all regulations and guidelines set forth by The Debaters' Council at all stages of tabulation.`
         },
         {
           id: 'tabulation-guide',
           question: 'How does tournament tabulation work?',
           answer: `DC Standard Tabulation Rules:
 
+**Software & Oversight:**
+- **Tabbycat Software:** All DC-endorsed tournaments utilize Tabbycat software for reliable and transparent tabulation.
+- **Experienced CA:** Each tournament must have an experienced Chief Adjudicator (CA) to manage and oversee the tabs.
+- **DC Standards:** Tabs must be kept strictly up to the standards and regulations enforced by The Debaters' Council at all times.
+
 **Speaker Scores:**
-- Scale: 60-80 points
-- 75-80: Exceptional, tournament-winning standard
-- 70-74: Excellent, breaking team quality
-- 65-69: Good, solid debating
-- 60-64: Adequate, room for improvement
+We strictly follow the standard WSDC scoring scale (60-80 points).
 
-**Team Points:**
-- Win: 3 points
-- Loss: 0 points
-- (No draws in WSDC format)
-
-**Breaking Teams:**
-- Ranked by total team points
-- Tiebreaker 1: Total speaker points
-- Tiebreaker 2: Head-to-head result
-- Tiebreaker 3: Average margin of victory
-
-**Software:**
-- Use Tabbycat (recommended) - see our Tabbycat Guide
-- Alternative: Manual tabulation following DC Excel template
-
-**Results Submission:**
-- Full tab with speaker scores for all debates
-- Team rankings and breaking teams
-- Top speaker list
-- Submit to results@debaterscouncil.lk within 7 days
+**Need a Tabmaster?**
+If your organizing committee needs assistance finding an experienced tabmaster, please reach out to us at debaterscouncil@gmail.com and we can help connect you with qualified individuals.
 
 Access the "Tabulation Rules & Procedures" PDF in Resources for complete methodology.`
-        },
-        {
-          id: 'motions-submission',
-          question: 'How do I submit motions for approval?',
-          answer: `Motion submission process:
-
-**Submission Requirements:**
-Email dcmotionscommittee@gmail.com with:
-- Tournament name and date
-- Format (Prepared/Impromptu ratio)
-- Number of preliminary rounds
-- Proposed motions for each round
-- Infoslides (if applicable)
-
-**Timeline:**
-- Submit at least 2 weeks before tournament
-- Committee reviews within 5 business days
-- May suggest modifications or alternatives
-- Final approval required before tournament
-
-**Motion Quality Standards:**
-- Clear, debatable propositions
-- Balanced (neither side has obvious advantage)
-- Appropriate difficulty level
-- Topically diverse across rounds
-- No repeated topics from recent tournaments
-
-**Resources:**
-- Check Motion Archive for 500+ past motions
-- Ensure no recent duplicates
-- Review Motion Committee feedback from previous tournaments
-
-The committee helps ensure competitive fairness and educational value.`
         },
       ]
     },
@@ -557,14 +510,31 @@ Contact sponsorships@debaterscouncil.lk for our sponsorship prospectus.`
 
   const currentSection = sections[activeSection || 'getting-started'];
 
-  // Helper function to render bold markdown (**text**)
+  // Helper function to render bold markdown (**text**), italics (*text*), and links ([text](url))
   const renderTextWithBold = (text) => {
-    const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g);
+    const parts = text.split(/(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\))/g);
     return parts.map((part, index) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return <Box component="span" key={index} sx={{ fontWeight: 'bold', color: '#ff4d4d' }}>{part.slice(2, -2)}</Box>;
       } else if (part.startsWith('*') && part.endsWith('*')) {
         return <Box component="span" key={index} sx={{ fontStyle: 'italic', color: '#ff4d4d' }}>{part.slice(1, -1)}</Box>;
+      } else if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
+        const titleMatch = part.match(/\[(.*?)\]/);
+        const urlMatch = part.match(/\((.*?)\)/);
+        if (titleMatch && urlMatch) {
+          return (
+            <Box 
+              component="a" 
+              href={urlMatch[1]} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              key={index} 
+              sx={{ color: '#ff4d4d', textDecoration: 'underline', '&:hover': { color: '#ff7b7b' } }}
+            >
+              {titleMatch[1]}
+            </Box>
+          );
+        }
       }
       return <React.Fragment key={index}>{part}</React.Fragment>;
     });
