@@ -31,7 +31,7 @@ Currently, official DC Membership is open exclusively to schools within the Sri 
 **Benefits for DC Members:**
 - Official invitations to all DC-endorsed tournaments
 - Access to exclusive workshops and training sessions for both students and teachers
-- Eligibility for students to try out for the National Pool and National Team`
+- Eligibility for students to try out for the National Team`
         },
         {
           id: 'register-school',
@@ -44,6 +44,17 @@ Before filling out the form, ensure you have:
 3. **Contact details** for a designated student representative (ideally the team captain) for WhatsApp communication
 
 Contact us at debaterscouncil@gmail.com if you have any questions.`
+        },
+        {
+          id: 'benefits-of-registration',
+          question: 'Why Join the Debaters\' Council?',
+          answer: `- **Access to Competitions:** Your school will be added to an emailing list that all other DC registered schools are required to invite when organizing tournaments. Additionally, your school will receive priority invitations to participate in these events over other schools
+- **Discounted Registration Fees:** Enjoy reduced fees for all Debaters' Council workshops and other activities
+- **Networking Opportunities:** Connect with other debating clubs, coaches, and debaters across the region
+- **Resource Sharing:** More access to debate materials and coaching resources
+- **Official Recognition:** Gain official recognition and credibility for your school's debating program
+- **Regular Updates:** Stay informed about upcoming events, competitions, and announcements through our WhatsApp network
+- **Community Support:** Be part of a vibrant community dedicated to promoting debate and critical thinking`
         },
         {
           id: 'first-tournament',
@@ -63,19 +74,16 @@ We recommend starting with smaller, school-level tournaments before moving to la
           question: 'What debate formats are used in Sri Lanka?',
           answer: `The main formats in the Sri Lankan circuit:
 
-**WSDC (World Schools Debating Championship)** - Our primary format
+**WSDC (World Schools Debating Championship)** - Our primary format ([Read the WSDC Handbook](https://docs.google.com/document/d/10I7HdhOEDC2JtekXl-xQ--5DIlMrxegWXWwlL7z9DIs/edit?tab=t.pdr4gqv6xyvn))
 - 3 speakers per team, 8-minute speeches
-- Prepared motions (released 1 hour before) and impromptu motions (15 min prep)
+- Impromptu motions (30 min prep)
 - Reply speeches (4 minutes)
-- Points of Information (POIs) allowed
 
-**Asian Schools Format** - Used in some tournaments
-- Similar to WSDC with slight modifications
 
-**British Parliamentary (BP)** - Used at university level
+**British Parliamentary (BP)** - Used at university level ([Read the WUDC Manual](https://drive.google.com/file/d/1pXoKtAdigoL5w94cKDcQ8nCQ5fN06pMp/view))
 - 4 teams of 2 speakers
 - 7-minute speeches
-- Completely impromptu (15 min prep)
+- Impromptu motions(15 min prep)
 
 Download our complete format guides in the Resources section.`
         },
@@ -153,7 +161,6 @@ Timeline: Applications in Q1, trials in Q2, team announcement in Q3, WSDC typica
 - Attend DC workshops and training sessions
 - Study past WSDC debates (available in our Video Library)
 - Practice with experienced debaters
-- Consider getting a coach through our Coach Matching Service
 
 **Build Your CV:**
 - Document all tournament results
@@ -226,121 +233,32 @@ Access the "Tabulation Rules & Procedures" PDF in Resources for complete methodo
         {
           id: 'getting-better',
           question: 'How can I improve my debating skills?',
-          answer: `Comprehensive improvement strategy:
+          answer: `Here are three key ways to improve your debating skills:
 
-**1. Regular Practice**
-- Participate in weekly club debates
-- Find a debate partner for practice sessions
-- Use our Resource Library for practice motions
+**1. Practice Regularly**
+The best way to improve is through consistent practice. If you need help with individual or club coaching, you can reach out to us and we can set you up with a coach.
 
-**2. Study the Best**
-- Watch finals from our Video Library
-- Study WSDC championship debates
-- Analyze what top speakers do differently
+**2. Watch Debates**
+There are a lot of online recorded resources available. Additionally, you can check the DC YouTube channel for motion debrief videos and recorded debates.
 
-**3. Formal Training**
-- Attend DC workshops (check Events calendar)
-- Consider our Coach Matching Service
-- Participate in National Pool trials for feedback
+**3. Turn Up to Tournaments**
+Participate in as many tournaments as you can. Practical experience is invaluable, and you will naturally improve by competing and learning from your rounds.
 
-**4. Focus Areas:**
-
-*Content Knowledge*
-- Read widely on current affairs
-- Build case libraries on common topics
-- Study argument frameworks
-
-*Speaking Skills*
-- Record and review your speeches
-- Work on clarity and pace
-- Practice vocal variety and emphasis
-
-*Strategic Thinking*
-- Learn POI strategy
-- Master rebuttal techniques
-- Understand thematic analysis
-
-**5. Get Feedback**
-- Request written adjudication feedback
-- Ask experienced debaters to watch you
-- Identify specific areas to improve
-
-**6. Resources:**
-- Download our training materials (Resource Library)
-- Join study groups with other debaters
-- Read debate theory articles
-
-Consistent practice and targeted improvement yield the best results.`
-        },
-        {
-          id: 'coach-matching',
-          question: 'How does the Coach Matching Service work?',
-          answer: `Getting paired with an experienced coach:
-
-**How to Apply:**
-1. Submit request through our Coach Matching form
-2. Describe your experience level and goals
-3. Specify preferred coaching style (intensive/casual)
-4. Indicate availability for sessions
-
-**Matching Process:**
-- DC maintains a network of qualified coaches (former national team members, senior adjudicators)
-- We match based on your needs and coach availability
-- Typical response time: 2 weeks
-
-**Coaching Sessions:**
-- Frequency determined between you and coach
-- Can be one-on-one or small group
-- Virtual or in-person (location dependent)
-- Focus areas: case construction, delivery, strategy, or comprehensive training
-
-**Cost:**
-- Some coaches volunteer their time
-- Others may charge for formal training programs
-- DC coordinates but doesn't set fees
-
-**For Schools:**
-- Schools can request coaches for their entire team
-- Workshop-style training available
-- Contact us for bulk coaching arrangements
-
-Submit your request in the Resources section under "Coach Matching Service."`
+**Helpful Resources:**
+- [The Debaters' Council YouTube Channel](https://youtube.com/@debaterscouncil-srilanka6367?si=3U62AWSq7-PzVGG-)
+- [DebateData - Debate Motion Database](https://debatedata.io)
+- [Debate Resources Compilation](https://docs.google.com/spreadsheets/d/1FkJ7FlD64-Kga9kwHVgm863lJTnmeC3abbwleCIQ9vY/htmlview#) *(Note: Not compiled by the DC; all credits go to the relevant authors)*`
         },
         {
           id: 'workshop-schedule',
           question: 'What workshops does DC offer?',
-          answer: `Regular DC training programs:
+          answer: `We offer a variety of workshops to cater to different skill levels:
 
-**Monthly Workshops** (Free for member schools)
-- Case Construction
-- Rebuttal Strategies  
-- POI Techniques
-- Reply Speech Mastery
+- **Intermediate Workshops:** Held every few months for school and universitty debaters looking to elevate their skills.
+- **Introductory Workshops:** District-level sessions aimed at new debaters and emerging clubs.
+- **Workshops for your Club:** We also conduct specialized workshops for clubs upon request.
 
-**Quarterly Intensives**
-- Format-specific training (WSDC, Asian Schools)
-- Advanced argumentation
-- Judge training and accreditation
-
-**National Pool Training**
-- Exclusive sessions for Pool members
-- Led by former national team members
-- Preparation for WSDC
-
-**Custom School Workshops**
-- Request training for your school
-- Tailored to your team's needs
-- Can include mock tournaments
-
-**Check Our Events Calendar:**
-Visit the Events page for upcoming workshop dates and registration links.
-
-**Workshop Formats:**
-- In-person (Colombo and regional venues)
-- Virtual sessions (Zoom)
-- Hybrid options available
-
-Register early as spots fill quickly!`
+If your club is interested in a workshop, please contact us at debaterscouncil@gmail.com.`
         },
       ]
     },
@@ -351,128 +269,13 @@ Register early as spots fill quickly!`
       faqs: [
         {
           id: 'corporate-workshops',
-          question: 'Does DC offer corporate communication workshops?',
-          answer: `Professional development programs:
-
-**What We Offer:**
-- Public Speaking & Presentation Skills
-- Critical Thinking & Argumentation
-- Team Communication & Collaboration
-- Leadership Communication
-- Media Training & Interview Skills
-
-**Format Options:**
-- Half-day workshops (3-4 hours)
-- Full-day intensives
-- Multi-session programs
-- Customized to your organization's needs
-
-**Led By:**
-- Former WSDC representatives
-- Senior adjudicators and coaches
-- Professionals with corporate training experience
-
-**Past Clients:**
-- Corporate teams
-- University student organizations
-- Government departments
-- NGOs and international organizations
-
-**Benefits:**
-- Transferable skills from competitive debate
-- Practical, interactive training
-- Proven methodology from championship-level debating
-
-**Get in Touch:**
-Email partnerships@debaterscouncil.lk with:
-- Organization name and size
-- Training objectives
-- Preferred dates and duration
-- Budget range
-
-We'll create a tailored proposal for your needs.`
-        },
-        {
-          id: 'school-partnerships',
-          question: 'How can my school establish a deeper partnership with DC?',
-          answer: `Partnership opportunities:
-
-**Standard Membership** (LKR 4,000/year)
-- Tournament invitations
-- WhatsApp group access
-- Resource library access
-- Workshop participation
-
-**Enhanced Partnership:**
-- Host DC-organized workshops at your school
-- Priority slots for National Pool trials
-- Custom training programs for your team
-- Judge training for your teachers
-
-**Strategic Partnerships:**
-- Co-host major tournaments
-- Serve on DC committees
-- Contribute to resource development
-- Mentorship programs with other schools
-
-**For International Schools:**
-- Exchange programs with local schools
-- Specialized format training (BP, other formats)
-- Integration with international debate circuits
-
-**Benefits:**
-- Strengthen your school's debating program
-- Increase student exposure to high-level competition
-- Build relationships across the circuit
-- Support the growth of debate in Sri Lanka
-
-Contact partnerships@debaterscouncil.lk to discuss partnership options.`
-        },
-        {
-          id: 'tournament-sponsorship',
-          question: 'Can my organization sponsor a tournament or event?',
-          answer: `Sponsorship opportunities:
-
-**Tournament Sponsorship:**
-- Title sponsorship of major tournaments
-- Category sponsorship (prizes, meals, venue)
-- Speaker awards sponsorship
-- Judge fees sponsorship
-
-**Event Sponsorship:**
-- National Pool training programs
-- Workshop series
-- WSDC team preparation
-- Regional debate development initiatives
-
-**Benefits for Sponsors:**
-- Brand visibility to 200+ schools
-- Recognition in tournament materials
-- Social media promotion
-- Speaking opportunities at events
-- CSR impact supporting youth education
-
-**Sponsorship Packages:**
-- Platinum: Title sponsor, premium visibility
-- Gold: Major event sponsor
-- Silver: Category sponsor
-- Bronze: Supporting sponsor
-
-**Past Sponsors:**
-- Educational institutions
-- Corporate organizations
-- Professional services firms
-- Media companies
-
-**Custom Packages:**
-We can design sponsorship arrangements aligned with your organization's objectives and CSR goals.
-
-Contact sponsorships@debaterscouncil.lk for our sponsorship prospectus.`
+          question: 'Does DC offer corporate workshops or tournaments?',
+          answer: `We have in the past conducted corporate workshops and internal tournaments. If your organization is interested in such programs, please reach out to us at debaterscouncil@gmail.com and we can discuss further.`
         },
       ]
     },
     'resources-documents': {
-      title: 'Official Documents',
+      title: 'Official Resources',
       icon: '📄',
       description: 'Downloads and references',
       faqs: [] // No FAQs here, just document links
@@ -480,32 +283,13 @@ Contact sponsorships@debaterscouncil.lk for our sponsorship prospectus.`
   };
 
   const documents = {
-    'Tournament Organization': [
-      { title: 'Tournament Endorsement Conditions', type: 'PDF', size: '245 KB', description: 'Complete requirements for DC tournament endorsement' },
-      { title: 'Tabulation Rules & Procedures', type: 'PDF', size: '180 KB', description: 'Official DC tabulation methodology and tiebreaker rules' },
-      { title: 'Tabbycat Platform Guide', type: 'Video Tutorial', size: '—', description: 'Step-by-step guide to using Tabbycat for tournament management' },
-      { title: 'Sample Tournament Timeline', type: 'PDF', size: '120 KB', description: 'Recommended schedule for a 1-day tournament' },
-    ],
-    'Adjudication Standards': [
-      { title: 'Local Adjudication Scale', type: 'PDF', size: '165 KB', description: 'Sri Lankan 60-80 speaker scoring rubric with examples' },
-      { title: 'WSDC Adjudication Guide 2023', type: 'PDF', size: '890 KB', description: 'Official WSDC briefing on international standards' },
-      { title: 'Common Adjudication Pitfalls', type: 'Article', size: '—', description: 'Analysis of frequent judging mistakes and how to avoid them' },
-    ],
-    'Historical Records': [
-      { title: 'National Team History', type: 'PDF', size: '340 KB', description: 'Records of all Sri Lankan WSDC teams and results' },
-      { title: 'Top Speaker Rankings', type: 'PDF', size: '210 KB', description: 'Historical speaker performance data' },
-    ],
-    'Training Materials': [
-      { title: 'WSDC Format Guide', type: 'PDF', size: '280 KB', description: 'Complete rules and procedures for World Schools format' },
-      { title: 'Case Construction Framework', type: 'PDF', size: '195 KB', description: 'Structured approach to building debate cases' },
-      { title: 'Rebuttal Strategies Guide', type: 'PDF', size: '220 KB', description: 'Techniques for effective rebuttal and clash' },
-      { title: 'POI Best Practices', type: 'PDF', size: '150 KB', description: 'When and how to offer Points of Information' },
-    ],
-    'Administrative Forms': [
-      { title: 'School Membership Application', type: 'Word Doc', size: '85 KB', description: 'Template for school registration' },
-      { title: 'National Pool Application Form', type: 'Word Doc', size: '95 KB', description: 'Application template with CV guidelines' },
-      { title: 'Tournament Results Submission Template', type: 'Excel', size: '125 KB', description: 'Standard format for submitting tournament tabs' },
-    ],
+    'Official Resources': [
+      { title: 'Debaters\' Council YouTube Channel', type: 'Link', size: '—', description: 'Video library of past debates and workshops', link: 'https://youtube.com/@debaterscouncil-srilanka6367?si=3U62AWSq7-PzVGG-' },
+      { title: 'Local Adjudication Scale', type: 'Link', size: '—', description: 'Sri Lankan 60-80 speaker scoring rubric with examples', link: 'https://drive.google.com/file/d/1SxFif1-ylT1AbQ4UPaPXxgEDOjAJL92T/view?usp=sharing' },
+      { title: 'Local Speaker Tabs', type: 'Link', size: '—', description: 'Historical speaker performance data and rankings', link: 'https://drive.google.com/drive/folders/1aNgvY6WZcbcq8bXN5sYksqZEdr56BNVK' },
+      { title: 'Tabulation Rules & Procedures', type: 'PDF', size: '180 KB', description: 'Official DC tabulation methodology and tiebreaker rules', link: 'https://drive.google.com/file/d/1Qjl_VzHmblrT66iIgNFqPpAb6HWb0yxC/view' },
+      { title: 'Tournament Endorsement Conditions', type: 'PDF', size: '245 KB', description: 'Complete requirements for DC tournament endorsement', link: 'https://drive.google.com/file/d/1yzSqXPLhnLlc2RdCudSaTsyBMYTVaUr4/view' },
+    ]
   };
 
   const currentSection = sections[activeSection || 'getting-started'];
@@ -568,8 +352,14 @@ Contact sponsorships@debaterscouncil.lk for our sponsorship prospectus.`
                         )}
                       </Box>
                     </Box>
-                    <Box component="button" sx={styles.downloadButton}>
-                      Download ↓
+                    <Box 
+                      component="a" 
+                      href={doc.link || '#'}
+                      target={doc.type === 'Link' ? '_blank' : undefined}
+                      rel={doc.type === 'Link' ? 'noopener noreferrer' : undefined}
+                      sx={{ ...styles.downloadButton, textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                    >
+                      {doc.type === 'Link' ? 'Visit →' : 'Download ↓'}
                     </Box>
                   </Box>
                 ))}
