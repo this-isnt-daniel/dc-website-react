@@ -154,43 +154,6 @@ function HomePage() {
                 />
             </Box>
 
-            {/* === SECTION 3: VISION & MISSION === */}
-            <Box component="section" className="home-section section-gradient">
-                <Box className="vision-mission-container">
-                    <Box sx={{ textAlign: 'center', width: '100%' }}>
-                        <TextClipReveal
-                            text="VISION"
-                            font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
-                            textColor="white"
-                            revealDirection="left"
-                            sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-                        />
-                        <TextClipReveal
-                            text="[VISION CONTENT PLACEHOLDER]"
-                            font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                            textColor="white"
-                            revealDirection="bottom"
-                            sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
-                        />
-                    </Box>
-                    <Box sx={{ textAlign: 'center', width: '100%' }}>
-                        <TextClipReveal
-                            text="MISSION"
-                            font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
-                            textColor="white"
-                            revealDirection="right"
-                            sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-                        />
-                        <TextClipReveal
-                            text="[MISSION CONTENT PLACEHOLDER]"
-                            font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                            textColor="white"
-                            revealDirection="bottom"
-                            sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
-                        />
-                    </Box>
-                </Box>
-            </Box>
 
             {/* === SECTION 4: GALLERY (AUTO CAROUSEL) === */}
             <Box component="section" className="home-section section-dark">

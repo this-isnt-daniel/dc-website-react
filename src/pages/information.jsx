@@ -92,31 +92,44 @@ Download our complete format guides in the Resources section.`
       description: 'Path to representing Sri Lanka',
       faqs: [
         {
+          id: 'selection-process',
+          question: 'How does the National Team selection process work?',
+          answer: `Each year the opportunity to apply for the national team pool is given to debaters.
+          
+Submit your debate CV highlighting your personal achievements as a speaker and your debate experience.
+
+Shortlisted applicants may again be called in for a selection process if deemed necessary.
+
+If chosen for the pool, you embark on specialized training. This training refines your skills while also presenting another opportunity for evaluation.
+
+The culmination of this training initiates the final selection phase, determining the composition of the national team and development squad.`
+        },
+        {
           id: 'pool-eligibility',
           question: 'Who is eligible for the National Pool?',
           answer: `Eligibility requirements for the National Pool:
 
-**Academic Status:**
-- Must be currently enrolled in a secondary school in Sri Lanka
-- Age limit as per WSDC rules (typically under 19 on tournament date)
+As per the WSDC Tournament Committee and Debate Rules (updated September 2024), debaters must fulfill all of the following criteria regarding their current education status and age to be eligible for the National Pool 2026:
 
-**Experience:**
-- No minimum tournament requirement, but competitive experience is highly valued
-- Strong performance in local tournaments increases selection chances
+**(4.2) Age**
+A member of a nation's team must:
+- a. have reached their 14th birthday by the first day of debates at the Championships, and
+- b. not have reached their 20th birthday by the day of the grand final at the Championships.
 
-**Application:**
-- Submit a comprehensive debate CV including:
-  - Tournament participation and results
-  - Speaker awards and rankings
-  - Adjudication experience (if any)
-  - School debate activities and leadership
-
-Applications typically open in Q1 each year. Watch our Announcements page for the official call.`
+**(4.3) Education Status**
+- a. A member of a nation's team must have been attending classes as a full-time student at a secondary school in the nation within eight months of the first day of debates at the Championship. (i.e. to apply, you must be taking classes upto December 2025)
+- b. A member of a nation's team must not be enrolled at a tertiary or post-secondary school institution where their first term of study begins on or before the first day of debates at the Championship. (i.e. to apply, you must not be enrolled in a tertiary instituition)
+- c. For the purposes of this rule,
+  - (i) Students completing an extra year of schooling beyond normal requirements at an institution that is plainly a secondary school only, but which gives no tertiary credits, are eligible providing they meet the age criteria.
+  - (ii) Students completing an extra year of schooling beyond normal requirements at an institution that is plainly a secondary school only, but who may be given credits at some subsequent tertiary institution, are eligible providing they meet the age criteria.
+  - (iii) Students completing at least one year or more, at an institution that spans both secondary and tertiary levels, but who may be given credits at the tertiary level, are eligible providing they meet the age criteria and are not clearly completing the first year at a tertiary level.
+  - (iv) Students completing at least one year or more, at an institution that gives credits at the tertiary levels for entry into another tertiary institution at the third year or above, are ineligible even if they meet the age criteria.
+  - (v) A student who is home-schooled is eligible to be a member of a team representing the nation in which the student lives provided that they are studying at below tertiary level and provided they meet the age criteria in 4.2.`
         },
         {
-          id: 'selection-process',
-          question: 'How does the National Team selection process work?',
-          answer: `Each year the opportunity to apply for the national team pool is given to debaters. Submit your debate CV highlighting your personal achievements as a speaker and your debate experience. Shortlisted applicants may again be called in for a selection process if deemed necessary. If chosen for the pool, you embark on specialized training. This training refines your skills while also presenting another opportunity for evaluation. The culmination of this training initiates the final selection phase, determining the composition of the national team and development squad.`
+          id: 'development-squad',
+          question: 'How can I apply for the development squad?',
+          answer: `If you haven't made it to the National Team, don't worry! We also open Development Squad applications. Here we choose people who have given good performances in the local circuit and train them with experienced coaches to help them improve their performance in the local circuit and also boost their chances of making it to the National Team the next year.`
         }
 
       ]
@@ -216,19 +229,19 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
       ]
     },
     'resources-documents': {
-      title: 'Official Resources',
-      description: 'Downloads and references',
+      title: 'Resources',
+      description: '',
       faqs: [] // No FAQs here, just document links
     }
   };
 
   const documents = {
-    'Official Resources': [
-      { title: 'Debaters\' Council YouTube Channel', type: 'Link', size: '—', description: 'Video library of past debates and workshops', link: 'https://youtube.com/@debaterscouncil-srilanka6367?si=3U62AWSq7-PzVGG-' },
-      { title: 'Local Adjudication Scale', type: 'Link', size: '—', description: 'Sri Lankan 60-80 speaker scoring rubric with examples', link: 'https://drive.google.com/file/d/1SxFif1-ylT1AbQ4UPaPXxgEDOjAJL92T/view?usp=sharing' },
-      { title: 'Local Speaker Tabs', type: 'Link', size: '—', description: 'Historical speaker performance data and rankings', link: 'https://drive.google.com/drive/folders/1aNgvY6WZcbcq8bXN5sYksqZEdr56BNVK' },
-      { title: 'Tabulation Rules & Procedures', type: 'PDF', size: '180 KB', description: 'Official DC tabulation methodology and tiebreaker rules', link: 'https://drive.google.com/file/d/1Qjl_VzHmblrT66iIgNFqPpAb6HWb0yxC/view' },
-      { title: 'Tournament Endorsement Conditions', type: 'PDF', size: '245 KB', description: 'Complete requirements for DC tournament endorsement', link: 'https://drive.google.com/file/d/1yzSqXPLhnLlc2RdCudSaTsyBMYTVaUr4/view' },
+    'Resources': [
+      { title: 'Debaters\' Council YouTube Channel', type: 'Link', size: '—', link: 'https://youtube.com/@debaterscouncil-srilanka6367?si=3U62AWSq7-PzVGG-' },
+      { title: 'Local Adjudication Scale', type: 'Link', size: '—', link: 'https://drive.google.com/file/d/1SxFif1-ylT1AbQ4UPaPXxgEDOjAJL92T/view?usp=sharing' },
+      { title: 'Local Speaker Tabs', type: 'Link', size: '—', link: 'https://drive.google.com/drive/folders/1aNgvY6WZcbcq8bXN5sYksqZEdr56BNVK' },
+      { title: 'Tabulation Rules & Procedures', type: 'PDF', size: '180 KB', link: 'https://drive.google.com/file/d/1Qjl_VzHmblrT66iIgNFqPpAb6HWb0yxC/view' },
+      { title: 'Tournament Endorsement Conditions', type: 'PDF', size: '245 KB', link: 'https://drive.google.com/file/d/1yzSqXPLhnLlc2RdCudSaTsyBMYTVaUr4/view' },
     ]
   };
 
@@ -277,10 +290,17 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
               <Typography component="h3" sx={styles.documentCategoryTitle}>{category}</Typography>
               <Box sx={styles.documentList}>
                 {docs.map((doc, idx) => (
-                  <Box key={idx} sx={styles.documentItem}>
+                  <Box 
+                    component="a" 
+                    key={idx} 
+                    href={doc.link || '#'}
+                    target={doc.type === 'Link' ? '_blank' : undefined}
+                    rel={doc.type === 'Link' ? 'noopener noreferrer' : undefined}
+                    sx={{ ...styles.documentItem, textDecoration: 'none', transition: 'all 0.2s', '&:hover': { background: '#2a2a2a', transform: 'translateY(-4px)', boxShadow: '0 8px 24px rgba(0,0,0,0.4)', borderColor: '#8B0000' } }}
+                  >
                     <Box sx={styles.documentInfo}>
                       <Typography component="h4" sx={styles.documentTitle}>{doc.title}</Typography>
-                      <Typography sx={styles.documentDescription}>{doc.description}</Typography>
+                      {doc.description && <Typography sx={styles.documentDescription}>{doc.description}</Typography>}
                       <Box sx={styles.documentMeta}>
                         <Typography component="span" sx={styles.documentType}>{doc.type}</Typography>
                         {doc.size !== '—' && (
@@ -291,15 +311,9 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
                         )}
                       </Box>
                     </Box>
-                    <Box 
-                      component="a" 
-                      href={doc.link || '#'}
-                      target={doc.type === 'Link' ? '_blank' : undefined}
-                      rel={doc.type === 'Link' ? 'noopener noreferrer' : undefined}
-                      sx={{ ...styles.downloadButton, textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                    >
-                      {doc.type === 'Link' ? 'Visit →' : 'Download ↓'}
-                    </Box>
+                    <Typography sx={{ color: '#ff4d4d', fontWeight: 'bold', fontSize: '0.85rem', mt: 'auto', pt: 2, fontFamily: 'Montserrat', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        {doc.type === 'Link' ? 'VISIT LINK →' : 'DOWNLOAD PDF ↓'}
+                    </Typography>
                   </Box>
                 ))}
               </Box>
@@ -655,20 +669,22 @@ const styles = {
     fontFamily: 'Montserrat',
   },
   documentList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
+    display: 'grid',
+    gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+    gap: '1.5rem',
   },
   documentItem: {
     display: 'flex',
-    gap: '1.5rem',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     padding: '1.5rem',
     background: '#222',
-    borderRadius: '8px',
-    alignItems: 'center',
+    borderRadius: '12px',
     border: '1px solid #333',
-    flexDirection: { xs: 'column', sm: 'row' },
-    textAlign: { xs: 'center', sm: 'left' }
+    textAlign: 'left',
+    height: '100%',
+    cursor: 'pointer',
+    color: 'inherit',
   },
   documentIcon: {
     fontSize: '2rem',
