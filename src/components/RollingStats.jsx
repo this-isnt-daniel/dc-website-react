@@ -8,7 +8,7 @@ import SchoolIcon from '@mui/icons-material/School';
 const stats = [
     {
         icon: <EmojiEventsIcon sx={{ fontSize: 50, color: '#8B0000' }} />,
-        value: 50,
+        value: 15,
         label: "Tournaments hosted",
         suffix: "+"
     },
@@ -20,7 +20,7 @@ const stats = [
     },
     {
         icon: <SchoolIcon sx={{ fontSize: 50, color: '#8B0000' }} />,
-        value: 100,
+        value: 30,
         label: "Schools Participating",
         suffix: "+"
     }

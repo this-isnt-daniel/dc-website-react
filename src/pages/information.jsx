@@ -12,7 +12,6 @@ const InformationHub = () => {
   const sections = {
     'getting-started': {
       title: 'Getting Started',
-      icon: '🎯',
       description: 'For schools and new debaters',
       faqs: [
         {
@@ -53,7 +52,7 @@ Contact us at debaterscouncil@gmail.com if you have any questions.`
 - **Networking Opportunities:** Connect with other debating clubs, coaches, and debaters across the region
 - **Resource Sharing:** More access to debate materials and coaching resources
 - **Official Recognition:** Gain official recognition and credibility for your school's debating program
-- **Regular Updates:** Stay informed about upcoming events, competitions, and announcements through our WhatsApp network
+- **Regular Updates:** Stay informed about upcoming events, competitions, and announcements
 - **Community Support:** Be part of a vibrant community dedicated to promoting debate and critical thinking`
         },
         {
@@ -63,11 +62,10 @@ Contact us at debaterscouncil@gmail.com if you have any questions.`
 
 1. **Join your school's debating club** or start one if it doesn't exist
 2. **Learn the format** - Most Sri Lankan tournaments use WSDC (World Schools) format
-3. **Watch tournament recordings** available in our Video Library
-4. **Attend DC workshops** - Check our Events calendar for upcoming training sessions
-5. **Register for tournaments** - Watch for announcements in the schools WhatsApp group
+3. **Practice & Improve** - See the 'Improving as a Debater' section on this page for resources and tips
+4. **Register for tournaments** - Watch for announcements in the member schools groups for tournaments
 
-We recommend starting with smaller, school-level tournaments before moving to larger competitions. Your Teacher-in-Charge can help with registrations.`
+You can reach out to us via email if you need help with setting up a club in your school`
         },
         {
           id: 'debate-formats',
@@ -91,7 +89,6 @@ Download our complete format guides in the Resources section.`
     },
     'national-team': {
       title: 'National Team Selection',
-      icon: '🇱🇰',
       description: 'Path to representing Sri Lanka',
       faqs: [
         {
@@ -119,67 +116,13 @@ Applications typically open in Q1 each year. Watch our Announcements page for th
         {
           id: 'selection-process',
           question: 'How does the National Team selection process work?',
-          answer: `The selection process has multiple stages:
+          answer: `Each year the opportunity to apply for the national team pool is given to debaters. Submit your debate CV highlighting your personal achievements as a speaker and your debate experience. Shortlisted applicants may again be called in for a selection process if deemed necessary. If chosen for the pool, you embark on specialized training. This training refines your skills while also presenting another opportunity for evaluation. The culmination of this training initiates the final selection phase, determining the composition of the national team and development squad.`
+        }
 
-**Stage 1: Application Review**
-- Submit debate CV and application form
-- Selection committee reviews all applications
-- Shortlist announced (~30-40 debaters)
-
-**Stage 2: National Pool Formation**
-- Shortlisted debaters invited to trials
-- Multiple rounds of debates assessed by senior judges
-- 15-20 debaters selected for the National Pool
-
-**Stage 3: Pool Training**
-- Intensive training sessions over several months
-- Practice debates, case building, strategy development
-- Coached by former national team members and senior adjudicators
-
-**Stage 4: Final Team Selection**
-- Final evaluation debates
-- 5 debaters selected (typically 3 main speakers + 2 reserves)
-
-**Stage 5: Pre-WSDC Training**
-- Focused preparation for the championship
-- International practice sessions
-- Strategy development with coaches
-
-Timeline: Applications in Q1, trials in Q2, team announcement in Q3, WSDC typically in July-August.`
-        },
-        {
-          id: 'improve-chances',
-          question: 'How can I improve my chances of National Pool selection?',
-          answer: `Strengthen your application:
-
-**Tournament Participation:**
-- Compete regularly in DC-endorsed tournaments
-- Aim for breaking rounds and speaker awards
-- Participate in both school-level and open tournaments
-
-**Skill Development:**
-- Attend DC workshops and training sessions
-- Study past WSDC debates (available in our Video Library)
-- Practice with experienced debaters
-
-**Build Your CV:**
-- Document all tournament results
-- Include adjudication experience
-- Note any coaching or training roles
-- Mention debate club leadership positions
-
-**Stay Connected:**
-- Follow DC announcements
-- Participate in National Pool trials even if not selected initially
-- Seek feedback from senior judges
-
-The selection committee values both natural talent and demonstrated commitment to improvement.`
-        },
       ]
     },
     'organizing-tournaments': {
       title: 'Tournament Organization',
-      icon: '🏆',
       description: 'For organizers and hosts',
       faqs: [
         {
@@ -227,7 +170,6 @@ Access the "Tabulation Rules & Procedures" PDF in Resources for complete methodo
     },
     'improving-skills': {
       title: 'Improving as a Debater',
-      icon: '📚',
       description: 'Training and development',
       faqs: [
         {
@@ -264,7 +206,6 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
     },
     'corporate-partnerships': {
       title: 'Corporate & Institutional',
-      icon: '💼',
       description: 'Workshops and partnerships',
       faqs: [
         {
@@ -276,7 +217,6 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
     },
     'resources-documents': {
       title: 'Official Resources',
-      icon: '📄',
       description: 'Downloads and references',
       faqs: [] // No FAQs here, just document links
     }
@@ -338,7 +278,6 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
               <Box sx={styles.documentList}>
                 {docs.map((doc, idx) => (
                   <Box key={idx} sx={styles.documentItem}>
-                    <Box sx={styles.documentIcon}>📄</Box>
                     <Box sx={styles.documentInfo}>
                       <Typography component="h4" sx={styles.documentTitle}>{doc.title}</Typography>
                       <Typography sx={styles.documentDescription}>{doc.description}</Typography>
@@ -438,7 +377,6 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
                   ...(activeSection === key ? styles.sidebarButtonActive : {})
                 }}
               >
-                <Box component="span" sx={styles.sidebarIcon}>{section.icon}</Box>
                 <Box sx={styles.sidebarText}>
                   <Box sx={styles.sidebarTitle}>{section.title}</Box>
                   <Box sx={styles.sidebarDesc}>{section.description}</Box>
@@ -455,7 +393,6 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
           {/* Main Content Area */}
           <Box component="main" sx={styles.mainContent}>
             <Box sx={styles.sectionHeader}>
-              <Box sx={styles.sectionIcon}>{currentSection.icon}</Box>
               <Box>
                 <Typography component="h2" sx={styles.sectionTitle}>{currentSection.title}</Typography>
                 <Typography sx={styles.sectionDescription}>{currentSection.description}</Typography>
@@ -493,7 +430,6 @@ If your club is interested in a workshop, please contact us at debaterscouncil@g
                     }
                   }}
                 >
-                  <Box component="span" sx={styles.sidebarIcon}>{section.icon}</Box>
                   <Box sx={styles.sidebarText}>
                     <Box sx={styles.sidebarTitle}>{section.title}</Box>
                     <Box sx={styles.sidebarDesc}>{section.description}</Box>

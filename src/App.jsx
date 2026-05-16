@@ -4,17 +4,20 @@ import CalendarPage from './pages/calendar.jsx';
 import LeaguePage from './pages/league.jsx';
 import InfoPage from './pages/information.jsx';
 import BoardPage from './pages/board.jsx';
+import RegistrationPage from './pages/registration.jsx';
 import HomePage from "./pages/home.jsx";
 import BlogPage from "./pages/blog.jsx";
 import ArticlePage from "./pages/article/article.jsx";
 import Toolbar from '@mui/material/Toolbar';
 import FooterBar from './components/FooterBar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <div className="App">
                 <ResponsiveAppBar />
                 {/* This empty Toolbar acts as a spacer */}
@@ -28,6 +31,7 @@ function App() {
                         <Route path="/calendar" element={<CalendarPage />} />
                         <Route path="/schools-league" element={<LeaguePage />} />
                         <Route path="/information" element={<InfoPage />} />
+                        <Route path="/registration" element={<RegistrationPage />} />
                         <Route path="/blog" element={<BlogPage />} />
                         <Route path="/blog/:id" element={<ArticlePage />} />
                     </Routes>
