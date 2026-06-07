@@ -273,3 +273,41 @@ banner h1{
     line-height: 1.1;
     z-index: 1;
 }
+
+/* Board Page */
+.board-page {
+    background-color: #000000;
+}
+
+.board-hero {
+    min-height: calc(100vh - var(--header-height-mobile));
+    width: 100%;
+    background-image: var(--hero-gradient);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+@media (min-width: 900px) {
+    .board-hero {
+        min-height: calc(100vh - var(--header-height-desktop));
+    }
+}
+
+.board-hero h1 {
+    font-family: var(--font-family-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    max-width: 1200px;
+    line-height: 1.1;
+    z-index: 1;
+}
