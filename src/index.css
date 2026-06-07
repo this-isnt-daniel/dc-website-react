@@ -19,8 +19,8 @@
 :root {
   --color-bg-primary: #242424;
   --color-text-primary: rgba(255, 255, 255, 0.87);
-  --color-primary: #646cff;
-  --color-primary-hover: #535bf2;
+  --color-primary: #8B0000;
+  --color-primary-hover: #8B0000;
   --color-button-bg: #1a1a1a;
   --color-text-muted: #888;
   --color-hero-text-faded: #DCDCDC4D;
@@ -93,7 +93,7 @@ button:focus-visible {
     --color-button-bg: #f9f9f9;
   }
   a:hover {
-    color: #747bff; /* Kept as specific override or could be a new variable */
+    color: #8B0000; /* Kept as specific override or could be a new variable */
   }
 }
 
