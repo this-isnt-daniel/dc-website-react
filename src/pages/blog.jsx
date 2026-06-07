@@ -10,12 +10,11 @@ function BlogPage() {
 
     const categories = ['All', 'Achievements', 'Announcements', 'Tournaments'];
     const featuredPost = blogPosts.find(p => p.featured);
-    const recentPosts = blogPosts.filter(p => !p.featured).slice(0, 5);
+    const recentPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)).filter(p => !p.featured).slice(0, 5);
 
-    const filteredPosts = (selectedCategory === 'All'
-        ? blogPosts
-        : blogPosts.filter(p => p.category === selectedCategory)
-    ).filter(p => !p.featured);
+    const filteredPosts = selectedCategory === 'All'
+        ? blogPosts.filter(p => !p.featured)
+        : blogPosts.filter(p => p.category === selectedCategory);
 
     return (
         <Box sx={{ minHeight: '100vh', backgroundColor: '#121212', fontFamily: 'Montserrat, sans-serif', color: '#fff', pb: 10 }}>
