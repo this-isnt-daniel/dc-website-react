@@ -22,7 +22,10 @@ const AutoCarousel = ({ images, interval = 2000 }) => {
             handleNext();
         }, interval);
 
-        return () => clearInterval(timer);
+        return () => {
+            clearInterval(timer);
+            clearTimeout(timeoutRef.current);
+        };
     }, [currentIndex, interval, itemsPerView, images.length]);
 
     const handleNext = () => {
@@ -40,7 +43,7 @@ const AutoCarousel = ({ images, interval = 2000 }) => {
             // If we just slid to the start of the cloned section (which looks like index 0)
             if (next === images.length) {
                 // Wait for animation to finish, then reset instantly
-                setTimeout(() => {
+                timeoutRef.current = setTimeout(() => {
                     setIsTransitioning(false);
                     setCurrentIndex(0);
                 }, 1000); // Match transition duration

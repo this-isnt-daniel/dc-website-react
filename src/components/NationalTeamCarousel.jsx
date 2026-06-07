@@ -166,16 +166,18 @@ export default function NationalTeamCarousel() {
     };
 
     useEffect(() => {
-        if (autoPlay && !isDragging && media.length > 0) {
+        if (autoPlay && isInView && !isDragging && media.length > 0) {
             timerRef.current = window.setInterval(nextSlide, autoPlayInterval);
         }
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [autoPlay, autoPlayInterval, isDragging, media.length]);
+    }, [autoPlay, autoPlayInterval, isDragging, media.length, isInView]);
 
-    // Keyboard navigation
+    // Keyboard navigation — scoped to the carousel container (requires focus)
     useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
         const handleKeyDown = e => {
             if (e.key === "ArrowLeft") {
                 e.preventDefault();
@@ -185,11 +187,11 @@ export default function NationalTeamCarousel() {
                 nextSlide();
             }
         };
-        window.addEventListener("keydown", handleKeyDown);
+        el.addEventListener("keydown", handleKeyDown);
         return () => {
-            window.removeEventListener("keydown", handleKeyDown);
+            el.removeEventListener("keydown", handleKeyDown);
         };
-    }, [media.length, activeIndex]);
+    }, [media.length]);
 
     const handlePointerDown = e => {
         dragStartX.current = e.clientX;

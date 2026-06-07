@@ -1,4 +1,5 @@
 import ResponsiveAppBar from './components/ResponsiveAppBar';
+import NotFoundPage from './pages/not-found.jsx';
 import NationalTeamPage from './pages/nat-team.jsx';
 import CalendarPage from './pages/calendar.jsx';
 import LeaguePage from './pages/league.jsx';
@@ -34,6 +35,7 @@ function App() {
                         <Route path="/registration" element={<RegistrationPage />} />
                         <Route path="/blog" element={<BlogPage />} />
                         <Route path="/blog/:id" element={<ArticlePage />} />
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </main>
                 <FooterBar />
