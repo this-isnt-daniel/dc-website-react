@@ -55,7 +55,10 @@ const styles = {
         fontFamily: 'Montserrat, sans-serif',
     },
     header: {
-        background: '#050505',
+        backgroundImage: 'var(--hero-gradient)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
         padding: { xs: '3rem 1.5rem', md: '4rem 2rem' },
         borderBottom: '1px solid #222',
         textAlign: 'center',

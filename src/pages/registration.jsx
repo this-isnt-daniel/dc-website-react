@@ -5,17 +5,26 @@ import Container from '@mui/material/Container';
 
 const RegistrationPage = () => {
     return (
-        <Box sx={{ minHeight: '100vh', background: '#121212', py: { xs: 4, md: 8 } }}>
+        <Box sx={{ minHeight: '100vh', background: '#121212', pb: { xs: 4, md: 8 } }}>
+            <Box sx={{
+                backgroundImage: 'var(--hero-gradient)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
+                padding: { xs: '3rem 1.5rem', md: '4rem 2rem' },
+                borderBottom: '1px solid #222',
+                textAlign: 'center',
+                mb: { xs: 4, md: 8 }
+            }}>
+                <Typography component="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' }, fontWeight: '900', color: '#fff', fontFamily: 'Montserrat', mb: 2 }}>
+                    School Registration
+                </Typography>
+                <Typography sx={{ fontSize: { xs: '1rem', md: '1.25rem' }, color: '#eee', fontFamily: 'Montserrat', maxWidth: '800px', mx: 'auto' }}>
+                    Register your school to become an official member of the Debaters' Council Sri Lanka.
+                </Typography>
+            </Box>
+            
             <Container maxWidth="lg">
-                <Box sx={{ textAlign: 'center', mb: 6 }}>
-                    <Typography component="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' }, fontWeight: '900', color: '#fff', fontFamily: 'Montserrat', mb: 2 }}>
-                        School Registration
-                    </Typography>
-                    <Typography sx={{ fontSize: { xs: '1rem', md: '1.25rem' }, color: '#aaa', fontFamily: 'Montserrat', maxWidth: '800px', mx: 'auto' }}>
-                        Register your school to become an official member of the Debaters' Council Sri Lanka.
-                    </Typography>
-                </Box>
-                
                 <Box sx={{ 
                     width: '100%', 
                     maxWidth: '800px',
