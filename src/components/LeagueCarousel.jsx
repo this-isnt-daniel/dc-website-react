@@ -94,6 +94,21 @@ export default function LeagueCarousel() {
             };
         });
         
+        // Add hardcoded placeholders for missing years
+        const PLACEHOLDER_IMG = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=";
+        loadedImages.push({
+            type: "image",
+            imageUrl: PLACEHOLDER_IMG,
+            title: "2020 League Champions",
+            members: ["Royal College"]
+        });
+        loadedImages.push({
+            type: "image",
+            imageUrl: PLACEHOLDER_IMG,
+            title: "2021 League Champions",
+            members: ["Ladies College"]
+        });
+        
         loadedImages.sort((a, b) => {
             const yearA = parseInt(a.title.split(' ')[0]) || 0;
             const yearB = parseInt(b.title.split(' ')[0]) || 0;
