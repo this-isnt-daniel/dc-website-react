@@ -239,7 +239,7 @@ export default function BoardCarousel() {
             boxSizing: 'border-box',
         }}>
             {/* Carousel */}
-            <div style={{ display: 'flex', flex: 1, minHeight: 0, width: '100%', position: 'relative', height: 'clamp(220px, 55vw, 380px)' }}>
+            <div style={{ display: 'flex', flexGrow: 1, flexShrink: 0, minHeight: 'clamp(160px, 48vw, 380px)', width: '100%', position: 'relative' }}>
                 <div
                     ref={containerRef}
                     style={{
@@ -301,6 +301,24 @@ export default function BoardCarousel() {
                 </div>
             </div>
 
+            {/* Dot indicators — mobile only */}
+            <Box sx={{
+                display: { xs: 'flex', md: 'none' },
+                justifyContent: 'center', alignItems: 'center',
+                gap: '8px',
+            }}>
+                {media.map((_, i) => (
+                    <Box key={i} onClick={() => startTransition(() => setActiveIndex(i))} sx={{
+                        width: i === activeIndex ? '20px' : '8px',
+                        height: '8px', borderRadius: '4px',
+                        backgroundColor: i === activeIndex ? '#8B0000' : 'rgba(255,255,255,0.25)',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        flexShrink: 0,
+                    }} />
+                ))}
+            </Box>
+
             {/* Info Panel */}
             <Box sx={{
                 width: 'min(90%, 1000px)', margin: '0 auto',
@@ -361,7 +379,7 @@ export default function BoardCarousel() {
                                 <Typography sx={{
                                     color: '#8B0000', fontFamily: 'Montserrat, sans-serif',
                                     fontWeight: 700, letterSpacing: '1.5px',
-                                    fontSize: '0.6rem',
+                                    fontSize: { xs: '0.65rem', md: '0.6rem' },
                                     textTransform: 'uppercase', marginBottom: '2px',
                                 }}>
                                     {member.designation}
