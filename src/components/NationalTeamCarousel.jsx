@@ -59,7 +59,7 @@ const TEAM_MEMBERS = {
     "2019": ["LR: Rishane Dissanayake", "Rahul De Silva", "Treshan Fernando", "Erandi De Silva", "Maleeka Hassan", "Absent: Sanjit Dias (Coach)", "Chanidu Ratnayake (Reserve)"],
     "2018": ["LR: Kithmina Hewage (Team Manager)", "Shanya Sadanandan", "Shalem Sumanthiran (Captain)", "Avvayar De Mel", "Sahas Gunasekara", "Ashani Kottage", "Sarani Jayawadena (Coach)", "Absent: Rahul De Silva (Reserve)"],
     "2017": ["LR: Shalem Sumanthiran", "Anish Fonseka (Captain)", "Kithmina Hewage (Team Manager)", "Kavindra Senaratna", "Chetan Perara", "Devin Hewage (Coach)", "Avaayar De Mel", "Absent: Shanya Sadanandan (Reserve)"],
-    "2015": ["LR: ?", "Devin Hewage", "Tamara?", "Sidath ..", "?", "Miriam Alphonsus"]
+    "2015": ["LR: Amrita", "Devin", "Tamara", "Sidath", "Eran", "Miriam"]
 };
 
 // Border Beam Component
@@ -245,7 +245,7 @@ export default function NationalTeamCarousel() {
             pointerEvents: absPos > 1 ? "none" : "auto",
             boxShadow: isActive ? `0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1)` : `0 20px 40px rgba(0,0,0,0.3)`,
             overflow: "hidden",
-            backgroundColor: "transparent"
+            backgroundColor: "#0a0a0a"
         };
     };
 
@@ -326,8 +326,38 @@ export default function NationalTeamCarousel() {
                             >
                                 <img
                                     src={item.imageUrl}
+                                    alt=""
+                                    aria-hidden="true"
+                                    style={{
+                                        position: "absolute",
+                                        inset: 0,
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                        filter: "blur(18px)",
+                                        transform: "scale(1.08)",
+                                        opacity: 0.45
+                                    }}
+                                />
+                                <div
+                                    style={{
+                                        position: "absolute",
+                                        inset: 0,
+                                        background: "linear-gradient(180deg, rgba(8,8,8,0.22) 0%, rgba(8,8,8,0.45) 100%)"
+                                    }}
+                                />
+                                <img
+                                    src={item.imageUrl}
                                     alt={item.title || ""}
-                                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                                    style={{
+                                        position: "relative",
+                                        zIndex: 1,
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "contain",
+                                        objectPosition: "center",
+                                        display: "block"
+                                    }}
                                 />
                             </div>
                         );
