@@ -85,11 +85,12 @@ export default function LeagueCarousel() {
         const modules = import.meta.glob('../assets/league/*.{png,jpg,jpeg,svg}', { eager: true });
         const loadedImages = Object.entries(modules).map(([path, mod]) => {
             const filename = path.split('/').pop().split('.')[0]; 
+            // year-School name.jpg
             return {
                 type: "image",
                 imageUrl: mod.default,
-                title: `${filename} League Champions`,
-                members: ["Champion School"]
+                title: `${filename.split('-')[0]} League Champions`,
+                members: [filename.split('-')[1].replace(/([A-Z])/g, ' $1').trim()] // Extract school name and format it
             };
         });
         
@@ -193,7 +194,7 @@ export default function LeagueCarousel() {
             pointerEvents: absPos > 1 ? "none" : "auto",
             boxShadow: isActive ? `0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1)` : `0 20px 40px rgba(0,0,0,0.3)`,
             overflow: "hidden",
-            backgroundColor: "transparent"
+            backgroundColor: "#0a0a0a"
         };
     };
 
@@ -264,8 +265,38 @@ export default function LeagueCarousel() {
                             >
                                 <img
                                     src={item.imageUrl}
+                                    alt=""
+                                    aria-hidden="true"
+                                    style={{
+                                        position: "absolute",
+                                        inset: 0,
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                        filter: "blur(18px)",
+                                        transform: "scale(1.08)",
+                                        opacity: 0.45
+                                    }}
+                                />
+                                <div
+                                    style={{
+                                        position: "absolute",
+                                        inset: 0,
+                                        background: "linear-gradient(180deg, rgba(8,8,8,0.22) 0%, rgba(8,8,8,0.45) 100%)"
+                                    }}
+                                />
+                                <img
+                                    src={item.imageUrl}
                                     alt={item.title || ""}
-                                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                                    style={{
+                                        position: "relative",
+                                        zIndex: 1,
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "contain",
+                                        objectPosition: "center",
+                                        display: "block"
+                                    }}
                                 />
                             </div>
                         );
