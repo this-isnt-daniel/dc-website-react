@@ -85,11 +85,12 @@ export default function LeagueCarousel() {
         const modules = import.meta.glob('../assets/league/*.{png,jpg,jpeg,svg}', { eager: true });
         const loadedImages = Object.entries(modules).map(([path, mod]) => {
             const filename = path.split('/').pop().split('.')[0]; 
+            // year-School name.jpg
             return {
                 type: "image",
                 imageUrl: mod.default,
-                title: `${filename} League Champions`,
-                members: ["Champion School"]
+                title: `${filename.split('-')[0]} League Champions`,
+                members: [filename.split('-')[1].replace(/([A-Z])/g, ' $1').trim()] // Extract school name and format it
             };
         });
         
