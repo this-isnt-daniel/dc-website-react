@@ -12,14 +12,15 @@ function BlogPage() {
     const featuredPost = blogPosts.find(p => p.featured);
     const recentPosts = blogPosts.filter(p => !p.featured).slice(0, 5);
 
-    const filteredPosts = selectedCategory === 'All' 
-        ? blogPosts 
-        : blogPosts.filter(p => p.category === selectedCategory);
+    const filteredPosts = (selectedCategory === 'All'
+        ? blogPosts
+        : blogPosts.filter(p => p.category === selectedCategory)
+    ).filter(p => !p.featured);
 
     return (
         <Box sx={{ minHeight: '100vh', backgroundColor: '#121212', fontFamily: 'Montserrat, sans-serif', color: '#fff', pb: 10 }}>
            {/* Hero Featured Post */}
-           <Box 
+           {featuredPost && <Box
               onClick={() => navigate(`/blog/${featuredPost.id}`)}
               sx={{ position: 'relative', height: { xs: '500px', md: '600px' }, width: '100%', overflow: 'hidden', cursor: 'pointer', '&:hover img': { transform: 'scale(1.02)' } }}
            >
@@ -43,7 +44,7 @@ function BlogPage() {
                        <span>{featuredPost.readTime} read</span>
                    </Box>
                </Box>
-           </Box>
+           </Box>}
 
            {/* Main Content Area */}
            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 6, maxWidth: '1300px', mx: 'auto', p: { xs: 3, md: 4 } }}>

@@ -14,9 +14,9 @@ function BasicTable() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-    const { headers, rows } = useMemo(() => {
+    const { headers, rows, schoolColumnIndex } = useMemo(() => {
         const lines = ltDataRaw.split('\n').map(line => line.trim()).filter(line => line);
-        if (lines.length < 3) return { headers: [], rows: [] };
+        if (lines.length < 3) return { headers: [], rows: [], schoolColumnIndex: -1 };
 
         // Line 1: Headers
         const allHeaders = lines[0].split('\t');
@@ -26,12 +26,10 @@ function BasicTable() {
         // Line 3+: Data
         let allRows = lines.slice(2).map((line, index) => {
             const cells = line.split('\t');
-            // Ensure row has same number of cells as headers (pad with empty strings if needed)
-            // or just map based on cells.
             return { id: index, cells };
         });
 
-        // Filter out teams with zero league points
+        // Filter out teams with zero or missing league points
         const pointsColumnIndex = allHeaders.findIndex(h => {
              const lower = h.toLowerCase();
              return lower.includes('league point') || lower.includes('total');
@@ -40,13 +38,15 @@ function BasicTable() {
         if (pointsColumnIndex !== -1) {
              allRows = allRows.filter(row => {
                   const pointsStr = row.cells[pointsColumnIndex];
-                  if (!pointsStr) return true; // Safety logic
+                  if (!pointsStr) return false;
                   const points = parseFloat(pointsStr.replace(/[^0-9.-]/g, ''));
                   return !isNaN(points) && points > 0;
              });
         }
 
-        return { headers: allHeaders, rows: allRows };
+        const schoolColumnIndex = allHeaders.findIndex(h => h.toLowerCase().includes('school'));
+
+        return { headers: allHeaders, rows: allRows, schoolColumnIndex };
     }, []);
 
     // Filter columns for mobile
@@ -71,7 +71,7 @@ function BasicTable() {
                 <TableHead>
                     <TableRow>
                         {visibleColumnIndices.map((colIndex) => (
-                            <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ fontWeight: 'bold', color: 'white', borderColor: '#444', whiteSpace: (colIndex === 1 && !isMobile) ? 'nowrap' : 'normal', fontSize: isMobile ? '0.85rem' : '1rem' }}>
+                            <TableCell key={colIndex} align={colIndex === schoolColumnIndex ? "left" : "center"} sx={{ fontWeight: 'bold', color: 'white', borderColor: '#444', whiteSpace: (colIndex === 1 && !isMobile) ? 'nowrap' : 'normal', fontSize: isMobile ? '0.85rem' : '1rem' }}>
                                 {headers[colIndex]}
                             </TableCell>
                         ))}
@@ -87,7 +87,7 @@ function BasicTable() {
                             }}
                         >
                             {visibleColumnIndices.map((colIndex) => (
-                                <TableCell key={colIndex} align={colIndex === 1 ? "left" : "center"} sx={{ color: 'white', borderColor: '#333', whiteSpace: (colIndex === 1 && !isMobile) ? 'nowrap' : 'normal', fontSize: isMobile ? '0.85rem' : '1rem' }}>
+                                <TableCell key={colIndex} align={colIndex === schoolColumnIndex ? "left" : "center"} sx={{ color: 'white', borderColor: '#333', whiteSpace: (colIndex === 1 && !isMobile) ? 'nowrap' : 'normal', fontSize: isMobile ? '0.85rem' : '1rem' }}>
                                     {row.cells[colIndex]}
                                 </TableCell>
                             ))}

@@ -42,7 +42,7 @@ const Counter = ({ value, suffix }) => {
     }, [isInView, value, motionValue]);
 
     useEffect(() => {
-        springValue.on("change", (latest) => {
+        return springValue.on("change", (latest) => {
             if (ref.current) {
                 ref.current.textContent = Math.floor(latest) + suffix;
             }
