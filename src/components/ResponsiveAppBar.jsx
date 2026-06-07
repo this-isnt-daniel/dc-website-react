@@ -22,8 +22,13 @@ const NAVIGATION_ITEMS = [
     { name: 'SCHOOLS LEAGUE', path: '/schools-league' },
     { name: 'CALENDAR', path: '/calendar' },
     { name: 'BLOG', path: '/blog' },
-    { name: 'INFORMATION', path: '/information' },
-    { name: 'REGISTRATION', path: '/registration' }
+    { 
+        name: 'INFORMATION', 
+        children: [
+            { name: 'General', path: '/information' },
+            { name: 'Registration', path: '/registration' }
+        ]
+    }
 ];
 
 function ResponsiveAppBar() {
@@ -102,6 +107,7 @@ function ResponsiveAppBar() {
                                             }}
                                             open={Boolean(anchorElInfo)}
                                             onClose={handleCloseInfoMenu}
+                                            disableScrollLock={true}
                                             PaperProps={{
                                                 sx: {
                                                     backgroundColor: '#0a0a0a',

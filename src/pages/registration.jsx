@@ -18,12 +18,13 @@ const RegistrationPage = () => {
                 
                 <Box sx={{ 
                     width: '100%', 
+                    maxWidth: '800px',
+                    margin: '0 auto',
                     height: '1000px', 
-                    background: '#1a1a1a', 
-                    borderRadius: '12px', 
+                    background: '#121212', // Match page background
+                    borderRadius: '16px',
                     overflow: 'hidden',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                    border: '1px solid #333'
+                    border: 'none'
                 }}>
                     <iframe 
                         src="https://docs.google.com/forms/d/e/1FAIpQLSdtqyV-6URbOHFyxPHoaBuFwpSjrl0VguQ44lT8YckCVUjWDQ/viewform?embedded=true" 
@@ -33,7 +34,13 @@ const RegistrationPage = () => {
                         marginHeight="0" 
                         marginWidth="0"
                         title="DC Registration Form"
-                        style={{ border: 'none' }}
+                        style={{ 
+                            border: 'none', 
+                            width: 'calc(100% + 40px)', // Crop side padding
+                            marginLeft: '-20px', 
+                            marginTop: '-10px',
+                            filter: 'invert(100%) hue-rotate(180deg) brightness(115%) contrast(120%)' 
+                        }}
                     >
                         Loading…
                     </iframe>
