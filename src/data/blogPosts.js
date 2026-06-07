@@ -29,5 +29,37 @@ Congratulations to all debaters on their performance at VVIDC, and to the organi
     readTime: '4 min',
     image: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&h=500&fit=crop',
     featured: true,
+  },
+  {
+    id: 7,
+    title: 'Trinity College Takes the Championship at SMNDC 2026',
+    excerpt: 'The Sumanthiran-Molamure Novice Debating Championship saw incredible performances from new talent, with Trinity College emerging victorious.',
+    content: `Continuing a trend of newly-established tournaments, the Sumanthiran-Molamure Novice Debating Championship – a joint venture between Royal College and Bishop's College – took place on the 17th, 18th and 19th of April. Despite the tournament featuring entirely ‘novices’, the performance and talent displayed by them shocked every judges present, with several speakers scoring averages that would not be too out of place in the top 10 of a standard tournament. We also saw many fresh faces emerging into the limelight, notably Holy Family Convent breaking 6th, Kandy Girls High School breaking 4th and Logos College breaking 2nd while boasting the highest overall speaks in the tournament. 
+
+The tournament featured a Partial Octofinal break, with the following teams qualifying, and the top 4 teams being given a bye for the first round of knockouts:
+ 1. Trinity College Juchith
+ 2. Logos College A
+ 3. Visakha Vidyalaya Savidya
+ 4.  Kandy Girls High School A
+ 5. St. Thomas’ College A
+ 6. Holy Family Convent A
+ 7. Visakha Vidyalaya Chandrika
+ 8. St. Bridget’s Convent A
+ 9. Colombo International School Soosaipillai
+10. Colombo International School Saara
+11. St. Bridget’s Convent C
+12. Asian International School A
+
+You’d expect teams reaching the latter knockout rounds to be A teams – after all, they often feature the most skilled and experienced debaters from any given school. SBC C, however, decided to take this conventional wisdom and throw it out the window, going on a tear in the elimination rounds to make it all the way to the Grand Finals, where they faced off TCK Juchith, themselves on a hot streak and undefeated in the tournament. The motion being debated was “THBT the US government should outlaw lobotomies,” taking place in the historical context of 1942, with SBC C on Proposition and TCK Juchith on Opposition.
+
+After an intense debate, the team from Trinity College ultimately took home the M. A. Sumanthiran Shield, with Rehan Anandakumar from said team being named the Best Speaker of the Grand Final. Trinity’s success didn’t stop there, as Rehan was also awarded the Lady Adeline Molamure Best Speaker Trophy, sporting an average of 72.00.
+
+Despite the conclusion of this tournament, novices have plenty more debating to look forward to, with the Debate Basics Bootcamp organized by the DC on the 26th of April, and the D. N. Wickramasinghe Novice Debating Championship organized by Ananda College taking place on the 15th of May. It will be certainly interesting to see how these budding new debaters and teams will adapt for their next performance.`,
+    category: 'Tournaments',
+    author: 'Debaters Council',
+    date: '2026-04-20',
+    readTime: '5 min',
+    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=500&fit=crop',
+    featured: false,
   }
 ];
