@@ -61,8 +61,8 @@ function ArticlePage() {
 
                 <Box sx={{ fontSize: '1.1rem', lineHeight: 1.8, color: '#e0e0e0' }}>
                     {post.content ? (
-                        post.content.split('\n').map((paragraph, i) => (
-                            <Typography key={i} sx={{ fontFamily: 'Montserrat', fontSize: '1.1rem', lineHeight: 1.8, mb: paragraph.trim() === '' ? 0 : 3, color: '#e0e0e0', whiteSpace: 'pre-wrap' }}>
+                        post.content.split('\n').filter(p => p.trim() !== '').map((paragraph, i) => (
+                            <Typography key={i} sx={{ fontFamily: 'Montserrat', fontSize: '1.1rem', lineHeight: 1.8, mb: 3, color: '#e0e0e0', whiteSpace: 'pre-wrap' }}>
                                 {paragraph}
                             </Typography>
                         ))
