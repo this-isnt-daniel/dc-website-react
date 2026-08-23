@@ -1,6 +1,33 @@
 import React, { useRef, useEffect, useState, startTransition } from "react";
 import { useInView } from "framer-motion";
 import { Box, Typography } from "@mui/material";
+import ACHIEVEMENTS from "../data/nationalTeamAchievements";
+
+// Values in nationalTeamAchievements.js still shaped like "[host city, country]" are
+// unfilled placeholders — treat them as absent so the panel never shows scaffolding.
+const isFilled = value => {
+    if (typeof value !== "string") return false;
+    const trimmed = value.trim();
+    return trimmed !== "" && !(trimmed.startsWith("[") && trimmed.endsWith("]"));
+};
+
+// Strips unfilled fields, returning null when a year has nothing worth showing yet.
+// A result row survives if it has a placing or a tournament (either alone still reads).
+const cleanAchievements = raw => {
+    if (!raw) return null;
+    const cleaned = {
+        results: (raw.results || [])
+            .map(r => ({
+                placing: isFilled(r?.placing) ? r.placing.trim() : null,
+                tournament: isFilled(r?.tournament) ? r.tournament.trim() : null
+            }))
+            .filter(r => r.placing || r.tournament),
+        speakerAwards: (raw.speakerAwards || []).filter(isFilled).map(s => s.trim()),
+        highlights: (raw.highlights || []).filter(isFilled).map(s => s.trim())
+    };
+    const hasContent = cleaned.results.length || cleaned.speakerAwards.length || cleaned.highlights.length;
+    return hasContent ? cleaned : null;
+};
 
 // Default props values that were previously controls
 const DEFAULT_PROPS = {
@@ -134,7 +161,8 @@ export default function NationalTeamCarousel() {
                 imageUrl: mod.default,
                 title: `Team ${filename}`,
                 subtitle: "National Team",
-                members: members
+                members: members,
+                achievements: cleanAchievements(ACHIEVEMENTS[filename])
             };
         });
         // Sort safely
@@ -266,12 +294,16 @@ export default function NationalTeamCarousel() {
     // Get current team members
     const currentTeam = media[activeIndex];
     const currentMembers = currentTeam ? currentTeam.members : [];
+    const currentAchievements = currentTeam ? currentTeam.achievements : null;
 
     return (
         <Box sx={{
             display: 'flex',
             flexDirection: 'column',
-            height: { xs: '60vh', sm: '75vh', md: '90vh' },
+            // minHeight rather than height: the caption panel below grows with each
+            // team's achievements, and a fixed height made it overflow the section.
+            minHeight: { xs: '60vh', sm: '75vh', md: '90vh' },
+            paddingBottom: { xs: '24px', md: '40px' },
             width: '100%',
             maxWidth: '1600px',
             margin: '0 auto',
@@ -279,12 +311,15 @@ export default function NationalTeamCarousel() {
             gap: 'clamp(4px, 1.5vh, 20px)'
         }}>
             {/* Top Section: Carousel + Sidebar */}
+            {/* Definite height, not flex: 1 — the slides are absolutely positioned, so
+                this box has no natural height to grow from once the parent stopped
+                being a fixed height. */}
             <div style={{
                 display: 'flex',
-                flex: 1, // Takes up remaining space (approx 70-80%)
+                flexShrink: 0,
+                height: 'clamp(240px, 55vh, 620px)',
                 width: '100%',
-                position: 'relative',
-                minHeight: '0' // Fix flex child overflow
+                position: 'relative'
             }}>
                 {/* Carousel Container */}
                 <div
@@ -465,7 +500,7 @@ export default function NationalTeamCarousel() {
             <Box sx={{
                 width: 'min(90%, 900px)',
                 margin: '0 auto', // Centered
-                marginTop: { xs: '-10px', sm: '-40px', md: '-130px' },
+                marginTop: { xs: '-10px', sm: '-30px', md: '-60px' },
                 zIndex: 10,
                 padding: 'clamp(16px, 3vh, 32px) clamp(20px, 5vw, 48px)',
                 background: 'rgba(5, 5, 5, 0.6)',
@@ -476,6 +511,7 @@ export default function NationalTeamCarousel() {
                 flexDirection: 'column',
                 gap: '16px',
                 minHeight: 'clamp(80px, 15vh, 120px)',
+                flexShrink: 0,
                 transition: 'all 0.4s ease',
                 position: 'relative',
                 overflow: 'hidden', // Contain the beam
@@ -514,6 +550,96 @@ export default function NationalTeamCarousel() {
                     }}>
                         {currentMembers.join(' • ')}
                     </Typography>
+
+                    {/* Achievements — rendered only for years with filled-in data */}
+                    {currentAchievements && (
+                        <Box sx={{
+                            marginTop: '16px',
+                            paddingTop: '14px',
+                            borderTop: '1px solid rgba(255,255,255,0.1)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '12px',
+                            textAlign: 'left'
+                        }}>
+                            {currentAchievements.results.length > 0 && (
+                                <Box>
+                                    <Typography sx={{
+                                        color: '#ff4d4d',
+                                        fontFamily: 'Montserrat, sans-serif',
+                                        fontSize: 'clamp(0.7rem, 2vw, 0.75rem)',
+                                        fontWeight: 800,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '2px',
+                                        marginBottom: '8px'
+                                    }}>
+                                        Achievements
+                                    </Typography>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                                        {currentAchievements.results.map((res, idx) => (
+                                            <Box key={idx} sx={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+                                                <Box sx={{
+                                                    width: '6px',
+                                                    height: '6px',
+                                                    borderRadius: '50%',
+                                                    background: '#8B0000',
+                                                    flexShrink: 0,
+                                                    transform: 'translateY(-2px)'
+                                                }} />
+                                                <Typography sx={{
+                                                    fontFamily: 'Montserrat, sans-serif',
+                                                    fontSize: 'clamp(0.8rem, 2.2vw, 0.95rem)',
+                                                    lineHeight: 1.6
+                                                }}>
+                                                    {res.placing && (
+                                                        <Box component="span" sx={{ color: '#FFFFFF', fontWeight: 700 }}>
+                                                            {res.placing}
+                                                        </Box>
+                                                    )}
+                                                    {res.placing && res.tournament && (
+                                                        <Box component="span" sx={{ color: '#666', fontWeight: 500 }}>{' · '}</Box>
+                                                    )}
+                                                    {res.tournament && (
+                                                        <Box component="span" sx={{ color: '#BDBDBD', fontWeight: 500 }}>
+                                                            {res.tournament}
+                                                        </Box>
+                                                    )}
+                                                </Typography>
+                                            </Box>
+                                        ))}
+                                    </Box>
+                                </Box>
+                            )}
+
+                            {[
+                                { label: 'Speaker Awards', items: currentAchievements.speakerAwards },
+                                { label: 'Highlights', items: currentAchievements.highlights }
+                            ].filter(group => group.items.length > 0).map(group => (
+                                <Box key={group.label}>
+                                    <Typography sx={{
+                                        color: '#888',
+                                        fontFamily: 'Montserrat, sans-serif',
+                                        fontSize: '0.7rem',
+                                        fontWeight: 700,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '1px',
+                                        marginBottom: '4px'
+                                    }}>
+                                        {group.label}
+                                    </Typography>
+                                    <Typography sx={{
+                                        color: '#E0E0E0',
+                                        fontFamily: 'Montserrat, sans-serif',
+                                        fontSize: 'clamp(0.8rem, 2.2vw, 0.95rem)',
+                                        fontWeight: 500,
+                                        lineHeight: '1.7'
+                                    }}>
+                                        {group.items.join(' • ')}
+                                    </Typography>
+                                </Box>
+                            ))}
+                        </Box>
+                    )}
                 </div>
             </Box>
         </Box>

@@ -22,10 +22,14 @@ const NAVIGATION_ITEMS = [
     { name: 'SCHOOLS LEAGUE', path: '/schools-league' },
     { name: 'CALENDAR', path: '/calendar' },
     { name: 'BLOG', path: '/blog' },
-    { 
-        name: 'INFORMATION', 
+    {
+        name: 'RESOURCES',
         children: [
             { name: 'General', path: '/information' },
+            { name: 'Tournament Essentials', path: '/tournament-essentials' },
+            { name: 'Guide to WSDC', path: '/guide-to-wsdc' },
+            { name: 'Guide to WUDC', path: '/guide-to-wudc' },
+            { name: 'Videos & Lectures', path: '/videos' },
             { name: 'Registration', path: '/registration' }
         ]
     }
@@ -33,7 +37,9 @@ const NAVIGATION_ITEMS = [
 
 function ResponsiveAppBar() {
     const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
-    const [anchorElInfo, setAnchorElInfo] = React.useState(null);
+    // Keyed by nav item name so each dropdown owns its own anchor rather than
+    // sharing one, which would make every menu open off whichever button was clicked.
+    const [menuAnchors, setMenuAnchors] = React.useState({});
 
     const handleOpenNavMenu = () => {
         setIsDrawerOpen(true);
@@ -43,12 +49,12 @@ function ResponsiveAppBar() {
         setIsDrawerOpen(false);
     };
 
-    const handleOpenInfoMenu = (event) => {
-        setAnchorElInfo(event.currentTarget);
+    const handleOpenMenu = (name) => (event) => {
+        setMenuAnchors((prev) => ({ ...prev, [name]: event.currentTarget }));
     };
 
-    const handleCloseInfoMenu = () => {
-        setAnchorElInfo(null);
+    const handleCloseMenu = (name) => () => {
+        setMenuAnchors((prev) => ({ ...prev, [name]: null }));
     };
 
     return (
@@ -86,7 +92,7 @@ function ResponsiveAppBar() {
                                 return (
                                     <React.Fragment key={page.name}>
                                         <Button
-                                            onClick={handleOpenInfoMenu}
+                                            onClick={handleOpenMenu(page.name)}
                                             sx={{ my: 2, mx: 3, color: 'white', display: 'flex', fontFamily: 'Montserrat' }}
                                             endIcon={<KeyboardArrowDownIcon />}
                                         >
@@ -94,8 +100,8 @@ function ResponsiveAppBar() {
                                         </Button>
                                         <Menu
                                             sx={{ mt: '45px' }}
-                                            id="menu-appbar"
-                                            anchorEl={anchorElInfo}
+                                            id={`menu-appbar-${page.name.toLowerCase()}`}
+                                            anchorEl={menuAnchors[page.name] || null}
                                             anchorOrigin={{
                                                 vertical: 'top',
                                                 horizontal: 'right',
@@ -105,8 +111,8 @@ function ResponsiveAppBar() {
                                                 vertical: 'top',
                                                 horizontal: 'right',
                                             }}
-                                            open={Boolean(anchorElInfo)}
-                                            onClose={handleCloseInfoMenu}
+                                            open={Boolean(menuAnchors[page.name])}
+                                            onClose={handleCloseMenu(page.name)}
                                             disableScrollLock={true}
                                             PaperProps={{
                                                 sx: {
@@ -122,7 +128,7 @@ function ResponsiveAppBar() {
                                             {page.children.map((child) => (
                                                 <MenuItem
                                                     key={child.name}
-                                                    onClick={handleCloseInfoMenu}
+                                                    onClick={handleCloseMenu(page.name)}
                                                     sx={{
                                                         fontFamily: 'Montserrat',
                                                         fontSize: '15px',

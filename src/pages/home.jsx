@@ -1,195 +1,251 @@
 import React from 'react';
-import AutoCarousel from '../components/AutoCarousel';
-import AnimatedPlasma from '../components/AnimatedPlasma';
-import TextClipReveal from '../components/TextClipReveal';
-import RollingStats from '../components/RollingStats';
-import boardPic from '../assets/boardpic.png';
-
-import carousel1 from '../assets/carousel-1.png';
-import carousel2 from '../assets/carousel-2.jpeg';
-import carousel3 from '../assets/carousel-3.jpeg';
-
-// Carousel images
-const carouselImages = [
-    carousel1,
-    carousel2,
-    carousel3,
-];
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+
+import MotionHero from '../components/MotionHero';
+import QuickLinks from '../components/QuickLinks';
+import RollingStats from '../components/RollingStats';
+import Highlights from '../components/Highlights';
+import BandLabel from '../components/BandLabel';
+// 2000px WebP cutout, 337 KB against the source PNG's 2.7 MB. The original
+// boardpic.png is kept in assets as the master.
+import boardPic from '../assets/boardpic.webp';
+
+import '../styles/home.css';
+
+// The board, keyed left to right as they stand in the photograph.
+const BOARD = [
+    { name: 'Shruthika Prathapan' },
+    { name: 'Jayageeth Basnayake' },
+    { name: 'Navidi Perera' },
+    { name: 'Daniel Victor', role: 'President' },
+    { name: 'Shakeeb Mohideen', role: 'Treasurer' },
+    { name: 'Gavin Senaratne', role: 'Secretary' },
+    { name: 'Sanithma Jayasooriya' }
+];
+
+// The Council's three areas of work. Each is a genuinely parallel item, which is
+// why they sit under matching top rules; there is no numbering, because nothing
+// here happens in an order.
+const PORTFOLIOS = [
+    {
+        key: 'Tournaments',
+        title: 'Coordination and endorsement',
+        body: 'The Council coordinates tournaments and supports schools and other organisers in running them, so that the local circuit holds to an international standard.'
+    },
+    {
+        key: 'National team',
+        title: 'The National Pool',
+        body: 'A selected group of top school debaters trains as the National Pool, from which the team representing Sri Lanka at the World Schools Debating Championship is chosen and coached.'
+    },
+    {
+        key: 'Training',
+        title: 'Workshops and programmes',
+        body: 'Workshops in debating, judging and coaching, together with programmes run in affiliation with the Ministry of Education.'
+    }
+];
+
+// Prose on the dark grounds. Set in the serif at a real reading size in sentence
+// case — the previous version set every paragraph in uppercase Montserrat, which
+// is unreadable much past a few words.
+const proseSx = {
+    fontSize: { xs: '1.05rem', md: '1.2rem' },
+    lineHeight: 1.66,
+    maxWidth: '62ch',
+    opacity: 0.82,
+    mb: 3
+};
 
 function HomePage() {
     return (
-        // We wrap both sections in a React Fragment
-        <>
-            {/* === GLOBAL PARALLAX BACKGROUND === */}
-            <Box sx={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                zIndex: -1
-            }}>
-                <AnimatedPlasma
-                    color1="#8B0000"
-                    color2="#250000"
-                    color3="#000000"
-                    scale={0.75}
-                    speed={0.3}
-                    distortion={0.5}
-                    swirl={0.6}
-                />
-            </Box>
+        <Box className="dc-home">
+            <MotionHero />
 
-            {/* === SECTION 1: HERO === */}
-            <Box
-                component="section"
-                className="home-hero-section"
-                sx={{ position: 'relative', overflow: 'hidden' }}
-            >
-                {/* Content Wrapper */}
-                <Box
-                    sx={{
-                        display: 'flex',
-                        width: '100%',
-                        position: 'relative',
-                        zIndex: 1
-                    }}
-                >
-                    {/* Text Box */}
+            <QuickLinks />
+
+            {/* === WHO WE ARE === */}
+            <Box component="section" className="dc-band dc-band--chamber" aria-labelledby="dc-who">
+                <Box className="dc-band__inner">
+                    <BandLabel>Who we are</BandLabel>
+
                     <Box
+                        component="h2"
+                        id="dc-who"
+                        className="dc-display"
                         sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: { xs: 'center', md: 'flex-start' },
-                            width: '100%',
+                            m: 0,
+                            mb: { xs: 4, md: 5 },
+                            fontSize: { xs: '1.95rem', md: 'clamp(2.2rem, 3.6vw, 3.2rem)' },
+                            lineHeight: 1.04,
+                            maxWidth: '24ch',
+                            color: 'var(--dc-limewash)'
                         }}
                     >
-                        <Typography
-                            component="h1"
-                            sx={{
-                                lineHeight: { xs: 1.3, md: '85px' },
-                                fontFamily: 'var(--font-family-display)',
-                                fontWeight: 900,
-                                fontSize: { xs: '3rem', md: '5rem' },
-                                letterSpacing: '1.1px',
-                                color: '#DCDCDC',
-                                textAlign: { xs: 'center', md: 'left' }
-                            }}
-                        >
-                            SRI LANKA'S<br />
-                            APEX BODY OF<br />
-                            SCHOOL &<br />
-                            UNIVERSITY<br />
-                            LEVEL DEBATING
-                        </Typography>
+                        A national body, built by the circuit it serves.
+                    </Box>
+
+                    <Box className="dc-serif" sx={{ ...proseSx, color: 'var(--dc-limewash)' }}>
+                        The Debaters&rsquo; Council of Sri Lanka oversees English debating at secondary
+                        and tertiary level. It was established in 2006 as a society by the debating
+                        community, led by Nishantha de Silva, and registered as a company limited by
+                        guarantee in 2009.
+                    </Box>
+                    <Box className="dc-serif" sx={{ ...proseSx, mb: 0, color: 'var(--dc-limewash)' }}>
+                        Its remit runs the whole way from a school&rsquo;s first inter-house debate to
+                        the team that represents Sri Lanka at the World Schools Debating Championship.
                     </Box>
                 </Box>
             </Box>
 
-            {/* === SECTION 2: ABOUT US === */}
-            {/* === SECTION 2.1: ABOUT US (TEXT) === */}
-            <Box component="section" className="home-section section-dark">
-                <TextClipReveal
-                    text="ABOUT US"
-                    font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-                />
-                <TextClipReveal
-                    text={`THE DEBATERS' COUNCIL OF SRI LANKA SERVES AS A NATIONAL LEVEL BODY THAT OVERSEES ENGLISH DEBATING IN SRI LANKA AT A SECONDARY AND TERTIARY LEVEL.`}
-                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    staggerDelay={0.05}
-                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
-                />
-                <TextClipReveal
-                    text={`IT WAS ESTABLISHED IN 2006 AS A SOCIETY BY THE DEBATING COMMUNITY, LED BY NISHANTHA DE SILVA AND REGISTERED AS A COMPANY LIMITED UNDER GUARANTEE IN 2009.`}
-                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    staggerDelay={0.05}
-                    sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
-                />
-            </Box>
-
-            {/* === SECTION 2.5: STATS COUNTER === */}
             <RollingStats />
 
-            {/* === SECTION 3: WHAT WE DO === */}
-            <Box component="section" className="home-section section-gradient">
-                <TextClipReveal
-                    text="WHAT WE DO"
-                    font={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: { xs: '1.5rem', md: '3rem' }, marginBottom: '16px', textTransform: 'uppercase', textAlign: 'center' }}
-                    textColor="white"
-                    revealDirection="center"
-                    sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-                />
-                <TextClipReveal
-                    text={`THE DEBATERS' COUNCIL COORDINATES TOURNAMENTS AND PROVIDES SUPPORT TO SCHOOLS AND OTHER TOURNAMENT ORGANISERS TO MAINTAIN AN INTERNATIONAL STANDARD OF DEBATING WITHIN THE LOCAL CIRCUIT.`}
-                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    staggerDelay={0.05}
-                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
-                />
-                <TextClipReveal
-                    text={`WE ALSO TRAIN A SELECTED GROUP OF TOP SCHOOL DEBATERS AS A PART OF THE NATIONAL POOL OF DEBATERS OUT OF WHICH THE TEAM REPRESENTING SRI LANKA AT THE WORLD SCHOOLS DEBATING CHAMPIONSHIP IS CHOSEN, AND TRAINED.`}
-                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    staggerDelay={0.05}
-                    sx={{ maxWidth: '900px', mx: 'auto', mb: 3, textAlign: 'center' }}
-                />
-                <TextClipReveal
-                    text={`ADDITIONALLY, THE DC CONDUCTS VARIOUS WORKSHOPS IN DEBATING, JUDGING, AND COACHING, AS WELL AS OTHER PROGRAMS IN AFFILIATION WITH THE MINISTRY OF EDUCATION AS PART OF ITS MISSION TO UPLIFT AND ADVANCE ENGLISH DEBATING IN SRI LANKA.`}
-                    font={{ fontFamily: 'Montserrat', fontSize: { xs: '0.85rem', md: '1rem' }, lineHeight: 1.8 }}
-                    textColor="white"
-                    revealDirection="bottom"
-                    staggerDelay={0.05}
-                    sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center' }}
-                />
+            {/* === WHAT WE DO === */}
+            <Box component="section" className="dc-band dc-band--limewash" aria-labelledby="dc-what">
+                <Box className="dc-band__inner">
+                    <BandLabel accent="var(--dc-teak)">What we do</BandLabel>
+
+                    <Box
+                        component="h2"
+                        id="dc-what"
+                        className="dc-display"
+                        sx={{
+                            m: 0,
+                            mb: { xs: 5, md: 7 },
+                            fontSize: { xs: '1.95rem', md: 'clamp(2.2rem, 3.6vw, 3.2rem)' },
+                            lineHeight: 1.04,
+                            color: 'var(--dc-ink)'
+                        }}
+                    >
+                        Three standing responsibilities.
+                    </Box>
+
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+                            gap: { xs: 5, md: 4 }
+                        }}
+                    >
+                        {PORTFOLIOS.map(({ key, title, body }) => (
+                            <Box key={key} sx={{ borderTop: '1px solid rgba(122, 74, 43, 0.32)', pt: 2.5 }}>
+                                <Box
+                                    className="dc-mono"
+                                    sx={{ fontSize: '0.66rem', color: 'var(--dc-teak)', mb: 2 }}
+                                >
+                                    {key}
+                                </Box>
+                                <Box
+                                    className="dc-display"
+                                    sx={{
+                                        fontSize: { xs: '1.3rem', md: '1.42rem' },
+                                        lineHeight: 1.16,
+                                        color: 'var(--dc-ink)',
+                                        mb: 1.5
+                                    }}
+                                >
+                                    {title}
+                                </Box>
+                                <Box
+                                    className="dc-serif"
+                                    sx={{
+                                        fontSize: '1.03rem',
+                                        lineHeight: 1.6,
+                                        color: 'var(--dc-ink)',
+                                        opacity: 0.76
+                                    }}
+                                >
+                                    {body}
+                                </Box>
+                            </Box>
+                        ))}
+                    </Box>
+                </Box>
             </Box>
 
+            <Highlights />
 
-            {/* === SECTION 4: GALLERY (AUTO CAROUSEL) === */}
-            <Box component="section" className="home-section section-dark">
-                <Typography component="h3" sx={{ color: '#666', mb: 2, textAlign: 'center', fontSize: '1.2rem', letterSpacing: '2px', fontFamily: 'Montserrat, sans-serif', fontWeight: 800 }}>
-                    HIGHLIGHTS
-                </Typography>
-                <AutoCarousel images={carouselImages} />
-            </Box>
+            {/* === THE BOARD === */}
+            <Box component="section" className="dc-band dc-band--chamber-deep" aria-labelledby="dc-board">
+                <Box className="dc-band__inner">
+                    <BandLabel>
+                        <span>The board</span>
+                        <span>Left to right</span>
+                    </BandLabel>
 
-            {/* === SECTION 6: THE BOARD === */}
-            <Box component="section" className="home-section section-gradient">
-                <TextClipReveal
-                    text="THE BOARD"
-                    font={{ fontFamily: 'var(--font-family-display)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase', marginBottom: '40px', textAlign: 'center' }}
-                    textColor="#ffffff"
-                    revealDirection="top"
-                    sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-                />
-                <Box
-                    component="img"
-                    src={boardPic}
-                    alt="The Board"
-                    sx={{
-                        width: 'auto',
-                        maxWidth: '100%',
-                        maxHeight: '55vh',
-                        objectFit: 'contain',
-                        display: 'block',
-                        margin: '20px auto 20px',
-                    }}
-                />
-                <Typography className="about-caption" sx={{ fontFamily: 'Montserrat, sans-serif' }}>
-                    (LEFT TO RIGHT): SHRUTHIKA PRATHAPAN • JAYAGEETH BASNAYAKE • NAVIDI PERERA • DANIEL VICTOR (PRESIDENT) • SHAKEEB MOHIDEEN (TREASURER) • GAVIN SENARATNE (SECRETARY) • SANITHMA JAYASOORIYA
-                </Typography>
+                    <Box
+                        component="h2"
+                        id="dc-board"
+                        sx={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}
+                    >
+                        The board
+                    </Box>
+
+                    {/* boardpic.png is a cutout matted on a dark background, so it
+                        only sits cleanly on a dark ground — hence the deepest band
+                        of the page. It stands on a hairline baseline rather than
+                        floating in a rounded photo box. */}
+                    <Box
+                        component="img"
+                        src={boardPic}
+                        alt="The seven members of the Debaters’ Council board standing together."
+                        loading="lazy"
+                        sx={{
+                            width: 'auto',
+                            maxWidth: '100%',
+                            maxHeight: { xs: '38vh', md: '52vh' },
+                            objectFit: 'contain',
+                            display: 'block',
+                            mx: 'auto'
+                        }}
+                    />
+                    <Box
+                        aria-hidden="true"
+                        sx={{
+                            height: '1px',
+                            backgroundColor: 'var(--dc-limewash)',
+                            opacity: 0.28,
+                            mb: 3
+                        }}
+                    />
+
+                    <Box
+                        component="ul"
+                        sx={{
+                            listStyle: 'none',
+                            m: 0,
+                            p: 0,
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            columnGap: { xs: 3, md: 4 },
+                            rowGap: 1.5
+                        }}
+                    >
+                        {BOARD.map(({ name, role }) => (
+                            <Box component="li" key={name}>
+                                <Box
+                                    className="dc-serif"
+                                    sx={{
+                                        fontSize: { xs: '0.95rem', md: '1.02rem' },
+                                        color: 'var(--dc-limewash)',
+                                        opacity: 0.9,
+                                        lineHeight: 1.3
+                                    }}
+                                >
+                                    {name}
+                                </Box>
+                                {role && (
+                                    <Box
+                                        className="dc-mono"
+                                        sx={{ fontSize: '0.58rem', color: 'var(--dc-red)', mt: 0.4 }}
+                                    >
+                                        {role}
+                                    </Box>
+                                )}
+                            </Box>
+                        ))}
+                    </Box>
+                </Box>
             </Box>
-        </>
+        </Box>
     );
 }
 

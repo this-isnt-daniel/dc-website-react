@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Home page band system.
+   The page is a sequence of full-bleed bands that invert ground — chamber dark,
+   limewash light, chamber dark — with the red band as the pivot at the centre.
+   The inversion is the structure: a debate is claim and answer, and the page
+   answers itself down its whole length.
+
+   Scope rule: this file owns band ground, padding and width only. Everything
+   inside a band is styled with MUI `sx` in its component, so band CSS and
+   component CSS can never cancel each other's spacing.
+   ========================================================================== */
+
+.dc-home {
+    background-color: var(--dc-chamber-deep);
+}
+
+.dc-band {
+    position: relative;
+    width: 100%;
+    padding-block: clamp(64px, 8vw, 132px);
+    padding-inline: clamp(20px, 5vw, 80px);
+}
+
+.dc-band__inner {
+    max-width: var(--dc-band-max);
+    margin-inline: auto;
+    width: 100%;
+}
+
+/* Grounds */
+.dc-band--chamber {
+    background-color: var(--dc-chamber);
+    color: var(--dc-limewash);
+}
+
+.dc-band--chamber-deep {
+    background-color: var(--dc-chamber-deep);
+    color: var(--dc-limewash);
+}
+
+.dc-band--limewash {
+    background-color: var(--dc-limewash);
+    color: var(--dc-ink);
+}
+
+.dc-band--red {
+    background-color: var(--dc-red);
+    color: #FFFFFF;
+}
+
+/* The tally band is a band, not a screen — the old page stacked six 100vh
+   sections, which made reaching the board a chore. */
+.dc-band--tight {
+    padding-block: clamp(48px, 5.5vw, 84px);
+}
+
+/* Hero owns its own height and vertical rhythm. */
+.dc-hero {
+    min-height: calc(100svh - var(--header-height-mobile));
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+@media (min-width: 900px) {
+    .dc-hero {
+        min-height: calc(100svh - var(--header-height-desktop));
+    }
+}
+
+/* Faint suggestion of panelling behind the hero type. Texture, not decoration:
+   it stays under 3% opacity and disappears entirely on small screens. */
+.dc-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        90deg,
+        rgba(239, 241, 240, 0.028) 0px,
+        rgba(239, 241, 240, 0.028) 1px,
+        transparent 1px,
+        transparent 148px
+    );
+    pointer-events: none;
+}
+
+@media (max-width: 599px) {
+    .dc-hero::before {
+        display: none;
+    }
+}
+
+.dc-hero__inner {
+    position: relative;
+    z-index: 1;
+}

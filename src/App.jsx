@@ -4,6 +4,10 @@ import NationalTeamPage from './pages/nat-team.jsx';
 import CalendarPage from './pages/calendar.jsx';
 import LeaguePage from './pages/league.jsx';
 import InfoPage from './pages/information.jsx';
+import TournamentEssentialsPage from './pages/tournament-essentials.jsx';
+import GuideWsdcPage from './pages/guide-wsdc.jsx';
+import GuideWudcPage from './pages/guide-wudc.jsx';
+import VideosPage from './pages/videos.jsx';
 import BoardPage from './pages/board.jsx';
 import RegistrationPage from './pages/registration.jsx';
 import HomePage from "./pages/home.jsx";
@@ -32,6 +36,10 @@ function App() {
                         <Route path="/calendar" element={<CalendarPage />} />
                         <Route path="/schools-league" element={<LeaguePage />} />
                         <Route path="/information" element={<InfoPage />} />
+                        <Route path="/tournament-essentials" element={<TournamentEssentialsPage />} />
+                        <Route path="/guide-to-wsdc" element={<GuideWsdcPage />} />
+                        <Route path="/guide-to-wudc" element={<GuideWudcPage />} />
+                        <Route path="/videos" element={<VideosPage />} />
                         <Route path="/registration" element={<RegistrationPage />} />
                         <Route path="/blog" element={<BlogPage />} />
                         <Route path="/blog/:id" element={<ArticlePage />} />

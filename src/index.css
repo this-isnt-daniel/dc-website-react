@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap');
 
 :root {
   font-family: var(--font-family-base);
@@ -39,6 +39,51 @@
   color-scheme: light dark;
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
+}
+
+/* ==========================================================================
+   Design tokens — "The House"
+   Palette sampled from the Council's own material: #ED212D is the red in
+   logo.png (the site had been using #8B0000 oxblood, which fights the mark).
+   The darks and lights come from the photography: dark teak joinery against
+   lime-washed walls, which is how a Sri Lankan council chamber actually looks.
+   ========================================================================== */
+:root {
+  --dc-red: #ED212D;
+  --dc-red-deep: #B4141F;
+  --dc-chamber: #23150E;       /* teak panelling */
+  --dc-chamber-deep: #150C07;  /* shadow between panels */
+  --dc-limewash: #EFF1F0;      /* whitewashed hall wall — cool, not cream */
+  --dc-ink: #191411;           /* text on light grounds */
+  --dc-teak: #7A4A2B;          /* rules and keys on light grounds */
+
+  --dc-font-display: 'Archivo', 'Montserrat', sans-serif;
+  --dc-font-body: 'Newsreader', Georgia, serif;
+  --dc-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --dc-band-max: 1240px;
+}
+
+/* Type roles. These set family only, so MUI `sx` can freely own size, weight,
+   colour and spacing per instance without either side cancelling the other. */
+.dc-display {
+  font-family: var(--dc-font-display);
+  font-variation-settings: 'wdth' 118;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.dc-serif {
+  font-family: var(--dc-font-body);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+.dc-mono {
+  font-family: var(--dc-font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
 }
 
 a {
@@ -97,149 +142,12 @@ button:focus-visible {
   }
 }
 
-.home-hero-section {
-    min-height: calc(100vh - var(--header-height-mobile));
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: transparent; /* Changed from var(--hero-gradient) */
-}
-@media (min-width: 900px) {
-    .home-hero-section {
-        min-height: calc(100vh - var(--header-height-desktop));
-        padding: 40px 80px;
-    }
-}
-
-banner h1{
-    color: #DCDCDC;
-    font-family: montserrat;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-
-/* Generic Full Screen Section */
-.home-section {
-    min-height: 100vh;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    width: 100%;
-}
-
-@media (min-width: 900px) {
-    .home-section {
-        padding: 80px 100px;
-    }
-}
-
-/* Specific Section Styles */
-.section-dark {
-    background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent black */
-}
-
-/* Gradient logic: reuse the logic from hero but maybe slightly different or same */
-.section-gradient {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent to show plasma */
-}
-
-/* Increased specificity to override MUI defaults */
-.home-section .section-title {
-    font-family: var(--font-family-display);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    color: #ffffff;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.section-text {
-    font-family: var(--font-family-base);
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
-    color: #ffffff;
-    text-align: center;
-    max-width: 800px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* About Us Specific */
-.about-image-placeholder {
-    width: 100%;
-    max-width: 1000px;
-    height: 400px; /* Placeholder height */
-    background-color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: 1px solid #444;
-}
-
-.about-caption {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    text-align: center;
-    max-width: 900px;
-    font-weight: 600;
-}
-
-/* Vision & Mission */
-.vision-mission-container {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    width: 100%;
-    align-items: center;
-}
-
-/* Gallery */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-}
-@media (min-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-.gallery-item {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background-color: #222;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px dashed #555;
-    color: #888;
-}
-
-/* What We Do - Highlight Text */
-.highlight-bold {
-    font-weight: 800;
-    color: #fff;
-}
-
-/* National Team Page */
 /* National Team Page */
 .national-team-hero {
     min-height: calc(100vh - var(--header-height-mobile));
     width: 100%;
     /* Mobile: Gradient only, no image */
-    background-image: var(--hero-gradient); 
+    background-image: var(--hero-gradient);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -254,7 +162,7 @@ banner h1{
     .national-team-hero {
         min-height: calc(100vh - var(--header-height-desktop));
         /* Desktop: Gradient overlay + Flag Image */
-        background-image: 
+        background-image:
             linear-gradient(to bottom, transparent 0%, #000000 100%),
             url('./assets/nationalflag.png');
         background-position: top center;

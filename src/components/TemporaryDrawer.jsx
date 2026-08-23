@@ -13,6 +13,38 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import { Link as RouterLink } from 'react-router-dom';
 
 
+// A collapsible nav group. This is its own component so the useState below is a
+// real hook call in a real component — calling it inside the pages.map() callback
+// made it a conditional hook, which breaks as soon as the nav shape changes.
+function DrawerSection({ page, onClose }) {
+    const [isExpanded, setIsExpanded] = React.useState(false);
+
+    return (
+        <>
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => setIsExpanded(!isExpanded)} sx={{ textAlign: 'center', py: 3.5 }}>
+                    <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC' }}>{page.name}</Typography>
+                    {isExpanded ? <ExpandLess sx={{ color: '#DCDCDC' }} /> : <ExpandMore sx={{ color: '#DCDCDC' }} />}
+                </ListItemButton>
+            </ListItem>
+            <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                    {page.children.map((child) => (
+                        <ListItemButton
+                            key={child.name}
+                            component={RouterLink}
+                            to={child.path}
+                            onClick={onClose}
+                            sx={{ pl: 4, py: 2, textAlign: 'center' }}
+                        >
+                            <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC', fontSize: '0.9rem' }}>{child.name}</Typography>
+                        </ListItemButton>
+                    ))}
+                </List>
+            </Collapse>
+        </>
+    );
+}
 
 export default function TemporaryDrawer({ pages, open, onClose }) {
 
@@ -27,40 +59,13 @@ export default function TemporaryDrawer({ pages, open, onClose }) {
             role="presentation"
         >
             <Toolbar />
-            <List>
-                {/* Use the 'pages' prop passed from the AppBar */}
+            {/* The nav list scrolls on its own so a long dropdown can't push the
+                GET IN TOUCH button off a short screen. */}
+            <List sx={{ flex: 1, overflowY: 'auto' }}>
                 {/* Use the 'pages' prop passed from the AppBar */}
                 {pages.map((page) => {
                     if (page.children) {
-                        const [open, setOpen] = React.useState(false);
-                        const handleClick = () => {
-                            setOpen(!open);
-                        };
-                        return (
-                            <React.Fragment key={page.name}>
-                                <ListItem disablePadding>
-                                    <ListItemButton onClick={handleClick} sx={{ textAlign: 'center', py: 3.5 }}>
-                                        <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC' }}>{page.name}</Typography>
-                                        {open ? <ExpandLess sx={{ color: '#DCDCDC' }} /> : <ExpandMore sx={{ color: '#DCDCDC' }} />}
-                                    </ListItemButton>
-                                </ListItem>
-                                <Collapse in={open} timeout="auto" unmountOnExit>
-                                    <List component="div" disablePadding>
-                                        {page.children.map((child) => (
-                                            <ListItemButton
-                                                key={child.name}
-                                                component={RouterLink}
-                                                to={child.path}
-                                                onClick={onClose}
-                                                sx={{ pl: 4, py: 2, textAlign: 'center' }}
-                                            >
-                                                <Typography sx={{ width: '100%', fontFamily: 'Montserrat', color: '#DCDCDC', fontSize: '0.9rem' }}>{child.name}</Typography>
-                                            </ListItemButton>
-                                        ))}
-                                    </List>
-                                </Collapse>
-                            </React.Fragment>
-                        );
+                        return <DrawerSection key={page.name} page={page} onClose={onClose} />;
                     }
                     return (
                         <ListItem key={page.name} disablePadding>
@@ -118,4 +123,3 @@ export default function TemporaryDrawer({ pages, open, onClose }) {
         </Drawer>
     );
 }
-
