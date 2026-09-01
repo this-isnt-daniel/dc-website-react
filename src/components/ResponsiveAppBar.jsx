@@ -19,6 +19,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 const NAVIGATION_ITEMS = [
     { name: 'HOME', path: '/' },
     { name: 'NATIONAL TEAM', path: '/national-team' },
+    { name: 'LEADERSHIP', path: '/board' },
     { name: 'SCHOOLS LEAGUE', path: '/schools-league' },
     { name: 'CALENDAR', path: '/calendar' },
     { name: 'BLOG', path: '/blog' },
