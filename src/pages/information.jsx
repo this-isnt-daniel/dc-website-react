@@ -142,7 +142,7 @@ A member of a nation's team must:
         {
           id: 'how-to-organize',
           question: 'How to organize a tournament?',
-          answer: `Organizing a debate tournament is a complex task, and we recommend getting the aid of a person with prior tournament organizing experience in order to ensure a smooth event. The process can be streamlined into a sequence of structured steps as outlined below. You can find a step-by-step guide on how to organize a tournament here.
+          answer: `Organizing a debate tournament is a complex task, and we recommend getting the aid of a person with prior tournament organizing experience in order to ensure a smooth event. The process can be streamlined into a sequence of structured steps as outlined below. You can find a step-by-step guide on how to organize a tournament [here](https://docs.google.com/document/d/1OCJ5YhcP6iT3lv3lEyYPEcc03BwDhaUTfgPdBL07gQY/edit?tab=t.0).
 
 **1. Obtain Permissions**
 Seek the necessary permissions from relevant authorities within your educational institution to host an event. Obtain official clearance to organize the tournament on your school premises.
